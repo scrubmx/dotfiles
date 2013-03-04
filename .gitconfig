@@ -1,0 +1,17 @@
+[user]
+  name = scrub
+        email = scrub.mx@gmail.com
+[core]
+        editor = sublime
+[color]
+        ui = true
+        branch = auto
+        diff = auto
+        interactive = auto
+        status = auto
+[alias]
+        st = status
+        br = branch
+        ci = commit
+        co = checkout
+        lol = log --graph --decorate --pretty=oneline --abbrev-commit --a
