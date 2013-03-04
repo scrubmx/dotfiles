@@ -1,22 +1,22 @@
 [user]
-  name = scrub
-  email = scrub.mx@gmail.com
+    name = scrub
+    email = scrub.mx@gmail.com
 [core]
-  editor = sublime
+    editor = sublime
 [color]
-  ui = true
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
+    ui = true
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
 [alias]
-  st = status
-	br = branch
-	ci = commit
-	co = checkout
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	lm = "!git ll -1"
-	dlc = diff --cached HEAD^
-	la = "!git config -l | grep alias | cut -c 7-"
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    st = status
+    br = branch
+    ci = commit
+    co = checkout
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lm = "!git ll -1"
+    dlc = diff --cached HEAD^
+    la = "!git config -l | grep alias | cut -c 7-"
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
