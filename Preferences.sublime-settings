@@ -1,0 +1,34 @@
+{
+  "close_windows_when_empty": true,
+	"color_scheme": "Packages/User/Color Scheme/Tomorrow-Night.tm",
+	"file_exclude_patterns":
+	[
+		".gitignore",
+		".gitattributes",
+		".DS_Store",
+		"*.png",
+		"*.ico"
+	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		"twentyten",
+		"twentyeleven",
+		"twentytwelve"
+	],
+	"font_face": "Andale Mono",
+	"font_options":
+	[
+		"subpixel_antialias"
+	],
+	"font_size": 14.0,
+	"highlight_line": true,
+	"hot_exit": false,
+	"move_to_limit_on_up_down": true,
+	"open_files_in_new_window": false,
+	"preview_on_click": false,
+	"remember_open_files": false,
+	"scroll_past_end": true,
+	"trim_trailing_white_space_on_save": true
+}
