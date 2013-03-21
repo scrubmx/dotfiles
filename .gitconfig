@@ -22,4 +22,3 @@
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
 [push]
     default = tracking
-    nueva_borrame
