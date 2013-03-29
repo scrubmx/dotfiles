@@ -17,6 +17,7 @@ else
     colorscheme Tomorrow-Night
 endif
 
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -32,10 +33,8 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set tabstop=4
 set shiftwidth=4
-
-" indent related
-set ai
-set si
+set autoindent
+set smartindent
 
 " Show matching brackets when text indicator is over them
 set showmatch
@@ -58,6 +57,9 @@ set ruler
 
 " Turn on the WiLd menu
 set wildmenu
+
+" For autocompletion
+set wildmode=list:longest
 
 " Height of the command bar
 set cmdheight=2
