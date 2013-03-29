@@ -30,6 +30,8 @@ set hlsearch
 set smarttab
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+set tabstop=4
+set shiftwidth=4
 
 " indent related
 set ai
