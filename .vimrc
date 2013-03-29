@@ -7,7 +7,15 @@ filetype plugin on
 " Enable syntax highlighting
 syntax enable
 set background=dark
-colorscheme Tomorrow-Night
+
+if has('gui_running')
+    set guioptions-=T  " no toolbar
+    colorscheme Tomorrow-Night-GVim
+    hi Todo guifg=#40ffff guibg=#606060
+    set lines=40 columns=125 linespace=0
+else
+    colorscheme Tomorrow-Night
+endif
 
 " Set to auto read when a file is changed from the outside
 set autoread
