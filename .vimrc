@@ -21,7 +21,7 @@ endif
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" searching configurations
+" Searching configurations
 set ignorecase
 set smartcase
 set incsearch
@@ -39,7 +39,7 @@ set smartindent
 " Show matching brackets when text indicator is over them
 set showmatch
 
-" force encoding to utf-8
+" Force encoding to utf-8
 set fileencoding=utf-8
 set encoding=utf-8
 
@@ -52,7 +52,7 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-"Always show current position
+" Always show current position
 set ruler
 
 " Turn on the WiLd menu
@@ -70,9 +70,9 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 set statusline+=%=%p%%
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
