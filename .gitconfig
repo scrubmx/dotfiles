@@ -9,6 +9,7 @@
     diff = auto
     interactive = auto
     status = auto
+    sh = auto
 [alias]
     st = status
     br = branch
@@ -20,5 +21,12 @@
     dlc = diff --cached HEAD^
     la = "!git config -l | grep alias | cut -c 7-"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit -a
+[push]
+    default = tracking
+[color "sh"]
+    branch = yellow reverse
+	workdir = blue bold
+	dirty = red
 [push]
     default = tracking
