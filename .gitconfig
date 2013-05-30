@@ -20,6 +20,7 @@
     lm = "!git ll -1"
     dlc = diff --cached HEAD^
     la = "!git config -l | grep alias | cut -c 7-"
+    logs = log --stat
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     changed = diff-tree --no-commit-id --name-only -r
 [push]
