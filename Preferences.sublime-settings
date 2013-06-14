@@ -24,6 +24,8 @@
 	],
 	"font_size": 14.0,
 	"highlight_line": true,
+	"bold_folder_labels": true,
+	"word_wrap": false,
 	"hot_exit": false,
 	"move_to_limit_on_up_down": true,
 	"open_files_in_new_window": false,
