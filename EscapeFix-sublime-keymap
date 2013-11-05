@@ -1,0 +1,45 @@
+// Handle escape key behaviour better
+[
+	{ "keys": ["escape"], "command": "hide_panel", "args": { "close_panel": true },
+		"context":[
+			{ "key": "panel", "operand": "find" },
+			{ "key": "panel_has_focus" }
+		]
+	},
+	{ "keys": ["escape"], "command": "hide_panel", "args": { "close_panel": true },
+		"context":[
+			{ "key": "panel", "operand": "find_in_files" },
+			{ "key": "panel_has_focus" }
+		]
+	},
+	{ "keys": ["escape"], "command": "hide_panel", "args": { "close_panel": true },
+		"context":[
+			{ "key": "panel", "operand": "incremental_find" },
+			{ "key": "panel_has_focus" }
+		]
+	},
+	{ "keys": ["escape"], "command": "hide_panel", "args": { "close_panel": true },
+		"context":[
+			{ "key": "panel", "operand": "replace" },
+			{ "key": "panel_has_focus" }
+		]
+	},
+	{ "keys": ["enter"], "command": "hide_panel", "args": { "close_panel": true },
+		"context":[
+			{ "key": "panel", "operand": "find" },
+			{ "key": "panel_has_focus" }
+		]
+	},
+	{ "keys": ["enter"], "command": "hide_panel", "args": { "close_panel": true },
+		"context":[
+			{ "key": "panel", "operand": "incremental_find" },
+			{ "key": "panel_has_focus" }
+		]
+	},
+	{ "keys": ["enter"], "command": "hide_panel", "args": { "close_panel": true },
+		"context":[
+			{ "key": "panel", "operand": "replace" },
+			{ "key": "panel_has_focus" }
+		]
+	}
+]
