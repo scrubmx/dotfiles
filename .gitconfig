@@ -23,6 +23,7 @@
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     logs = log --stat
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
     changed = diff-tree --no-commit-id --name-only -r
 [push]
     default = tracking
