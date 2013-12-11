@@ -10,7 +10,7 @@ function get_pwd() {
 
 function precmd() {
 print -rP '
-$fg[cyan]%m: $fg[yellow]$(get_pwd) $(git_prompt_info) '
+$fg[cyan]scrub $fg[grey]on $fg[cyan]%m $fg[grey]at $fg[yellow]$(get_pwd) $(git_prompt_info) '
 }
 
 PROMPT='%{$reset_color%}→ '
