@@ -1,20 +1,31 @@
-# Basic directory operations
-alias ls='ls -FHG'
-alias la='ls -A'
-alias ll='ls -alF'
-alias l='ls -CF'
+# Easier navigation 
 alias ..='cd ..'
 alias ...='cd ../..' 
 alias ....='cd ./../..'
 alias sites="cd ~/Sites"
 
+# List files pretty format and colors
+alias ls='ls -FHG'
+alias la='ls -A'
+alias ll='ls -alF'
+alias l='ls -CF'
+alias history='fc -l 1'
+
+# List only directories
+alias lsd='ls -l | grep "^d"' 
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+
+# ------------------------------------------------------------------------------
+# | Miscellaneous                                                              |
+# ------------------------------------------------------------------------------
+
 # Super user
 alias _='sudo'
 alias please='sudo'
 alias fucking='sudo'
-
-# Show history
-alias history='fc -l 1'
 
 # Open files in VIM and Sublime Text
 alias vi='vim'
@@ -27,13 +38,21 @@ alias subl='sublime'
 alias sublime="open -a '/Applications/Sublime Text.app'"
 alias larafiles="sublime app/controllers; sublime app/models; sublime app/views; sublime app/database; sublime app/routes.php; sublime public"
 
-# Server connection shortcuts
+# Server connection shortcuts                                                
 alias tangentlabs='ssh -p 443 root@208.117.43.22 -D 8080'
 alias hacemoscodigo='ssh root@hacemoscodigo.com'
 
-# Miscellaneous
+# Show Datetime
 alias now='date "+%A, %B %d - %H:%M"'
 
+
+# ------------------------------------------------------------------------------
+# | GIT Stuff                                                                  |
+# ------------------------------------------------------------------------------
+
+# Undo a git push
+alias undopush="git push -f origin HEAD^:master"
+alias g="git"
 
 # ------------------------------------------------------------------------------
 # | PHP Web Development                                                        |
@@ -47,9 +66,9 @@ alias documentor="vendor/phpdocumentor/phpdocumentor/bin/phpdoc.php"
 
 # laravel artisan shortcuts
 alias pa="php artisan"
-alias route="php artisan route"
-alias makeMigration="php artisan migration:make"
-alias makeController="php artisan controller:make"
+alias routes="php artisan route"
+alias mm="php artisan migration:make"
+alias cm="php artisan controller:make"
 
 
 # ------------------------------------------------------------------------------
@@ -73,9 +92,9 @@ alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killal
 alias hideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
 
 # Delete all .DS_Store files recursively
-alias removeDS='find . -name *.DS_Store -type f -delete'
+alias deleteDS="find . -name '*.DS_Store' -type f -ls -delete"
+				
 
 # Xcode Emulation
 alias ipad="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
-
