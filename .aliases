@@ -85,8 +85,8 @@ alias stopServer="open -gn ~/scripts/stopServer.app"
 
 # Custom controllers for afplay
 alias playMusic="find ~/Dropbox/Musica -name '*.mp3' -exec afplay --volume 1 '{}' \; &"
-alias stopMusic="pgrep -f afplay | xargs kill ("
-alias nextSong="pgrep -f ~/Dropbox/Musica/ | xargs kill ("
+alias stopMusic="pgrep -f afplay | xargs kill $1"
+alias nextSong="pgrep -f ~/Dropbox/Musica/ | xargs kill $1"
 
 # Show hidden Files in finder
 alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
