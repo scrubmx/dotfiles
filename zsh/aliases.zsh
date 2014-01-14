@@ -54,6 +54,7 @@ alias now='date "+%A, %B %d - %H:%M"'
 alias undopush="git push -f origin HEAD^:master"
 alias g="git"
 
+
 # ------------------------------------------------------------------------------
 # | PHP Web Development                                                        |
 # ------------------------------------------------------------------------------
@@ -78,7 +79,7 @@ alias cm="php artisan controller:make"
 # Create new virtual host
 alias vhost="sublime /Applications/MAMP/conf/apache/extra/httpd-vhosts.conf; sublime /etc/hosts"
 
-# Custom start/stop server scripts
+# Custom start/stop server scripts MAMP
 alias startServer="open -gn ~/scripts/startServer.app"
 alias stopServer="open -gn ~/scripts/stopServer.app"
 
@@ -94,7 +95,11 @@ alias hideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killa
 # Delete all .DS_Store files recursively
 alias deleteDS="find . -name '*.DS_Store' -type f -ls -delete"
 				
+# Hide/show desktop icons
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Xcode Emulation
+alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias ipad="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
