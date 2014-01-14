@@ -1,19 +1,8 @@
-alias ls='ls -FHG'
-alias la='ls -A'
-alias ll='ls -alF'
-alias l='ls -CF'
-alias vi='vim'
-alias svi='sudo vi'
-alias sub='sublime'
-alias status='st'
-alias sites='cd ~/sites/'
-alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-alias sshcodigo='ssh root@hacemoscodigo.com'
-alias tangentlabs='ssh -p 443 root@208.117.43.22 -D 8080'
-alias filemerge="open -a '/Applications/Xcode.app/Contents/Applications/FileMerge.app'"
+# Load ~/.aliases and ~/.functions
+for file in ~/.{aliases,functions}; do
+    [ -r "$file" ] && source "$file"
+done
+unset file
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -23,6 +12,11 @@ if [ -f ~/.git-completion.sh ]; then
     source ~/.git-completion.sh
 fi
 
+# Tracks your most used directories, based on 'frecency'
+# source https://github.com/rupa/z
+if [ -f ~/z.sh ]; then
+    . ~/z.sh
+fi
 
 GIT_PS1_SHOWUPSTREAM="verbose"
 GIT_PS1_SHOWDIRTYSTATE=true
