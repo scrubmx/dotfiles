@@ -16,7 +16,6 @@ alias fucking='sudo'
 # Show history
 alias history='fc -l 1'
 
-
 # Open files in VIM and Sublime Text
 alias vi='vim'
 alias svi='sudo vim'
@@ -48,9 +47,9 @@ alias documentor="vendor/phpdocumentor/phpdocumentor/bin/phpdoc.php"
 
 # laravel artisan shortcuts
 alias pa="php artisan"
-alias par="php artisan route"
-alias pamm="php artisan migration:make"
-alias pacm="php artisan controller:make"
+alias route="php artisan route"
+alias makeMigration="php artisan migration:make"
+alias makeController="php artisan controller:make"
 
 
 # ------------------------------------------------------------------------------
@@ -74,8 +73,9 @@ alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killal
 alias hideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
 
 # Delete all .DS_Store files recursively
-alias killDS='find . -name *.DS_Store -type f -delete'
+alias removeDS='find . -name *.DS_Store -type f -delete'
 
 # Xcode Emulation
 alias ipad="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+
