@@ -18,7 +18,6 @@ alias lsd='ls -l | grep "^d"'
 alias fs="stat -f \"%z bytes\""
 
 
-
 # ------------------------------------------------------------------------------
 # | Miscellaneous                                                              |
 # ------------------------------------------------------------------------------
@@ -54,6 +53,7 @@ alias now='date "+%A, %B %d - %H:%M"'
 # Undo a git push
 alias undopush="git push -f origin HEAD^:master"
 alias g="git"
+
 
 # ------------------------------------------------------------------------------
 # | PHP Web Development                                                        |
