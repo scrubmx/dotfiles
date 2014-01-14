@@ -48,9 +48,9 @@ alias documentor="vendor/phpdocumentor/phpdocumentor/bin/phpdoc.php"
 
 # laravel artisan shortcuts
 alias pa="php artisan"
-alias routes="php artisan route"
-alias mm="php artisan migration:make"
-alias cm="php artisan controller:make"
+alias par="php artisan route"
+alias pamm="php artisan migration:make"
+alias pacm="php artisan controller:make"
 
 
 # ------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ alias stopServer="open -gn ~/scripts/stopServer.app"
 # Custom controllers for afplay 
 alias playMusic="find ~/Dropbox/Musica -name '*.mp3' -exec afplay --volume 1 '{}' \; &"
 alias stopMusic="pgrep -f afplay | xargs kill $1"
-alias nextSong="pgrep -f /Users/maquilador7/Dropbox/Musica/ | xargs kill $1"
+alias nextSong="pgrep -f ~/Dropbox/Musica/ | xargs kill $1"
 
 # Show hidden Files in finder
 alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
