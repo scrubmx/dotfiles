@@ -1,0 +1,10 @@
+
+# Create a new file change permissions and open in Sublime Text
+function create(){
+	touch $1; chmod 775 $1; subl $1
+}
+
+# Create new directory and cd into it
+function mkd(){
+    mkdir -p "$@" && eval cd "\"\$$#\"";
+}
