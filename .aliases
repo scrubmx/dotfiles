@@ -27,6 +27,8 @@ alias _='sudo'
 alias please='sudo'
 alias fucking='sudo'
 
+alias aj="say -v Diego -r 1 aj"
+
 # Open files in VIM and Sublime Text
 alias vi='vim'
 alias svi='sudo vim'
