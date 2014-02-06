@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="custom"
 
 # Load ~/.aliases and ~/.functions
-for file in ~/.{aliases,functions}; do
+for file in ~/.{aliases,functions,githelpers}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
@@ -26,7 +26,7 @@ export PATH=/Applications/MAMP/bin/php/php5.4.10/bin:/usr/local/git/bin:/usr/loc
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git ruby)
+plugins=(ruby rails npm brew composer laravel git git-extras sublime z)
 
 source $ZSH/oh-my-zsh.sh
 
