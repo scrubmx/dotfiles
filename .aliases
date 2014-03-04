@@ -67,6 +67,9 @@ alias phplog="tail -f /Applications/MAMP/logs/php_error.log"
 # http://www.phpdoc.org/
 alias documentor="vendor/phpdocumentor/phpdocumentor/bin/phpdoc.php"
 
+#PHPStorm
+alias storm="open -a /Applications/PhpStorm.app"
+
 # laravel artisan shortcuts
 alias pa="php artisan"
 alias routes="php artisan route"
