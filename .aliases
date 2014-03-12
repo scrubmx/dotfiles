@@ -67,6 +67,10 @@ alias phplog="tail -f /Applications/MAMP/logs/php_error.log"
 # http://www.phpdoc.org/
 alias documentor="vendor/phpdocumentor/phpdocumentor/bin/phpdoc.php"
 
+# Vagrant Provisioning Bash Scripts
+# https://github.com/fideloper/Vaprobash
+alias vaprobash="wget -O Vagrantfile http://bit.ly/vaprobash"
+
 #PHPStorm
 alias storm="open -a /Applications/PhpStorm.app"
 
