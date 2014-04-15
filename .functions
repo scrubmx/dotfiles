@@ -1,21 +1,37 @@
+#
 # Create a new file change permissions and open in Sublime Text
+#
 function create(){
-	touch $1; chmod 775 $1; subl $1
+    touch $1; chmod 775 $1; subl $1
 }
 
+
+#
 # Create new directory and cd into it
+#
 function mkd(){
     mkdir -p "$@" && eval cd "\"\$$#\"";
 }
 
+
+#
 # Play a song starting from the user provided index
+#
 function play(){
     find ~/Dropbox/Musica -name '*.mp3' -exec afplay --volume 1 '{}' \; &
 
     if [ $1 > 0 ]; then
         for index in $(seq $1)
         do
-           pgrep -f ~/Dropbox/Musica/ | xargs kill $2
+            pgrep -f ~/Dropbox/Musica/ | xargs kill $2
         done
     fi
+}
+
+
+# 
+# Quick show contents of sqlite3 database
+#
+function get() {
+    sqlite3 example.sqlite "SELECT * FROM $@"
 }
