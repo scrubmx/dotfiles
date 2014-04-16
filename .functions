@@ -15,17 +15,10 @@ function mkd(){
 
 
 #
-# Play a song starting from the user provided index
+# Filter processes with keyword
 #
-function play(){
-    find ~/Dropbox/Musica -name '*.mp3' -exec afplay --volume 1 '{}' \; &
-
-    if [ $1 > 0 ]; then
-        for index in $(seq $1)
-        do
-            pgrep -f ~/Dropbox/Musica/ | xargs kill $2
-        done
-    fi
+function showps () {
+	ps -A | grep -v 'grep' | grep -i "$@"
 }
 
 
@@ -33,5 +26,5 @@ function play(){
 # Quick show contents of sqlite3 database
 #
 function get() {
-    sqlite3 example.sqlite "SELECT * FROM $@"
+    sqlite3 production.sqlite "SELECT * FROM $@"
 }
