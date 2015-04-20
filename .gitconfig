@@ -2,7 +2,7 @@
     name = scrub
     email = scrub.mx@gmail.com
 [core]
-    editor = sublime
+    editor = subl -n -w
 [color]
     ui = true
     branch = auto
