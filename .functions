@@ -1,23 +1,28 @@
-# Custom helper functions
-# Author: Jorge González
-
-# Create a new file change permissions and open in Sublime Text
-function create(){
-    touch $1; chmod 775 $1; subl $1
+# Create new file(s) change permissions and open in Sublime Text
+function create() {
+    if [ $# -eq 0 ]; then
+       echo "usage: create filename [filename [filename [...]]]"
+    else
+        touch $@; chmod 775 $@; subl $@
+    fi
 }
 
 # Create new directory and cd into it
-function mkd(){
-    mkdir -p "$@" && eval cd "\"\$$#\"";
+function mkd() {
+    if [ $# -eq 0 ]; then
+        echo "usage: mkd directory [directory [directory [...]]]"
+    else
+        mkdir -p "$@" && cd "$_";
+    fi
 }
 
 # Filter processes with keyword
-function showps () {
+function showps() {
     ps -A | grep -v 'grep' | grep -i "$@"
 }
 
 # Get colors in manual pages
-man() {
+function man() {
     env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
     LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -27,4 +32,34 @@ man() {
     LESS_TERMCAP_ue=$(printf "\e[0m") \
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
+}
+
+# Start a PHP server from a directory, optionally specifying the port (Requires PHP >= 5.4)
+function phpserver() {
+    local port="${1:-4000}";
+    sleep 1 && open "http://localhost:${port}/" & php -S "localhost:${port}";
+}
+
+# Create a new laravel project
+function laravel-new () {
+    if [ $# -eq 0 ]; then
+        echo "usage: laravel-new project"
+    else
+        sudo composer create-project laravel/laravel "$@" --prefer-dist
+    fi
+}
+
+# Show laravel routes
+function routes() {
+    if [ $# -eq 0 ]; then
+        php artisan route:list
+    else
+        php artisan route:list | grep ${1}
+    fi
+}
+
+# Shorthand for tree with hidden files and ignoring common vendors
+# The output gets piped into less
+function tre() {
+    tree -aC -I '.git|vendor|node_modules|bower_components' --dirsfirst "$@" | less -FRX;
 }
