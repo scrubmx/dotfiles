@@ -1,7 +1,7 @@
 # Easier navigation
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ....='cd ./../..'
+alias ....='cd ../../..'
 alias sites="cd ~/Sites"
 
 # List files pretty format and colors
@@ -13,6 +13,13 @@ alias history='fc -l 1'
 
 # List only directories
 alias lsd='ls -l | grep "^d"'
+
+# Show/hide full path on finder titlebar
+alias showpath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES; killall Finder"
+alias hidepath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool NO; killall Finder"
+
+# preview a file using QuickLook
+alias ql="qlmanage -p 2>/dev/null"
 
 # File size
 alias fs="stat -f \"%z bytes\""
@@ -27,75 +34,71 @@ alias _='sudo'
 alias please='sudo'
 alias fucking='sudo'
 
-alias aj="say -v Diego -r 1 aj"
+# Create new aliases
+alias newalias="subl ~/.aliases"
+alias zshconfig="subl ~/.zshrc"
 
-# Open files in VIM and Sublime Text
+# JavaScriptCore REPL
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
+[ -e "${jscbin}" ] && alias jsc="${jscbin}";
+unset jscbin;
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# Open Applications
 alias vi='vim'
 alias svi='sudo vim'
+alias sublime="subl"
+alias chrome="open -a '/Applications/Google Chrome.app'"
+alias storm="open -a '/Applications/PhpStorm.app'"
+alias xcode="open -a '/Applications/Xcode.app'"
+alias calendar="open -a '/Applications/Calendar.app'"
+alias spotify="open -a '/Applications/Spotify.app'"
 
-# Create new aliases
-alias newalias="sublime ~/.zshrc"
-
-alias subl='sublime'
-alias sublime="open -a '/Applications/Sublime Text.app'"
-alias larafiles="sublime app/controllers; sublime app/models; sublime app/views; sublime app/database; sublime app/routes.php; sublime public"
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
 
 # Server connection shortcuts
-alias tangentlabs='ssh -p 443 root@208.117.43.22 -D 8080'
-alias hacemoscodigo='ssh root@hacemoscodigo.com'
+alias tangentlabs='ssh -p 443 root@162.249.126.18 -D 8080'
+alias tangent='ssh forge@104.131.204.218 -D 8080'
+alias intonate='ssh root@intonate.org -D 8080'
+alias soluciones='ssh forge@solucionesdigital.com -D 8080'
+alias boom='ssh forge@boombuilders.mx'
+alias cobranza='ssh ubuntu@ec2-54-148-116-34.us-west-2.compute.amazonaws.com -i ~/.ssh/boombuilders-cobranza.pem'
 
-# Show Datetime
-alias now='date "+%A, %B %d - %H:%M"'
-
-
-# ------------------------------------------------------------------------------
-# | GIT Stuff                                                                  |
-# ------------------------------------------------------------------------------
-
-# Undo a git push
-alias undopush="git push -f origin HEAD^:master"
-alias g="git"
+# AWS - BoomBuilders
+# alias boombuilders='ssh -i ~/.ssh/pem/laravel-forge.pem ubuntu@54.149.90.110'
+alias awseticket='ssh forge@54.149.90.110'
 
 
 # ------------------------------------------------------------------------------
 # | PHP Web Development                                                        |
 # ------------------------------------------------------------------------------
 
-alias phplog="tail -f /Applications/MAMP/logs/php_error.log"
+alias phptxt="subl /Users/scrub/Documents/php.txt"
+alias clearphptxt="echo '' > /Users/scrub/Documents/php.txt"
 
-# Create documentation for project
-# http://www.phpdoc.org/
-alias documentor="vendor/phpdocumentor/phpdocumentor/bin/phpdoc.php"
 
-# Vagrant Provisioning Bash Scripts
-# https://github.com/fideloper/Vaprobash
-alias vaprobash="wget -O Vagrantfile http://bit.ly/vaprobash"
-
-#PHPStorm
-alias storm="open -a /Applications/PhpStorm.app"
+alias vm="ssh -p 2222 vagrant@127.0.0.1"
 
 # laravel artisan shortcuts
-alias pa="php artisan"
-alias routes="php artisan route"
-alias mm="php artisan migration:make"
-alias cm="php artisan controller:make"
+alias artisan="php artisan"
+alias migrate="php artisan migrate --seed"
+alias make:migration="php artisan make:migration"
+alias make:controller="php artisan make:controller"
 
 
 # ------------------------------------------------------------------------------
 # | OS X Specific aliases                                                      |
 # ------------------------------------------------------------------------------
 
+alias startmysql="sudo /usr/local/mysql/support-files/mysql.server start"
+alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
+
 # Create new virtual host
-alias vhost="sublime /Applications/MAMP/conf/apache/extra/httpd-vhosts.conf; sublime /etc/hosts"
-
-# Custom start/stop server scripts MAMP
-alias startServer="open -gn ~/scripts/startServer.app"
-alias stopServer="open -gn ~/scripts/stopServer.app"
-
-# Custom controllers for afplay
-alias playMusic="find ~/Dropbox/Musica -name '*.mp3' -exec afplay --volume 1 '{}' \; &"
-alias stopMusic="pgrep -f afplay | xargs kill $1"
-alias nextSong="pgrep -f ~/Dropbox/Musica/ | xargs kill $1"
+alias vhost="subl /private/etc/apache2/extra/httpd-vhosts.conf; subl /etc/hosts"
 
 # Show hidden Files in finder
 alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
@@ -103,12 +106,8 @@ alias hideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killa
 
 # Delete all .DS_Store files recursively
 alias deleteDS="find . -name '*.DS_Store' -type f -ls -delete"
+alias removeDS="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Hide/show desktop icons
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Xcode Emulation
-alias xcode="open -a '/Developer/Applications/Xcode.app'"
-alias ipad="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
-alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
