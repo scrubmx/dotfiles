@@ -3,14 +3,16 @@
 #
 # Please see the documentation at
 # <URL:http://httpd.apache.org/docs/2.2/vhosts/>
-# for further details before you try to setup virtual hosts.
-
+#
 Listen  *:443
 
 # Use name-based virtual hosting.
 NameVirtualHost *:80
 NameVirtualHost *:443
 
+#
+# Application Enviorment
+#
 SetEnv APP_ENV development
 
 # VirtualHost example:
