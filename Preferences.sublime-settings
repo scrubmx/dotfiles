@@ -1,52 +1,36 @@
 {
-	"auto_complete_commit_on_tab": false,
 	"bold_folder_labels": true,
 	"caret_extra_bottom": 2,
-	"caret_extra_top": 2,
+	"caret_extra_top": 6,
 	"caret_extra_width": 1,
-	"caret_style": "phase",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/User/ColorScheme/Tomorrow-Night-Custom.tmTheme",
-	"file_exclude_patterns": [
-		".gitkeep",
-		".gitignore",
+	"color_scheme": "Packages/User/ColorScheme/Tomorrow-Night.tmTheme",
+	"file_exclude_patterns":
+	[
 		".gitattributes",
-		"robots.txt",
-		".DS_Store",
-		"*.sqlite",
-		"*.jpeg",
-		"*.jpg",
-		"*.png",
-		"*.gif",
-		"*.ico"
+		".index.html.swp",
+		".DS_Store"
 	],
-	"folder_exclude_patterns": [
-		".svn",
+	"folder_exclude_patterns":
+	[
 		".git",
-		".idea",
-		"twentyten",
-		"twentyeleven",
-		"twentytwelve",
-		"twentythirteen",
-		"public/packages",
-		"public/images",
-		"public/fonts"
+		".sass-cache",
+		".idea"
 	],
-	"font_face": "Inconsolata-dz",
+	"font_face": "Input Mono Narrow",
 	"font_options": "subpixel_antialias",
-	"font_size": 16.6,
+	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
-	"ignored_packages":[],
-	"line_padding_bottom": 2,
-	"line_padding_top": 2,
+	"ignored_packages": [],
+	"line_padding_bottom": 3,
+	"line_padding_top": 7,
 	"move_to_limit_on_up_down": true,
 	"open_files_in_new_window": false,
 	"preview_on_click": false,
 	"remember_open_files": false,
 	"scroll_past_end": true,
-	"theme": "Default.sublime-theme",
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false
 }
