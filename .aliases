@@ -80,14 +80,13 @@ alias awseticket='ssh forge@54.149.90.110'
 alias phptxt="subl /Users/scrub/Documents/php.txt"
 alias clearphptxt="echo '' > /Users/scrub/Documents/php.txt"
 
-
 alias vm="ssh -p 2222 vagrant@127.0.0.1"
 
 # laravel artisan shortcuts
-alias artisan="php artisan"
-alias migrate="php artisan migrate --seed"
-alias make:migration="php artisan make:migration"
-alias make:controller="php artisan make:controller"
+alias art="php artisan"
+alias mig="php artisan migrate"
+alias m:migration="php artisan make:migration"
+alias m:controller="php artisan make:controller"
 
 
 # ------------------------------------------------------------------------------
