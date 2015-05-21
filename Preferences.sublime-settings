@@ -4,6 +4,7 @@
 	"caret_extra_top": 6,
 	"caret_extra_width": 1,
 	"close_windows_when_empty": true,
+	"theme": "Default.sublime-theme",
 	"color_scheme": "Packages/User/ColorScheme/Tomorrow-Night.tmTheme",
 	"file_exclude_patterns":
 	[
