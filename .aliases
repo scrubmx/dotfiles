@@ -34,6 +34,8 @@ alias _='sudo'
 alias please='sudo'
 alias fucking='sudo'
 
+alias lolcow="fortune | cowsay | lolcat"
+
 # Create new aliases
 alias newalias="subl ~/.aliases"
 alias zshconfig="subl ~/.zshrc"
