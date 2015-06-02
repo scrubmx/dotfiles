@@ -1,0 +1,39 @@
+# ---------------------------------------------------------
+# Default Configurations
+# ---------------------------------------------------------
+Host *
+	ForwardAgent no
+	ForwardX11 no
+	ForwardX11Trusted yes
+	IdentityFile ~/.ssh/id_rsa
+	Protocol 2
+	ServerAliveInterval 60
+	ServerAliveCountMax 30
+	TCPKeepAlive yes
+
+# ---------------------------------------------------------
+# Overrides per host
+# ---------------------------------------------------------
+
+# SolucionesDigital
+Host soluciones
+	Hostname solucionesdigital.com
+	User forge
+
+# Tangentlabs
+Host tangentlabs
+	DynamicForward 8080
+	Hostname 162.249.126.18
+	Port 443
+	User root
+
+# BoomBuilders
+Host boom
+	Hostname boombuilders.mx
+	User forge
+
+# BoomBuilders Cobranza
+Host cobranza
+	Hostname ec2-54-148-116-34.us-west-2.compute.amazonaws.com
+	IdentityFile ~/.ssh/boombuilders-cobranza.pem
+	User ubuntu
