@@ -74,6 +74,14 @@ alias cobranza='ssh ubuntu@ec2-54-148-116-34.us-west-2.compute.amazonaws.com -i 
 # alias boombuilders='ssh -i ~/.ssh/pem/laravel-forge.pem ubuntu@54.149.90.110'
 alias awseticket='ssh forge@54.149.90.110'
 
+# Start calculator with math support
+alias bc='bc -l'
+
+# Reboot / Halt / Poweroff
+alias reboot='sudo /sbin/reboot'
+alias poweroff='sudo /sbin/poweroff'
+alias halt='sudo /sbin/halt'
+alias shutdown='sudo /sbin/shutdown'
 
 # ------------------------------------------------------------------------------
 # | PHP Web Development                                                        |
