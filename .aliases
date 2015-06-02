@@ -77,9 +77,8 @@ alias awseticket='ssh forge@54.149.90.110'
 # Start calculator with math support
 alias bc='bc -l'
 
-# Reboot / Halt / Poweroff
+# Reboot / Halt / Shutdown
 alias reboot='sudo /sbin/reboot'
-alias poweroff='sudo /sbin/poweroff'
 alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
 
