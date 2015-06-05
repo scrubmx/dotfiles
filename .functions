@@ -63,3 +63,15 @@ function routes() {
 function tre() {
     tree -aC -I '.git|vendor|node_modules|bower_components' --dirsfirst "$@" | less -FRX;
 }
+
+# Create a simple scafold to build a test application.
+function scafold() {
+    if [ -d $1 ] ; then
+        echo "scafold: '$1': Directory exists"
+    else
+        mkdir -p $1 & cd $1;
+        mkdir js css;
+        touch index.html js/main.js css/style.css;
+        sudo chmod -R 775 ./
+    fi
+}
