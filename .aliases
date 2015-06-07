@@ -83,6 +83,11 @@ alias reboot='sudo /sbin/reboot'
 alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
 
+# cpu and memory
+alias cpu='top -o cpu'
+alias mem='top -o rsize' # memory
+
+
 # ------------------------------------------------------------------------------
 # | PHP Web Development                                                        |
 # ------------------------------------------------------------------------------
