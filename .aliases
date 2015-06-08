@@ -18,7 +18,7 @@ alias lsd='ls -l | grep "^d"'
 alias showpath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES; killall Finder"
 alias hidepath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool NO; killall Finder"
 
-# preview a file using QuickLook
+# Preview a file using QuickLook
 alias ql="qlmanage -p 2>/dev/null"
 
 # File size
@@ -83,7 +83,7 @@ alias reboot='sudo /sbin/reboot'
 alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
 
-# cpu and memory
+# CPU and Memory
 alias cpu='top -o cpu'
 alias mem='top -o rsize' # memory
 
@@ -95,7 +95,6 @@ alias mem='top -o rsize' # memory
 alias phptxt="subl /Users/scrub/Documents/php.txt"
 alias clearphptxt="echo '' > /Users/scrub/Documents/php.txt"
 
-#alias vm="ssh -p 2222 vagrant@127.0.0.1"
 alias vm="homestead ssh"
 
 # laravel artisan shortcuts
