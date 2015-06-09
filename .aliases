@@ -41,11 +41,6 @@ alias newalias="subl ~/.aliases"
 alias newfunction="subl ~/.functions"
 alias zshconfig="subl ~/.zshrc"
 
-# JavaScriptCore REPL
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
-[ -e "${jscbin}" ] && alias jsc="${jscbin}";
-unset jscbin;
-
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
@@ -64,18 +59,6 @@ alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com/"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 
-# Server connection shortcuts
-alias tangentlabs='ssh -p 443 root@162.249.126.18 -D 8080'
-alias tangent='ssh forge@104.131.204.218 -D 8080'
-alias intonate='ssh root@intonate.org -D 8080'
-alias soluciones='ssh forge@solucionesdigital.com -D 8080'
-alias boom='ssh forge@boombuilders.mx'
-alias cobranza='ssh ubuntu@ec2-54-148-116-34.us-west-2.compute.amazonaws.com -i ~/.ssh/boombuilders-cobranza.pem'
-
-# AWS - BoomBuilders
-# alias boombuilders='ssh -i ~/.ssh/pem/laravel-forge.pem ubuntu@54.149.90.110'
-alias awseticket='ssh forge@54.149.90.110'
-
 # Start calculator with math support
 alias bc='bc -l'
 
@@ -90,17 +73,33 @@ alias mem='top -o rsize' # memory
 
 
 # ------------------------------------------------------------------------------
-# | PHP Web Development                                                        |
+# | Web Development                                                      |
 # ------------------------------------------------------------------------------
 
+# JavaScriptCore REPL
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
+[ -e "${jscbin}" ] && alias jsc="${jscbin}";
+unset jscbin;
+
+# Start/Stop Local MySQL Server
+alias startmysql="sudo /usr/local/mysql/support-files/mysql.server start"
+alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
+
+# Create new virtual host
+alias vhost="subl /private/etc/apache2/extra/httpd-vhosts.conf; subl /etc/hosts"
+alias vm="homestead ssh"
+
+
+# ------------------------------------------------------------------------------
+# | PHP Specific                                                        |
+# ------------------------------------------------------------------------------
+
+# Manage PHP Log files
 alias phptxt="subl /Users/scrub/Documents/php.txt"
 alias clearphptxt="echo '' > /Users/scrub/Documents/php.txt"
 
-alias vm="homestead ssh"
-
 # laravel artisan shortcuts
-alias art="php artisan"
-alias mig="php artisan migrate"
+alias pa="php artisan"
 alias m:migration="php artisan make:migration"
 alias m:controller="php artisan make:controller"
 
@@ -109,20 +108,14 @@ alias m:controller="php artisan make:controller"
 # | OS X Specific aliases                                                      |
 # ------------------------------------------------------------------------------
 
-alias startmysql="sudo /usr/local/mysql/support-files/mysql.server start"
-alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
-
-# Create new virtual host
-alias vhost="subl /private/etc/apache2/extra/httpd-vhosts.conf; subl /etc/hosts"
-
 # Show hidden Files in finder
 alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
 alias hideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
 
-# Delete all .DS_Store files recursively
-alias deleteDS="find . -name '*.DS_Store' -type f -ls -delete"
-alias removeDS="find . -name '*.DS_Store' -type f -ls -delete"
-
 # Hide/show desktop icons
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Delete all .DS_Store files recursively
+alias deleteDS="find . -name '*.DS_Store' -type f -ls -delete"
+alias removeDS="find . -name '*.DS_Store' -type f -ls -delete"
