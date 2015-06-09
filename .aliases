@@ -58,6 +58,7 @@ alias storm="open -a '/Applications/PhpStorm.app'"
 alias xcode="open -a '/Applications/Xcode.app'"
 alias calendar="open -a '/Applications/Calendar.app'"
 alias spotify="open -a '/Applications/Spotify.app'"
+alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com/"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
