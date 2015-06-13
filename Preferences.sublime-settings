@@ -4,7 +4,6 @@
 	"caret_extra_top": 6,
 	"caret_extra_width": 1,
 	"close_windows_when_empty": true,
-	"theme": "Default.sublime-theme",
 	"color_scheme": "Packages/User/ColorScheme/Tomorrow-Night.tmTheme",
 	"file_exclude_patterns":
 	[
@@ -19,7 +18,7 @@
 		".idea"
 	],
 	"font_face": "Input Mono Narrow",
-	"font_options": "subpixel_antialias",
+	"font_options": [ "subpixel_antialias" ],
 	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -29,9 +28,11 @@
 	"line_padding_top": 7,
 	"move_to_limit_on_up_down": true,
 	"open_files_in_new_window": false,
+	"overlay_scroll_bars": "enabled",
 	"preview_on_click": false,
 	"remember_open_files": false,
 	"scroll_past_end": true,
+	"theme": "Default.sublime-theme",
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false
 }
