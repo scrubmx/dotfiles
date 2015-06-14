@@ -17,6 +17,10 @@ unset file
 export UPDATE_ZSH_DAYS=7
 export PATH=/Applications/MAMP/bin/php/php5.4.10/bin:/usr/local/git/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH
 
+# Fix the nasty fluorescent green the directory problem.
+# http://forums.fedoraforum.org/showthread.php?t=169528 user:buddha
+export LS_COLORS="${LS_COLORS}tw=30;47:ow=34;47:"
+
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
@@ -26,7 +30,7 @@ export PATH=/Applications/MAMP/bin/php/php5.4.10/bin:/usr/local/git/bin:/usr/loc
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ruby rails npm brew composer laravel git git-extras sublime z)
+plugins=(npm brew composer laravel5 git git-extras sublime z)
 
 source $ZSH/oh-my-zsh.sh
 
