@@ -103,6 +103,12 @@ alias pa="php artisan"
 alias m:migration="php artisan make:migration"
 alias m:controller="php artisan make:controller"
 
+# Testing
+alias tb="vendor/bin/behat"
+alias tu="vendor/bin/phpunit"
+alias ts="vendor/bin/phpspec run"
+alias tc="vendor/bin/codecept run"
+
 
 # ------------------------------------------------------------------------------
 # | OS X Specific aliases                                                      |
