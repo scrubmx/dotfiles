@@ -114,6 +114,9 @@ alias tc="vendor/bin/codecept run"
 # | OS X Specific aliases                                                      |
 # ------------------------------------------------------------------------------
 
+# Copy shy key to clipboard
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+
 # Show hidden Files in finder
 alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
 alias hideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
