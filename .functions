@@ -97,3 +97,39 @@ function extract () {
        echo "'$1' is not a valid file!"
     fi
 }
+
+# Create a python files with __init__.py and tests
+function pytouch {
+
+    for dir in 'src' 'test'
+    do
+        if ! [ -d $dir ] ; then
+            mkdir $dir
+            touch $dir/__init__.py
+        fi
+    done
+
+    if ! [ -f __init__.py ] ; then
+        touch __init__.py
+    fi
+
+    for file in $@
+    do
+        if ! [ -f src/$file ] ; then
+            echo "#! /usr/bin/env python" >> src/$file
+            echo "# -*- coding: utf-8 -*-\n" >> src/$file
+            echo "from __future__ import unicode_literals" >> src/$file
+        else
+            echo "pytouch: 'src/$file': File already exists"
+        fi
+
+        if ! [ -f test/test_$file ] ; then
+            echo "#! /usr/bin/env python" >> test/test_$file
+            echo "# -*- coding: utf-8 -*-\n" >> test/test_$file
+            echo "from __future__ import unicode_literals" >> test/test_$file
+            echo "import unittest" >> test/test_$file
+        fi
+    done
+
+    sudo chmod -R 775 ./
+}
