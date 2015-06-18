@@ -47,6 +47,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # Open Applications
 alias vi='vim'
 alias svi='sudo vim'
+alias ssubl="sudo subl"
 alias sublime="subl"
 alias chrome="open -a '/Applications/Google Chrome.app'"
 alias storm="open -a '/Applications/PhpStorm.app'"
