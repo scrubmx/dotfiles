@@ -15,7 +15,13 @@ unset file
 
 # Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=7
-export PATH=/Applications/MAMP/bin/php/php5.4.10/bin:/usr/local/git/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH
+
+COMPOSER_BIN="~/.composer/vendor/bin"
+MYSQL_BIN="/usr/local/mysql/bin"
+NPM_PATH="/usr/local/share/npm/bin"
+GIT_PATH="/usr/local/git/bin"
+export PATH="$COMPOSER_BIN:$MYSQL_BIN:$NPM_PATH:$GIT_PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 
 # Fix the nasty fluorescent green the directory problem.
 # http://forums.fedoraforum.org/showthread.php?t=169528 user:buddha
