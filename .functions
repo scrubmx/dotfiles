@@ -133,3 +133,18 @@ function pytouch {
 
     sudo chmod -R 775 ./
 }
+
+function web-start() {
+    if [ $# -eq 0 ]; then
+        echo 'usage: web-start name'
+    fi
+
+    if ! [ -d $1 ]; then
+        git clone git@github.com:scrubmx/web-starter.git $1
+        cd $1
+        sudo npm install
+        gulp & python -m SimpleHTTPServer 8000
+    else
+        echo "web-start: '$1': Directory already exists"
+    fi
+}
