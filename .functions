@@ -134,6 +134,7 @@ function pytouch {
     sudo chmod -R 775 ./
 }
 
+# Start new projects using SASS, ES6 and Browserify with Gulp
 function web-start() {
     if [ $# -eq 0 ]; then
         echo 'usage: web-start name'
