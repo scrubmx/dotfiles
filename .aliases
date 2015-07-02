@@ -54,6 +54,7 @@ alias storm="open -a '/Applications/PhpStorm.app'"
 alias xcode="open -a '/Applications/Xcode.app'"
 alias calendar="open -a '/Applications/Calendar.app'"
 alias spotify="open -a '/Applications/Spotify.app'"
+alias intelli="open -a '/Applications/IntelliJ IDEA 14 CE.app.'"
 alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com/"
 
 # IP addresses
