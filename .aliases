@@ -91,6 +91,8 @@ alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias vhost="subl /private/etc/apache2/extra/httpd-vhosts.conf; subl /etc/hosts"
 alias vm="homestead ssh"
 
+alias ni="sudo npm install"
+
 
 # ------------------------------------------------------------------------------
 # | PHP Specific                                                        |
