@@ -11,7 +11,7 @@
     status = auto
     sh = auto
 [alias]
-    st = status
+    st = status --untracked-files=all
     br = branch
     ci = commit
     co = checkout
