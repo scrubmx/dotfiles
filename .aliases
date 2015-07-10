@@ -109,6 +109,8 @@ alias serve="php -S localhost:5000"
 alias pa="php artisan"
 alias m:migration="php artisan make:migration"
 alias m:controller="php artisan make:controller"
+alias m:model="php artisan make:model"
+alias m:job="php artisan make:job"
 
 # Testing
 alias tb="vendor/bin/behat"
