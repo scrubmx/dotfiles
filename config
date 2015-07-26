@@ -1,6 +1,4 @@
-# ---------------------------------------------------------
-# Default Configurations
-# ---------------------------------------------------------
+# Defaults
 Host *
 	ForwardAgent no
 	ForwardX11 no
@@ -12,7 +10,7 @@ Host *
 	TCPKeepAlive yes
 
 # ---------------------------------------------------------
-# Overrides per host
+# Override as per host
 # ---------------------------------------------------------
 
 # SolucionesDigital
@@ -28,8 +26,15 @@ Host tangentlabs
 	User root
 
 # BoomBuilders
-Host boom
+Host boombuilders
 	Hostname boombuilders.mx
+	IdentityFile ~/.ssh/boombuilders
+	User forge
+
+# DataCreativa
+Host datacreativa
+	Hostname datacreativa.rocks
+	IdentityFile ~/.ssh/boombuilders
 	User forge
 
 # BoomBuilders Cobranza
@@ -37,3 +42,13 @@ Host cobranza
 	Hostname ec2-54-148-116-34.us-west-2.compute.amazonaws.com
 	IdentityFile ~/.ssh/boombuilders-cobranza.pem
 	User ubuntu
+
+# StaffEticket
+Host staffeticket
+	Hostname ec2-52-11-166-146.us-west-2.compute.amazonaws.com
+	User forge
+
+# AsMas Teaser
+Host asmas-teaser
+	Hostname ec2-52-26-169-4.us-west-2.compute.amazonaws.com
+	User forge
