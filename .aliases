@@ -41,6 +41,9 @@ alias newalias="subl ~/.aliases"
 alias newfunction="subl ~/.functions"
 alias zshconfig="subl ~/.zshrc"
 
+# Edit the ssh config file
+alias sshconf="subl ~/.ssh/config"
+
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
@@ -75,7 +78,7 @@ alias mem='top -o rsize' # memory
 
 
 # ------------------------------------------------------------------------------
-# | Web Development                                                      |
+# | Web Development                                                            |
 # ------------------------------------------------------------------------------
 
 # JavaScriptCore REPL
@@ -95,7 +98,7 @@ alias ni="sudo npm install"
 
 
 # ------------------------------------------------------------------------------
-# | PHP Specific                                                        |
+# | PHP Specific                                                               |
 # ------------------------------------------------------------------------------
 
 # Manage PHP Log files
