@@ -30,6 +30,12 @@ Host boombuilders
 	Hostname boombuilders.mx
 	IdentityFile ~/.ssh/boombuilders
 	User forge
+	
+# BoomTickets
+Host boomtickets
+	Hostname boomtickets.mx
+	IdentityFile ~/.ssh/boombuilders
+	User forge
 
 # DataCreativa
 Host datacreativa
@@ -48,7 +54,8 @@ Host staffeticket
 	Hostname ec2-52-11-166-146.us-west-2.compute.amazonaws.com
 	User forge
 
-# AsMas Teaser
-Host asmas-teaser
-	Hostname ec2-52-26-169-4.us-west-2.compute.amazonaws.com
+# AsMas
+Host asmas
+	Hostname asmas.mx
+	IdentityFile ~/.ssh/boombuilders-cobranza.pem
 	User forge
