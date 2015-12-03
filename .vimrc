@@ -1,91 +1,83 @@
-set nocompatible
+colorscheme Tomorrow-Night  " awesome colorscheme
+syntax enable               " enable syntax processing
 
-filetype on
-filetype indent on
-filetype plugin on
-
-" Enable syntax highlighting
-syntax enable
-set background=dark
-
-if has('gui_running')
-    set guioptions-=T  " no toolbar
-    colorscheme Tomorrow-Night-GVim
-    hi Todo guifg=#40ffff guibg=#606060
-    set lines=40 columns=125 linespace=0
-else
-    colorscheme Tomorrow-Night
-endif
-
-
-" Set to auto read when a file is changed from the outside
-set autoread
-
-" Searching configurations
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-
-" Text, tab and indent related
+set tabstop=4               " number of visual spaces per TAB
+set softtabstop=4           " number of spaces in tab when editing
+set expandtab               " tabs are spaces
+set number                  " show line numbers
+set showcmd                 " show command in bottom bar
+set cursorline              " highlight current line
+set wildmenu                " visual autocomplete for command menu
+set lazyredraw              " redraw only when we need to.
+set showmatch               " highlight matching [{()}]
+set incsearch               " search as characters are entered
+set hlsearch                " highlight matches
+set viminfo^=%              " Remember info about open buffers on close
 set smarttab
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-set tabstop=4
-set shiftwidth=4
 set autoindent
 set smartindent
 
-" Show matching brackets when text indicator is over them
-set showmatch
 
 " Force encoding to utf-8
 set fileencoding=utf-8
 set encoding=utf-8
 
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+let mapleader=","           " leader is comma
 
-" Remember info about open buffers on close
-set viminfo^=%
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
-" Always show current position
-set ruler
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
 
-" Turn on the WiLd menu
-set wildmenu
+" $/^ doesn't do anything
+nnoremap $ <nop>
+nnoremap ^ <nop>
 
-" For autocompletion
-set wildmode=list:longest
+" highlight last inserted text
+nnoremap gV `[v`]
 
-" Height of the command bar
-set cmdheight=2
+" edit vimrc/zshrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
-" Format the status line
+" Run PHPUnit tests
+map <Leader>t :!phpunit %<cr>
+
+"----------------------------------------------
+" Vundle.vim
+"----------------------------------------------
+
+set nocompatible                     " be iMproved, required
+filetype off                         " required for Vundle
+
+set rtp+=~/.vim/bundle/Vundle.vim    " set the runtime path to include Vundle and initialize
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'        " let Vundle manage Vundle, required
+Plugin 'scrooloose/nerdtree'         " a tree explorer plugin for vim
+Plugin 'StanAngeloff/php.vim'        " up-to-date PHP syntax file
+Plugin 'powerline/powerline'
+
+call vundle#end()                    " required
+filetype plugin indent on            " required
+
+"----------------------------------------------
+" NERDTree
+"----------------------------------------------
+
+" open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+map <leader>n :NERDTreeToggle<cr>
+
+
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set laststatus=2
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-set statusline+=%=%p%%
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
