@@ -34,6 +34,9 @@ alias _='sudo'
 alias please='sudo'
 alias fucking='sudo'
 
+# Super clear
+alias clear!="clear; clear; clear; clear"
+
 alias lolcow="fortune | cowsay | lolcat"
 
 # Create new aliases
