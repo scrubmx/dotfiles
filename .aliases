@@ -43,6 +43,7 @@ alias zshconfig="subl ~/.zshrc"
 
 # Edit the ssh config file
 alias sshconf="subl ~/.ssh/config"
+alias sshedit="subl ~/.ssh/config"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
