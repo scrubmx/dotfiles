@@ -127,7 +127,7 @@ alias tb="vendor/bin/behat"
 alias tu="vendor/bin/phpunit"
 alias ts="vendor/bin/phpspec run"
 alias tc="vendor/bin/codecept run"
-alias mt="make test"
+alias ks="karma start karma.config.js"
 
 
 # ------------------------------------------------------------------------------
