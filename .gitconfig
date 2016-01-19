@@ -1,38 +1,55 @@
 [user]
     name = scrub
     email = scrub.mx@gmail.com
+[github]
+    user = scrubmx
 [core]
-    editor = subl -n -w
+    editor = subl -w
 [color]
     ui = true
+    status = auto
     branch = auto
     diff = auto
+    showbranch = auto
     interactive = auto
-    status = auto
     sh = auto
+[color "sh"]
+    branch = yellow reverse
+    workdir = blue bold
+    dirty = red
+[color "diff"]
+    meta = magenta bold
+    frag = blue bold
+    whitespace = black reverse
+[color "status"]
+    added = green
+    deleted = red
+    changed = yellow
+    untracked = cyan
+    branch = blue bold
 [alias]
-    st = status --untracked-files=all
     br = branch
-    ci = commit
     co = checkout
-    bl = blame
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    lm = "!git ll -1"
-    dlc = diff --cached HEAD^
-    la = "!git config -l | grep alias | cut -c 7-"
+    st = status
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    logs = log --stat
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    la = "!git config -l | grep alias | cut -c 7-"
+    dlc = diff --cached HEAD^
+    logs = log --stat
+    filelog = log -u --stat
     latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
     changed = diff-tree --no-commit-id --name-only -r
     branches = branch -vv
 [push]
     default = tracking
-[color "sh"]
-    branch = yellow reverse
-    workdir = blue bold
-    dirty = red
+[diff]
+    tool = kaleidoscope
+[difftool]
+    prompt = false
+[difftool  "kaleidoscope"]
+    cmd = '/Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff' "$LOCAL" "$REMOTE"
 [filter "media"]
     required = true
     clean = git media clean %f
