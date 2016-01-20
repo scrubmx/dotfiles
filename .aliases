@@ -81,6 +81,10 @@ alias shutdown='sudo /sbin/shutdown'
 alias cpu='top -o cpu'
 alias mem='top -o rsize' # memory
 
+# Displays changes in a repository or a selected set of commits. 
+alias gitk="/usr/local/git/bin/gitk"
+alias gitx="/Applications/GitX.app/Contents/Resources/gitx"
+
 
 # ------------------------------------------------------------------------------
 # | Web Development                                                            |
