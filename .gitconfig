@@ -4,7 +4,8 @@
 [github]
     user = scrubmx
 [core]
-    editor = subl -w
+    editor = subl --wait
+    excludesfile = ~/.gitignore_global
 [color]
     ui = true
     status = auto
