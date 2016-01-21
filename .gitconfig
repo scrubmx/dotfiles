@@ -32,17 +32,15 @@
     br = branch
     co = checkout
     st = status
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    dt = difftool
     la = "!git config -l | grep alias | cut -c 7-"
+    lg = log --graph --pretty=format:'%C(blue)%h%Creset %C(green)(%cr)%C(auto)%d %C(white)%s %C(dim white)by %C(reset)%C(cyan)%an%Creset'
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
     dlc = diff --cached HEAD^
-    logs = log --stat
-    filelog = log -u --stat
-    latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
-    changed = diff-tree --no-commit-id --name-only -r
     branches = branch -vv
+    changed = diff-tree --no-commit-id --name-only -r
+    filelog = log --graph --decorate --stat --pretty=short --abbrev-commit
+    latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
 [push]
     default = tracking
 [diff]
