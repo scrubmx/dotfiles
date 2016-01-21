@@ -38,6 +38,7 @@
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     dlc = diff --cached HEAD^
     branches = branch -vv
+    unstage = reset HEAD --
     changed = diff-tree --no-commit-id --name-only -r
     filelog = log --graph --decorate --stat --pretty=short --abbrev-commit
     latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
