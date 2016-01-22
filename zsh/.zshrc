@@ -14,6 +14,8 @@ unset file
 # Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=15
 
+
+# Add custom directories to the PATH variable
 local COMPOSER="~/.composer/vendor/bin:./vendor/bin"
 local MYSQL="/usr/local/mysql/bin"
 local POSTGRES="/Applications/Postgres.app/Contents/Versions/9.4/bin"
