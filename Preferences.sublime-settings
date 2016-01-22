@@ -7,25 +7,30 @@
 	"color_scheme": "Packages/User/ColorScheme/Tomorrow-Night.tmTheme",
 	"file_exclude_patterns":
 	[
+		".index.html.swp",
 		".gitattributes",
 		".index.html.swp",
-		".DS_Store"
+		".DS_Store",
+		"*.pyc"
 	],
 	"folder_exclude_patterns":
 	[
 		".git",
 		".sass-cache",
-		".idea"
+		".idea",
+		"__pycache__"
 	],
 	"font_face": "Input Mono Narrow",
 	"font_options": [ "subpixel_antialias" ],
-	"font_size": 14,
+	"font_size": 15,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages": [],
-	"line_padding_bottom": 3,
-	"line_padding_top": 7,
+	"line_padding_bottom": 4,
+	"line_padding_top": 8,
+	"material_theme_disable_folder_animation": true,
+	"material_theme_small_tab": false,
 	"move_to_limit_on_up_down": true,
 	"open_files_in_new_window": false,
 	"overlay_scroll_bars": "enabled",
@@ -34,5 +39,6 @@
 	"scroll_past_end": true,
 	"theme": "Default.sublime-theme",
 	"trim_trailing_white_space_on_save": true,
+	"use_simple_full_screen": true,
 	"word_wrap": false
 }
