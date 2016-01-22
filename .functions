@@ -149,3 +149,18 @@ function web-start() {
         echo "web-start: '$1': Directory already exists"
     fi
 }
+
+# Control a local PostgreSQL server on Mac OSX
+function pg () {
+  local datadir="$HOME/Library/Application Support/Postgres/var-9.4"
+  local logfile="/usr/local/var/postgres/server.log"
+
+  case $1 in
+    ('start' | 'stop' | 'restart' | 'reload' | 'status')
+      pg_ctl $1 --pgdata $datadir --log $logfile ;;
+    ('console')
+      psql --port 5432 ;;
+    (*)
+      echo 'usage: pg option'
+  esac
+}
