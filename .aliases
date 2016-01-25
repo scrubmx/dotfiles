@@ -14,6 +14,10 @@ alias history='fc -l 1'
 # List only directories
 alias lsd='ls -l | grep "^d"'
 
+# Like cat but with colors (requires pygments)
+# pygments style: https://github.com/MozMorris/tomorrow-pygments
+alias check="pygmentize -O style=tomorrownight -f console256 -g"
+
 # Show/hide full path on finder titlebar
 alias showpath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES; killall Finder"
 alias hidepath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool NO; killall Finder"
