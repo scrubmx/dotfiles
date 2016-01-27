@@ -16,12 +16,19 @@ export UPDATE_ZSH_DAYS=15
 
 
 # Add custom directories to the PATH variable
-local COMPOSER="~/.composer/vendor/bin:./vendor/bin"
-local MYSQL="/usr/local/mysql/bin"
-local POSTGRES="/Applications/Postgres.app/Contents/Versions/9.4/bin"
-local RVM="~/.rvm/bin"
+function user_custom_paths() {
+	local COMPOSER="~/.composer/vendor/bin:./vendor/bin"
+	local MYSQL="/usr/local/mysql/bin"
+	local POSTGRES="/usr/local/postgres/bin"
+	local RVM="~/.rvm/bin"
 
-export PATH="$COMPOSER:$MYSQL:$POSTGRES:$RVM:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+	echo "$COMPOSER:$MYSQL:$POSTGRES:$RVM"
+}
+
+export PATH="${user_custom_paths}:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# Add other environment variables for user scripts
+export DIGITALOCEAN_SECRET_KEY="SomeRandomString"
 
 
 # Fix the nasty fluorescent green the directory problem.
