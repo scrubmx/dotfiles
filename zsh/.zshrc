@@ -14,22 +14,16 @@ unset file
 # Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=15
 
-
 # Add custom directories to the PATH variable
-function user_custom_paths() {
-    local COMPOSER="~/.composer/vendor/bin:./vendor/bin"
-    local MYSQL="/usr/local/mysql/bin"
-    local POSTGRES="/usr/local/postgres/bin"
-    local RVM="~/.rvm/bin"
+local COMPOSER="~/.composer/vendor/bin:./vendor/bin"
+local MYSQL="/usr/local/mysql/bin"
+local POSTGRES="/usr/local/postgres/bin"
+local RVM="~/.rvm/bin"
 
-    echo "$COMPOSER:$MYSQL:$POSTGRES:$RVM"
-}
-
-export PATH="${user_custom_paths}:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$COMPOSER:$MYSQL:$POSTGRES:$RVM:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Add other environment variables for user scripts
 export DIGITALOCEAN_SECRET_KEY="SomeRandomString"
-
 
 # Fix the nasty fluorescent green the directory problem.
 # http://forums.fedoraforum.org/showthread.php?t=169528 user:buddha
@@ -54,6 +48,5 @@ plugins=(git composer laravel5 npm ruby rvm rails)
 if [ -f "$HOME/rupa/z.sh" ]; then
     source "$HOME/rupa/z.sh"
 fi
-
 
 source "$ZSH/oh-my-zsh.sh"
