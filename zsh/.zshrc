@@ -17,12 +17,12 @@ export UPDATE_ZSH_DAYS=15
 
 # Add custom directories to the PATH variable
 function user_custom_paths() {
-	local COMPOSER="~/.composer/vendor/bin:./vendor/bin"
-	local MYSQL="/usr/local/mysql/bin"
-	local POSTGRES="/usr/local/postgres/bin"
-	local RVM="~/.rvm/bin"
+    local COMPOSER="~/.composer/vendor/bin:./vendor/bin"
+    local MYSQL="/usr/local/mysql/bin"
+    local POSTGRES="/usr/local/postgres/bin"
+    local RVM="~/.rvm/bin"
 
-	echo "$COMPOSER:$MYSQL:$POSTGRES:$RVM"
+    echo "$COMPOSER:$MYSQL:$POSTGRES:$RVM"
 }
 
 export PATH="${user_custom_paths}:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
