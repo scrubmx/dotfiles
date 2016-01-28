@@ -106,7 +106,7 @@ alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 
 # Create new virtual host
 alias vhost="subl /private/etc/apache2/extra/httpd-vhosts.conf; subl /etc/hosts"
-alias vm="homestead ssh"
+alias vm='function __homestead() { (cd ~/.composer/vendor/laravel/homestead && vagrant $*); unset -f __homestead; }; __homestead'
 
 alias ni="sudo npm install"
 
