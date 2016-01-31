@@ -40,15 +40,6 @@ function phpserver() {
     sleep 1 && open "http://localhost:${port}/" & php -S "localhost:${port}";
 }
 
-# Create a new laravel project
-function laravel-new () {
-    if [ $# -eq 0 ]; then
-        echo "usage: laravel-new project"
-    else
-        sudo composer create-project laravel/laravel "$@" --prefer-dist
-    fi
-}
-
 # Show laravel routes
 function routes() {
     if [ $# -eq 0 ]; then
