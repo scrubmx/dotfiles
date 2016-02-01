@@ -120,7 +120,7 @@ alias phptxt="subl /Users/scrub/Documents/php.txt"
 alias clearphptxt="echo '' > /Users/scrub/Documents/php.txt"
 
 # Create server in the current directory
-alias serve="php -S localhost:5000"
+alias phpserve="php -S localhost:5000"
 
 # Composer dump autoload
 alias dal="sudo composer dump-autoload"
