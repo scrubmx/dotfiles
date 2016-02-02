@@ -1,3 +1,7 @@
+# ------------------------------------------------------------------------------
+#  File Navigation
+# ------------------------------------------------------------------------------
+
 # Easier navigation
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -18,10 +22,6 @@ alias lsd='ls -l | grep "^d"'
 # pygments style: https://github.com/MozMorris/tomorrow-pygments
 alias check="pygmentize -O style=tomorrownight -f console256 -g"
 
-# Show/hide full path on finder titlebar
-alias showpath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES; killall Finder"
-alias hidepath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool NO; killall Finder"
-
 # Preview a file using QuickLook
 alias ql="qlmanage -p 2>/dev/null"
 
@@ -30,7 +30,7 @@ alias fs="stat -f \"%z bytes\""
 
 
 # ------------------------------------------------------------------------------
-# | Miscellaneous                                                              |
+#  Miscellaneous
 # ------------------------------------------------------------------------------
 
 # Super user
@@ -47,10 +47,6 @@ alias lolcow="fortune | cowsay | lolcat"
 alias newalias="subl ~/.aliases"
 alias newfunction="subl ~/.functions"
 alias zshconfig="subl ~/.zshrc"
-
-# Edit the ssh config file
-alias sshconf="subl ~/.ssh/config"
-alias sshedit="subl ~/.ssh/config"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -69,6 +65,10 @@ alias intelli="open -a '/Applications/IntelliJ IDEA 14 CE.app.'"
 alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com/"
 alias github="open -a '/Applications/Google Chrome.app' https://github.com/$(whoami)"
 alias trello="open -a '/Applications/Google Chrome.app' https://trello.com"
+
+# Edit the ssh config file
+alias sshconf="subl ~/.ssh/config"
+alias sshedit="subl ~/.ssh/config"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -92,7 +92,7 @@ alias gitx="/Applications/GitX.app/Contents/Resources/gitx"
 
 
 # ------------------------------------------------------------------------------
-# | Web Development                                                            |
+#  Web Development
 # ------------------------------------------------------------------------------
 
 # JavaScriptCore REPL
@@ -108,11 +108,9 @@ alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias vhost="subl /private/etc/apache2/extra/httpd-vhosts.conf; subl /etc/hosts"
 alias vm='function __homestead() { (cd ~/.composer/vendor/laravel/homestead && vagrant $*); unset -f __homestead; }; __homestead'
 
-alias ni="sudo npm install"
-
 
 # ------------------------------------------------------------------------------
-# | PHP Specific                                                               |
+#  PHP Specific
 # ------------------------------------------------------------------------------
 
 # Manage PHP Log files
@@ -125,7 +123,7 @@ alias phpserve="php -S localhost:5000"
 # Composer dump autoload
 alias dal="sudo composer dump-autoload"
 
-# laravel artisan shortcuts
+# Laravel artisan shortcuts
 alias pa="php artisan"
 alias m:migration="php artisan make:migration"
 alias m:controller="php artisan make:controller"
@@ -137,16 +135,38 @@ alias tb="vendor/bin/behat"
 alias tu="vendor/bin/phpunit"
 alias ts="vendor/bin/phpspec run"
 alias tc="vendor/bin/codecept run"
-alias ks="karma start karma.config.js"
+
+
+# ------------------------------------------------------------------------------
+#  Ruby on Rails
+# ------------------------------------------------------------------------------
+
+# Rails shortcuts
+alias rg='rails g'
+alias rc='rails c'
+alias rd='rails dbconsole'
+
+# Testing with RSpec
 alias rt="rspec spec -f d"
 
 
 # ------------------------------------------------------------------------------
-# | OS X Specific aliases                                                      |
+#  JavaScript
+# ------------------------------------------------------------------------------
+
+alias ks="karma start karma.config.js"
+
+
+# ------------------------------------------------------------------------------
+#  OS X Specific aliases
 # ------------------------------------------------------------------------------
 
 # Copy shy key to clipboard
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+
+# Show/hide full path on finder titlebar
+alias showpath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES; killall Finder"
+alias hidepath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool NO; killall Finder"
 
 # Show hidden Files in finder
 alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
