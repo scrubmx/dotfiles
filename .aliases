@@ -28,6 +28,11 @@ alias ql="qlmanage -p 2>/dev/null"
 # File size
 alias fs="stat -f \"%z bytes\""
 
+# Shortcuts
+alias downloads="cd ~/Downloads"
+alias desktop="cd ~/Desktop"
+alias code="cd ~/Code"
+
 
 # ------------------------------------------------------------------------------
 #  Miscellaneous
