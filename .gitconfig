@@ -6,6 +6,22 @@
 [core]
     editor = subl --wait
     excludesfile = ~/.gitignore_global
+[alias]
+    br = branch
+    co = checkout
+    st = status
+    dt = difftool
+    la = "!git config -l | grep alias | cut -c 7-"
+    lg = log --graph --pretty=format:'%C(blue)%h%Creset %C(green)(%cr)%C(auto)%d %C(white)%s %C(dim white)by %C(reset)%C(cyan)%an%Creset'
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    dlc = diff --cached HEAD^
+    branches = branch -vv
+    unstage = reset HEAD --
+    changed = diff-tree --no-commit-id --name-only -r
+    ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+    filelog = log --graph --decorate --stat --pretty=short --abbrev-commit
+    latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
 [color]
     ui = true
     status = auto
@@ -28,20 +44,6 @@
     changed = yellow
     untracked = cyan
     branch = blue bold
-[alias]
-    br = branch
-    co = checkout
-    st = status
-    dt = difftool
-    la = "!git config -l | grep alias | cut -c 7-"
-    lg = log --graph --pretty=format:'%C(blue)%h%Creset %C(green)(%cr)%C(auto)%d %C(white)%s %C(dim white)by %C(reset)%C(cyan)%an%Creset'
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    dlc = diff --cached HEAD^
-    branches = branch -vv
-    unstage = reset HEAD --
-    changed = diff-tree --no-commit-id --name-only -r
-    filelog = log --graph --decorate --stat --pretty=short --abbrev-commit
-    latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
 [push]
     default = tracking
 [diff]
