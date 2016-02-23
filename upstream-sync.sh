@@ -6,12 +6,12 @@ if ! git config remote.upstream.url > /dev/null; then
     git remote add upstream git@github.com:laravel/framework.git
 fi
 
-printf '\n\033[0;34m%s\033[0m' "Fetching the upstream remote branches..."
+printf '\e[32m> %s\e[0m\n' "Fetching the upstream remote branches..."
 
 # Fetch the branches and their respective commits from the upstream repository.
 git fetch upstream
 
-printf '\n\033[0;34m%s\033[0m\n\n' "Syncing local branches with upstream..."
+printf '\e[32m> %s\e[0m\n' "Syncing local branches with upstream..."
 
 # Sync master branch with the upstream repository
 git checkout master
@@ -25,4 +25,4 @@ git merge upstream/5.2
 git checkout 5.1
 git merge upstream/5.1
 
-printf '\n\033[0;32m%s\033[0m\n' "Your fork is now up to date!"
+printf '\e[32m> %s\e[0m\n' "Your fork is now up to date!"
