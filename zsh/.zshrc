@@ -23,10 +23,11 @@ local RVM="~/.rvm/bin"
 export PATH="$COMPOSER:$MYSQL:$POSTGRES:$RVM:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Add other environment variables for user scripts
-export DIGITALOCEAN_SECRET_KEY="SomeRandomString"         # Digitalocean API secret key
-export COMPOSER_DISABLE_XDEBUG_WARN=1                     # Disable composer xdebug warning
+export DIGITALOCEAN_SECRET_KEY="SomeRandomString"
+export COMPOSER_DISABLE_XDEBUG_WARN=1
 
-export EDITOR="/usr/local/bin/subl"                       
+# Change default text editor from vi to sublime text
+export EDITOR="/usr/local/bin/subl"
 
 # Fix the nasty fluorescent green the directory problem.
 # http://forums.fedoraforum.org/showthread.php?t=169528 user:buddha
