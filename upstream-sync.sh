@@ -1,5 +1,5 @@
 #!/bin/sh
-# Sync a local fork of the laravel/framework repository
+# Sync forked copy of laravel/framework repository
 
 # Specify remote upstream repository that will be synced with the fork.
 if ! git config remote.upstream.url > /dev/null; then
@@ -11,7 +11,7 @@ printf '\e[32m> %s\e[0m\n' "Fetching the upstream remote branches..."
 # Fetch the branches and their respective commits from the upstream repository.
 git fetch upstream
 
-printf '\e[32m> %s\e[0m\n' "Syncing local branches with upstream..."
+printf '\e[32m> %s\e[0m\n' "Syncing local and remote branches with upstream..."
 
 # Sync master branch with the upstream repository
 git checkout master
