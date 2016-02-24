@@ -16,13 +16,16 @@ printf '\e[32m> %s\e[0m\n' "Syncing local branches with upstream..."
 # Sync master branch with the upstream repository
 git checkout master
 git merge upstream/master
+git push origin master
 
 # Sync 5.2 branch with the upstream repository
 git checkout 5.2
 git merge upstream/5.2
+git push origin 5.2
 
 # Sync 5.1 branch with the upstream repository
 git checkout 5.1
 git merge upstream/5.1
+git push origin 5.1
 
 printf '\e[32m> %s\e[0m\n' "Your fork is now up to date!"
