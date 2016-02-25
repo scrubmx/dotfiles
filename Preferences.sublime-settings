@@ -27,6 +27,7 @@
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages": [],
+	"indent_guide_options": [ "draw_active" ]
 	"line_padding_bottom": 4,
 	"line_padding_top": 8,
 	"material_theme_disable_folder_animation": true,
