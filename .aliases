@@ -9,10 +9,10 @@ alias ....='cd ../../..'
 alias sites="cd ~/Sites"
 
 # List files pretty format and colors
-alias ls='ls -FHG'
-alias la='ls -A'
-alias ll='ls -alF'
-alias l='ls -CF'
+alias ls='ls -FGH'
+alias la='ls -AG'
+alias ll='ls -AlG'
+alias l='ls -CFG'
 alias history='fc -l 1'
 
 # List only directories
@@ -52,6 +52,9 @@ alias lolcow="fortune | cowsay | lolcat"
 alias newalias="subl ~/.aliases"
 alias newfunction="subl ~/.functions"
 alias zshconfig="subl ~/.zshrc"
+alias zshconf="subl ~/.zshrc"
+alias gitconfig="subl ~/.gitconfig"
+alias gitconf="subl ~/.gitconfig"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
