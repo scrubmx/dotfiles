@@ -46,7 +46,12 @@ alias fucking='sudo'
 # Super clear
 alias clear!="clear; clear; clear; clear"
 
+# https://github.com/busyloop/lolcat
 alias lolcow="fortune | cowsay | lolcat"
+
+# brew install ctags
+# http://www.gmarik.info/blog/2010/ctags-on-OSX/
+alias ctags="`brew --prefix`/bin/ctags"
 
 # Create new aliases
 alias newalias="subl ~/.aliases"
