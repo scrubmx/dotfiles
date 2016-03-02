@@ -167,6 +167,8 @@ function work() {
     open -a /Applications/Spotify.app
     open -a /Applications/PhpStorm.app
     open -a /Applications/Slack.app
+    
+    cd -
 }
 
 # Close distracting apps
