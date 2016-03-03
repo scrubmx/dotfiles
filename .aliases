@@ -43,6 +43,9 @@ alias _='sudo'
 alias please='sudo'
 alias fucking='sudo'
 
+# Refresh dotfiles for the current shell
+alias refresh="source ~/.zshrc"
+
 # Super clear
 alias clear!="clear; clear; clear; clear"
 
