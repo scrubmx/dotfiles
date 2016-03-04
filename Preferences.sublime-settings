@@ -4,13 +4,14 @@
 	"caret_extra_top": 6,
 	"caret_extra_width": 1,
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/User/ColorScheme/Tomorrow-Night.tmTheme",
+	"color_scheme": "Packages/User/Themes/Tomorrow-Night.tmTheme",
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
 		".index.html.swp",
-		".gitattributes",
-		".index.html.swp",
 		".DS_Store",
+		"__init__.py",
 		"*.pyc"
 	],
 	"folder_exclude_patterns":
@@ -21,13 +22,22 @@
 		"__pycache__"
 	],
 	"font_face": "Input Mono Narrow",
-	"font_options": [ "subpixel_antialias" ],
-	"font_size": 15,
+	"font_options":
+	[
+		"subpixel_antialias"
+	],
+	"font_size": 16,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
-	"ignored_packages": [],
-	"indent_guide_options": [ "draw_active" ],
+	"ignored_packages":
+	[
+		"Markdown"
+	],
+	"indent_guide_options":
+	[
+		"draw_active"
+	],
 	"line_padding_bottom": 4,
 	"line_padding_top": 8,
 	"material_theme_disable_folder_animation": true,
@@ -38,7 +48,7 @@
 	"preview_on_click": false,
 	"remember_open_files": false,
 	"scroll_past_end": true,
-	"theme": "Default.sublime-theme",
+	"theme": "Material-Theme.sublime-theme",
 	"trim_trailing_white_space_on_save": true,
 	"use_simple_full_screen": true,
 	"word_wrap": false
