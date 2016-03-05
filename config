@@ -1,13 +1,16 @@
+# ---------------------------------------------------------
 # Defaults
+# ---------------------------------------------------------
+
 Host *
-	ForwardAgent no
-	ForwardX11 no
-	ForwardX11Trusted yes
-	IdentityFile ~/.ssh/id_rsa
-	Protocol 2
-	ServerAliveInterval 60
-	ServerAliveCountMax 30
-	TCPKeepAlive yes
+    ForwardAgent no
+    ForwardX11 no
+    ForwardX11Trusted yes
+    IdentityFile ~/.ssh/id_rsa
+    Protocol 2
+    ServerAliveInterval 60
+    ServerAliveCountMax 30
+    TCPKeepAlive yes
 
 # ---------------------------------------------------------
 # Override as per host
@@ -15,47 +18,18 @@ Host *
 
 # SolucionesDigital
 Host soluciones
-	Hostname solucionesdigital.com
-	User forge
+    Hostname solucionesdigital.com
+    User forge
 
 # Tangentlabs
 Host tangentlabs
-	DynamicForward 8080
-	Hostname 162.249.126.18
-	Port 443
-	User root
-
-# BoomBuilders
-Host boombuilders
-	Hostname boombuilders.mx
-	IdentityFile ~/.ssh/boombuilders
-	User forge
-	
-# BoomTickets
-Host boomtickets
-	Hostname boomtickets.mx
-	IdentityFile ~/.ssh/boombuilders
-	User forge
+    DynamicForward 8080
+    Hostname 162.249.126.18
+    Port 443
+    User root
 
 # DataCreativa
 Host datacreativa
-	Hostname datacreativa.rocks
-	IdentityFile ~/.ssh/boombuilders
-	User forge
-
-# BoomBuilders Cobranza
-Host cobranza
-	Hostname ec2-54-148-116-34.us-west-2.compute.amazonaws.com
-	IdentityFile ~/.ssh/boombuilders-cobranza.pem
-	User ubuntu
-
-# StaffEticket
-Host staffeticket
-	Hostname ec2-52-11-166-146.us-west-2.compute.amazonaws.com
-	User forge
-
-# AsMas
-Host asmas
-	Hostname asmas.mx
-	IdentityFile ~/.ssh/boombuilders-cobranza.pem
-	User forge
+    Hostname datacreativa.rocks
+    IdentityFile ~/.ssh/boombuilders
+    User forge

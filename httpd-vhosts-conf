@@ -1,52 +1,18 @@
 #
 # Virtual Hosts
-#
-# Please see the documentation at
-# <URL:http://httpd.apache.org/docs/2.2/vhosts/>
-#
-Listen  *:443
-
 # Use name-based virtual hosting.
-NameVirtualHost *:80
-NameVirtualHost *:443
 
-#
+Listen  *:80
+
 # Application Enviorment
-#
-SetEnv APP_ENV development
-
-# VirtualHost example:
-<VirtualHost *:80>
-    DocumentRoot "/Users/scrub/Sites/phpinfo"
-    ServerName phpinfo.dev
-    <Directory "/Users/scrub/Sites/phpinfo">
-        RewriteEngine On
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-    </Directory>
-</VirtualHost>
+SetEnv APP_ENV local
 
 <VirtualHost *:80>
     DocumentRoot "/Users/scrub/Sites/pruebas"
     ServerName pruebas.dev
     <Directory "/Users/scrub/Sites/pruebas">
-        RewriteEngine On
-        Options Indexes FollowSymLinks MultiViews
         AllowOverride All
+        Order allow,deny
+        Allow from all
     </Directory>
 </VirtualHost>
-
-<VirtualHost *:443>
-    SSLEngine on
-    SSLCertificateFile /private/etc/apache2/ssl/server.crt
-    SSLCertificateKeyFile /private/etc/apache2/ssl/server.key
-
-    DocumentRoot "/Users/scrub/Sites/clubmovistarvip/httpdocs"
-    ServerName clubmovistarvip.dev
-    <Directory "/Users/scrub/Sites/clubmovistarvip/httpdocs">
-        RewriteEngine On
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-    </Directory>
-</VirtualHost>
-
