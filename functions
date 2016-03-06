@@ -167,6 +167,7 @@ function work() {
     open -a /Applications/Spotify.app
     open -a /Applications/PhpStorm.app
     open -a /Applications/Slack.app
+    open -a /Applications/Mail.app
     
     cd -
 }
