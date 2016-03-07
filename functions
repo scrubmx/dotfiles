@@ -158,7 +158,6 @@ function pg () {
 
 # Prepare for a productive day
 function work() {
-    cd ~/.composer/vendor/laravel/homestead && vagrant up
     open -a "/Applications/Google Chrome.app" \
         https://trello.com \
         https://github.com \
@@ -166,9 +165,10 @@ function work() {
 
     open -a /Applications/Spotify.app
     open -a /Applications/PhpStorm.app
-    open -a /Applications/Slack.app
     open -a /Applications/Mail.app
-    
+
+    cd ~/.composer/vendor/laravel/homestead && vagrant up
+
     cd -
 }
 
