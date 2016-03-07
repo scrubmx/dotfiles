@@ -221,3 +221,22 @@ function zap() {
             ;;
     esac
 }
+
+# Accessing homestead globally
+function hs() {
+    cd ~/.composer/vendor/laravel/homestead
+
+    command="$1"
+
+    if [ $command = "edit" ]; then
+        subl ~/.homestead/Homestead.yaml
+    else
+        if [ -z $command ]; then
+           command="ssh"
+        fi
+
+        vagrant $command
+    fi
+
+    cd -
+}
