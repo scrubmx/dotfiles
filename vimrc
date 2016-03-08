@@ -8,20 +8,16 @@ set expandtab               " tabs are spaces
 set number                  " show line numbers
 set showcmd                 " show command in bottom bar
 set cursorline              " highlight current line
-"set wildmenu                " visual autocomplete for command menu
 set lazyredraw              " redraw only when we need to.
 set showmatch               " highlight matching [{()}]
 set incsearch               " search as characters are entered
 set hlsearch                " highlight matches
 set viminfo^=%              " Remember info about open buffers on close
-"set smarttab
-"set smartindent
-"set expandtab
-""set autoindent
 set nowrap                  " Don't wrap lines
-set tags=tags
 set splitright              " Default to split to the right
 set splitbelow              " Default to split below
+
+set tags=tags
 
 " Indent multiple lines in visual mode with tab key
 vmap <Tab> >
