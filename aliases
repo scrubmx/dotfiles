@@ -124,6 +124,11 @@ alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias vhost="subl /private/etc/apache2/extra/httpd-vhosts.conf; subl /etc/hosts"
 alias vm='function __homestead() { (cd ~/.composer/vendor/laravel/homestead && vagrant $*); unset -f __homestead; }; __homestead'
 
+# Download selenium standalone server from:
+# http://docs.seleniumhq.org/download/
+alias startSelenium='java -jar ~/Documents/selenium-server-standalone.jar'
+alias seleniumStart='java -jar ~/Documents/selenium-server-standalone.jar'
+
 
 # ------------------------------------------------------------------------------
 #  PHP Specific
