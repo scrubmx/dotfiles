@@ -228,14 +228,14 @@ function hs() {
 
     command="$1"
 
-    if [ $command = "edit" ]; then
+    if [ "$command" = "edit" ]; then
         subl ~/.homestead/Homestead.yaml
     else
-        if [ -z $command ]; then
+        if [ -z "$command" ]; then
            command="ssh"
         fi
 
-        vagrant $command
+        vagrant "$command"
     fi
 
     cd -
