@@ -31,6 +31,7 @@ alias fs="stat -f \"%z bytes\""
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dk="cd ~/Desktop"
+alias dr="cd ~/Dropbox"
 alias code="cd ~/Code"
 
 
