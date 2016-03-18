@@ -159,6 +159,8 @@ alias tu="vendor/bin/phpunit"
 alias ts="vendor/bin/phpspec run"
 alias tc="vendor/bin/codecept run"
 
+# Useful for laravel projects
+alias t="clear!; phpunit --stop-on-failure --stop-on-error"
 
 # ------------------------------------------------------------------------------
 #  Ruby on Rails
