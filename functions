@@ -159,14 +159,14 @@ function pg () {
 # Handy function to start a productive day of work
 # Optional [-v] to start the homestead virtual machine
 function work() {
-    open -a '/Applications/Google Chrome.app'             \
-        https://www.pivotaltracker.com/n/projects/1492858 \
-        https://github.com/brinqo/zigo_capital            \
-        https://laravel.com/docs/5.2
+    open -a '/Applications/Google Chrome.app' \
+        https://github.com \
+        https://trello.com \
+        https://laravel.com/docs
 
+    open -a /Applications/Mail.app
     open -a /Applications/Spotify.app
     open -a /Applications/PhpStorm.app
-    open -a /Applications/Slack.app
 
     while getopts "$@" option; do
         if [ "$option" = "v" ]; then
