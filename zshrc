@@ -27,7 +27,7 @@ export DIGITALOCEAN_SECRET_KEY="SomeRandomString"
 export COMPOSER_DISABLE_XDEBUG_WARN=1
 
 # Change default text editor from vi to sublime text
-export EDITOR="/usr/local/bin/subl"
+export EDITOR="subl -w"
 
 # Fix the nasty fluorescent green the directory problem.
 # http://forums.fedoraforum.org/showthread.php?t=169528 user:buddha
