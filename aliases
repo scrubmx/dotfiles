@@ -128,8 +128,7 @@ alias vm='function __homestead() { (cd ~/.composer/vendor/laravel/homestead && v
 
 # Download selenium standalone server from:
 # http://docs.seleniumhq.org/download/
-alias startSelenium='java -jar ~/Documents/selenium-server-standalone.jar'
-alias seleniumStart='java -jar ~/Documents/selenium-server-standalone.jar'
+alias selenium='java -jar /usr/local/bin/selenium-server-standalone.jar'
 
 
 # ------------------------------------------------------------------------------
