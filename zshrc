@@ -33,6 +33,9 @@ export EDITOR="subl -w"
 # http://forums.fedoraforum.org/showthread.php?t=169528 user:buddha
 export LS_COLORS="${LS_COLORS}tw=30;47:ow=34;47:"
 
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
