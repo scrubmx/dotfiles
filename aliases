@@ -178,7 +178,7 @@ alias rt="rspec spec -f d"
 #  JavaScript
 # ------------------------------------------------------------------------------
 
-alias ks="karma start karma.config.js"
+alias ks="karma start karma.conf.js"
 
 
 # ------------------------------------------------------------------------------
