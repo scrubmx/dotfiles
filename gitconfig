@@ -5,7 +5,10 @@
     user = scrubmx
 [core]
     editor = subl --wait
+    pager = less --chop-long-lines
     excludesfile = ~/.gitignore_global
+[commit]
+    template = ~/.git_commit_message.txt
 [alias]
     br = branch
     co = checkout
