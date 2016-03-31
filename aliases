@@ -135,10 +135,6 @@ alias selenium='java -jar /usr/local/bin/selenium-server-standalone.jar'
 #  PHP Specific
 # ------------------------------------------------------------------------------
 
-# Manage PHP Log files
-alias phptxt="subl /Users/scrub/Documents/php.txt"
-alias clearphptxt="echo '' > /Users/scrub/Documents/php.txt"
-
 # Create server in the current directory
 alias phpserve="php -S localhost:5000"
 
