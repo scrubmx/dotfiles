@@ -11,6 +11,7 @@
     template = ~/.git_commit_message.txt
 [alias]
     br = branch
+    ci = commit -v
     co = checkout
     st = status
     dt = difftool
