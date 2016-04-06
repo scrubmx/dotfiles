@@ -108,6 +108,9 @@ alias mem='top -o rsize' # memory
 alias gitk="/usr/local/git/bin/gitk"
 alias gitx="/Applications/GitX.app/Contents/Resources/gitx"
 
+# Open Firefox and browse to hulu.com, also open a socks5 proxy.
+# alias hulu="open -a '/Applications/Firefox.app' http://hulu.com & ssh user@server.com -D 8080"
+
 
 # ------------------------------------------------------------------------------
 #  Web Development
