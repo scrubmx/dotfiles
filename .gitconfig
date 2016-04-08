@@ -8,7 +8,7 @@
     pager = less --chop-long-lines
     excludesfile = ~/.gitignore_global
 [commit]
-    template = ~/.git_commit_message.txt
+    template = ~/.gitmessage
 [alias]
     br = branch
     ci = commit -v
