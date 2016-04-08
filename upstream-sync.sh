@@ -24,14 +24,14 @@ git checkout master
 git merge upstream/master
 git push origin master
 
-# Sync 5.2 branch with the upstream repository
-git checkout 5.2
-git merge upstream/5.2
-git push origin 5.2
-
 # Sync 5.1 branch with the upstream repository
 git checkout 5.1
 git merge upstream/5.1
 git push origin 5.1
+
+# Sync 5.2 branch with the upstream repository
+git checkout 5.2
+git merge upstream/5.2
+git push origin 5.2
 
 _print_status "Your fork is now up to date!"
