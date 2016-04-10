@@ -64,7 +64,7 @@ alias lolcow="fortune | cowsay | lolcat"
 #   .-(    ).   ← 12 km/h
 #  (___.__)__)  10 km
 #               0.1 mm
-alias weather="curl -4 http://wttr.in/MexicoCity"
+alias weather="curl -4 http://wttr.in/Mexico_City"
 
 # brew install ctags
 # http://www.gmarik.info/blog/2010/ctags-on-OSX/
