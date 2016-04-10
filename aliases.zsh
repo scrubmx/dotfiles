@@ -59,6 +59,7 @@ alias clear!="clear; clear; clear; clear"
 #
 alias lolcow="fortune | cowsay | lolcat"
 
+# https://github.com/chubin/wttr.in
 #               Overcast
 #      .--.     20 – 21 °C
 #   .-(    ).   ← 12 km/h
