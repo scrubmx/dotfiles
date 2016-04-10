@@ -51,7 +51,20 @@ alias refresh="source ~/.zshrc"
 alias clear!="clear; clear; clear; clear"
 
 # https://github.com/busyloop/lolcat
+# A journey of a thousand miles must begin with a single step.
+# -- Lao Tsu
+#  ^__^
+#  (oo)\_______
+#  (__)\
+#
 alias lolcow="fortune | cowsay | lolcat"
+
+#               Overcast
+#      .--.     20 – 21 °C
+#   .-(    ).   ← 12 km/h
+#  (___.__)__)  10 km
+#               0.1 mm
+alias weather="curl -4 http://wttr.in/MexicoCity"
 
 # brew install ctags
 # http://www.gmarik.info/blog/2010/ctags-on-OSX/
