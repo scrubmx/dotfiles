@@ -78,6 +78,8 @@ alias zshconfig="subl ~/.zshrc"
 alias zshconf="subl ~/.zshrc"
 alias gitconfig="subl ~/.gitconfig"
 alias gitconf="subl ~/.gitconfig"
+alias sshconf="subl ~/.ssh/config"
+alias sshedit="subl ~/.ssh/config"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -93,14 +95,10 @@ alias rmine="open -a '/Applications/RubyMine.app'"
 alias xcode="open -a '/Applications/Xcode.app'"
 alias calendar="open -a '/Applications/Calendar.app'"
 alias spotify="open -a '/Applications/Spotify.app'"
-alias intelli="open -a '/Applications/IntelliJ IDEA 14 CE.app.'"
 alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com/"
 alias github="open -a '/Applications/Google Chrome.app' https://github.com/$(whoami)"
+alias gist="open -a '/Applications/Google Chrome.app' https://gist.github.com/$(whoami)"
 alias trello="open -a '/Applications/Google Chrome.app' https://trello.com"
-
-# Edit the ssh config file
-alias sshconf="subl ~/.ssh/config"
-alias sshedit="subl ~/.ssh/config"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -198,8 +196,15 @@ alias ks="karma start karma.conf.js"
 #  OS X Specific aliases
 # ------------------------------------------------------------------------------
 
+# Add Paulina voice to Mac OS X
+#   - Navigate to: System Preferences > Dictation & Speech > Text to Speech
+#   - Select the System Voice menu and choose "Customize" in the drop-down
+#   - Choose the voice: Spanish (Mexico) > Paulina
+alias say="say --voice=Paulina"
+
 # Copy shy key to clipboard
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+alias copyssh="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 
 # Show/hide full path on finder titlebar
 alias showpath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES; killall Finder"
