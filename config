@@ -33,3 +33,9 @@ Host datacreativa
     Hostname datacreativa.rocks
     IdentityFile ~/.ssh/boombuilders
     User forge
+
+# ZigoCapital
+Host zigocapital
+	Hostname zigocapital.com
+	IdentityFile ~/.ssh/zigocapital
+	User forge
