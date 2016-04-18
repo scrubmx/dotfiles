@@ -6,7 +6,13 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+# Shortcuts
+alias code="cd ~/Code"
 alias sites="cd ~/Sites"
+alias dl="cd ~/Downloads"
+alias dk="cd ~/Desktop"
+alias dr="cd ~/Dropbox"
 
 # List files pretty format and colors
 alias ls='ls -FGH'
@@ -27,12 +33,6 @@ alias ql="qlmanage -p 2>/dev/null"
 
 # File size
 alias fs="stat -f \"%z bytes\""
-
-# Shortcuts
-alias dl="cd ~/Downloads"
-alias dk="cd ~/Desktop"
-alias dr="cd ~/Dropbox"
-alias code="cd ~/Code"
 
 
 # ------------------------------------------------------------------------------
