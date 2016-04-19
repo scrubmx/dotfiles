@@ -158,10 +158,13 @@ alias dal="sudo composer dump-autoload"
 
 # Laravel artisan shortcuts
 alias pa="php artisan"
-alias m:migration="php artisan make:migration"
 alias m:controller="php artisan make:controller"
-alias m:model="php artisan make:model"
 alias m:job="php artisan make:job"
+alias m:migration="php artisan make:migration"
+alias m:model="php artisan make:model"
+alias m:request="php artisan make:request"
+alias m:seeder="php artisan make:seeder"
+alias m:test="php artisan make:test"
 
 # Testing
 alias tb="vendor/bin/behat"
