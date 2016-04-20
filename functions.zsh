@@ -239,6 +239,10 @@ function hs() {
            command="ssh"
         fi
 
+        if [ "$command" = "down" ]; then
+           command="halt"
+        fi
+
         vagrant "$command"
     fi
 
