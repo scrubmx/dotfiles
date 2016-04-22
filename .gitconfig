@@ -10,8 +10,8 @@
 [commit]
     template = ~/.gitmessage
 [alias]
+    c = commit -v
     br = branch
-    ci = commit -v
     co = checkout
     st = status
     dt = difftool
@@ -21,8 +21,9 @@
     wc = git whatchanged -p --abbrev-commit --pretty=medium
     dlc = diff --cached HEAD^
     branches = branch -vv
-    unstage = reset HEAD --
     changed = diff-tree --no-commit-id --name-only -r
+    conflicts = diff --diff-filter=U
+    unstage = reset HEAD --
     ours = "!f() { git checkout --ours $@ && git add $@; }; f"
     theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
     filelog = log --graph --decorate --stat --pretty=short --abbrev-commit
