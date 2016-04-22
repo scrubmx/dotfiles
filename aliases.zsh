@@ -8,8 +8,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Shortcuts
-alias code="cd ~/Code"
 alias sites="cd ~/Sites"
+alias co="cd ~/Code"
 alias dl="cd ~/Downloads"
 alias dk="cd ~/Desktop"
 alias dr="cd ~/Dropbox"
@@ -40,9 +40,10 @@ alias fs="stat -f \"%z bytes\""
 # ------------------------------------------------------------------------------
 
 # Super user
-alias _='sudo'
-alias please='sudo'
-alias fucking='sudo'
+alias _="sudo"
+alias please="sudo"
+alias fucking="sudo"
+alias fuck="sudo $(fc -ln -1)"
 
 # Refresh dotfiles for the current shell
 alias refresh="source ~/.zshrc"
@@ -128,11 +129,6 @@ alias gitx="/Applications/GitX.app/Contents/Resources/gitx"
 #  Web Development
 # ------------------------------------------------------------------------------
 
-# JavaScriptCore REPL
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
-[ -e "${jscbin}" ] && alias jsc="${jscbin}";
-unset jscbin;
-
 # Start/Stop Local MySQL Server
 alias startmysql="sudo /usr/local/mysql/support-files/mysql.server start"
 alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
@@ -176,7 +172,7 @@ alias tc="vendor/bin/codecept run"
 alias t="clear!; phpunit --stop-on-failure --stop-on-error"
 
 # ------------------------------------------------------------------------------
-#  Ruby on Rails
+#  Ruby
 # ------------------------------------------------------------------------------
 
 # Rails shortcuts
@@ -192,7 +188,24 @@ alias rt="rspec spec -f d"
 #  JavaScript
 # ------------------------------------------------------------------------------
 
+# Create a node specific .gitignore
+alias gitignorenode="\curl https://www.gitignore.io/api/node >> .gitignore"
+
+# Karma start
 alias ks="karma start karma.conf.js"
+
+# JavaScriptCore REPL
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
+[ -e "${jscbin}" ] && alias jsc="${jscbin}";
+unset jscbin;
+
+
+# ------------------------------------------------------------------------------
+#  Python
+# ------------------------------------------------------------------------------
+
+# Create a python specific .gitignore
+alias gitignorepython="\curl https://www.gitignore.io/api/python >> .gitignore"
 
 
 # ------------------------------------------------------------------------------
