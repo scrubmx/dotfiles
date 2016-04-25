@@ -204,6 +204,11 @@ unset jscbin;
 #  Python
 # ------------------------------------------------------------------------------
 
+alias py='python'
+alias py3='python3'
+alias ipy='ipython'
+alias ipy3='ipython3'
+
 # Create a python specific .gitignore
 alias gitignorepython="\curl https://www.gitignore.io/api/python >> .gitignore"
 
