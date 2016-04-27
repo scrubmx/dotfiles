@@ -56,7 +56,7 @@
     tool = kaleidoscope
 [difftool]
     prompt = false
-[difftool  "kaleidoscope"]
+[difftool "kaleidoscope"]
     cmd = /Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff --wait "$LOCAL" "$REMOTE"
 [filter "media"]
     required = true
