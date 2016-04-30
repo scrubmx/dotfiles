@@ -36,6 +36,6 @@ Host datacreativa
 
 # ZigoCapital
 Host zigocapital
-	Hostname zigocapital.com
-	IdentityFile ~/.ssh/zigocapital
-	User forge
+    Hostname zigocapital.com
+    IdentityFile ~/.ssh/zigocapital
+    User forge
