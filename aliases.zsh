@@ -7,6 +7,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# Clear the screen
+alias c="clear"
+
 # Shortcuts
 alias sites="cd ~/Sites"
 alias co="cd ~/Code"
