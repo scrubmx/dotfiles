@@ -176,13 +176,6 @@ function work() {
     done
 }
 
-# Close distracting apps
-function focus() {
-    osascript -e 'quit app "Calendar"'
-    osascript -e 'quit app "Mail"'
-    osascript -e 'quit app "Messages"'
-}
-
 # https://github.com/taylorotwell/zap/blob/master/zap.sh
 function zap() {
     USAGE="Usage: zap [remember|to|forget|locations] [bookmark]" ;
