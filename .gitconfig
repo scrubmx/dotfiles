@@ -16,9 +16,7 @@
     st = status
     dt = difftool
     la = "!git config -l | grep alias | cut -c 7-"
-    lg = log --graph --pretty=format:'%C(blue)%h%Creset %C(green)(%cr)%C(auto)%d %C(white)%s %C(dim white)by %C(reset)%C(cyan)%an%Creset'
-    lol = log --graph --oneline --decorateq
-    logs = log --graph --pretty=format:'%C(yellow)%h%Creset%C(cyan)%C(auto)%d%Creset %C(cyan)(%cr)%Creset %C(green)%ce%Creset %s'
+    lol = log --graph --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
     wc = git whatchanged -p --abbrev-commit --pretty=medium
     dlc = diff --cached HEAD^
     append = commit --amend --no-edit
