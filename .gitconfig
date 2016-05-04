@@ -1,5 +1,5 @@
 [user]
-    name = scrub
+    name = scrubmx
     email = scrub.mx@gmail.com
 [github]
     user = scrubmx
@@ -17,9 +17,11 @@
     dt = difftool
     la = "!git config -l | grep alias | cut -c 7-"
     lg = log --graph --pretty=format:'%C(blue)%h%Creset %C(green)(%cr)%C(auto)%d %C(white)%s %C(dim white)by %C(reset)%C(cyan)%an%Creset'
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lol = log --graph --oneline --decorateq
+    logs = log --graph --pretty=format:'%C(yellow)%h%Creset%C(cyan)%C(auto)%d%Creset %C(cyan)(%cr)%Creset %C(green)%ce%Creset %s'
     wc = git whatchanged -p --abbrev-commit --pretty=medium
     dlc = diff --cached HEAD^
+    append = commit --amend --no-edit
     branches = branch -vv
     changed = diff-tree --no-commit-id --name-only -r
     conflicts = diff --diff-filter=U
