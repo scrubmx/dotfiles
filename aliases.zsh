@@ -127,6 +127,9 @@ alias gitx="/Applications/GitX.app/Contents/Resources/gitx"
 # Open Firefox and browse to hulu.com, also open a socks5 proxy.
 # alias hulu="open -a '/Applications/Firefox.app' http://hulu.com & ssh user@server.com -D 8080"
 
+# Generate sha1 digest
+alias sha1='openssl sha1'
+
 
 # ------------------------------------------------------------------------------
 #  Web Development
