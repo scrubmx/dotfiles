@@ -6,6 +6,7 @@ Host *
     ForwardAgent no
     ForwardX11 no
     ForwardX11Trusted yes
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/id_rsa
     Protocol 2
     ServerAliveInterval 60
