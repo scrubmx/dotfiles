@@ -50,6 +50,7 @@ alias fuck="sudo $(fc -ln -1)"
 
 # Refresh dotfiles for the current shell
 alias refresh="source ~/.zshrc"
+alias reload="source ~/.zshrc"
 
 # Super clear
 alias clear!="clear; clear; clear; clear"
