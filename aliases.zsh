@@ -131,6 +131,9 @@ alias gitx="/Applications/GitX.app/Contents/Resources/gitx"
 # Generate sha1 digest
 alias sha1='openssl sha1'
 
+# Copy output of last command to clipboard
+alias pblast="fc -e -|pbcopy"
+
 
 # ------------------------------------------------------------------------------
 #  Web Development
