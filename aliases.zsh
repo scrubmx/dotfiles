@@ -117,9 +117,9 @@ alias reboot='sudo /sbin/reboot'
 alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
 
-# CPU and Memory
+# Display information about CPU and memory
 alias cpu='top -o cpu'
-alias mem='top -o rsize' # memory
+alias mem='top -o rsize'
 
 # Displays changes in a repository or a selected set of commits. 
 alias gitk="/usr/local/git/bin/gitk"
