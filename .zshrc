@@ -15,16 +15,19 @@ unset file
 export UPDATE_ZSH_DAYS=15
 
 # Add custom directories to the PATH variable
+local PHP7="/usr/local/opt/php70/bin"
+local GOLANG="/usr/local/go/bin"
 local COMPOSER="~/.composer/vendor/bin:./vendor/bin"
 local MYSQL="/usr/local/mysql/bin"
 local POSTGRES="/usr/local/postgres/bin"
 local RVM="~/.rvm/bin"
 
-export PATH="$COMPOSER:$MYSQL:$POSTGRES:$RVM:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PHP7:$COMPOSER:$GOLANG:$MYSQL:$POSTGRES:$RVM:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Add other environment variables for user scripts
 export DIGITALOCEAN_SECRET_KEY="SomeRandomString"
 export COMPOSER_DISABLE_XDEBUG_WARN=1
+export GOPATH="$HOME/Code/Golang"
 
 # Change default text editor from vi to sublime text
 export EDITOR="subl -w"
