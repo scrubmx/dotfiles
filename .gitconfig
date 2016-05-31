@@ -21,6 +21,7 @@
     dlc = diff --cached HEAD^
     append = commit --amend --no-edit
     branches = branch -vv
+    remotes = remote -v
     changed = diff-tree --no-commit-id --name-only -r
     conflicts = diff --diff-filter=U
     unstage = reset HEAD --
