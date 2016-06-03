@@ -3,7 +3,7 @@ function create() {
     if [ $# -eq 0 ]; then
        echo "usage: create filename [filename [filename [...]]]"
     else
-        touch $@; chmod 775 $@; subl $@
+        touch $@; chmod 755 $@; subl $@
     fi
 }
 
