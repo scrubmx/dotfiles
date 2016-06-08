@@ -172,6 +172,9 @@ alias m:request="php artisan make:request"
 alias m:seeder="php artisan make:seeder"
 alias m:test="php artisan make:test"
 
+# Interact with your laravel application
+alias tinker="php artisan tinker"
+
 # Testing
 alias tb="vendor/bin/behat"
 alias tu="vendor/bin/phpunit"
