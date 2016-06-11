@@ -165,6 +165,7 @@ alias dal="sudo composer dump-autoload"
 # Laravel artisan shortcuts
 alias pa="php artisan"
 alias m:controller="php artisan make:controller"
+alias m:console="php artisan make:console"
 alias m:job="php artisan make:job"
 alias m:migration="php artisan make:migration"
 alias m:model="php artisan make:model"
