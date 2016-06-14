@@ -241,3 +241,12 @@ function hs() {
 
     cd -
 }
+
+# Apache Tomcat functions
+function tomcatup() { 
+    /usr/local/tomcat/bin/startup.sh
+}
+
+function tomcatdown() { 
+    /usr/local/tomcat/bin/shutdown.sh
+}
