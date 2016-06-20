@@ -5,7 +5,7 @@
     user = scrubmx
 [core]
     editor = subl --wait
-    pager = less --chop-long-lines
+    pager = /usr/local/git/contrib/diff-highlight/diff-highlight | less --chop-long-lines
     excludesfile = ~/.gitignore_global
 [commit]
     template = ~/.gitmessage
