@@ -192,8 +192,9 @@ alias t="clear!; phpunit --stop-on-failure --stop-on-error"
 # ------------------------------------------------------------------------------
 
 # Rails shortcuts
-alias rg='rails g'
-alias rc='rails c'
+alias rg='rails generate'
+alias rc='rails console'
+alias rs='rails server'
 alias rd='rails dbconsole'
 
 # Testing with RSpec
