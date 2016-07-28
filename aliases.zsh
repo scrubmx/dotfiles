@@ -151,6 +151,9 @@ alias vm='function __homestead() { (cd ~/.composer/vendor/laravel/homestead && v
 # http://docs.seleniumhq.org/download/
 alias selenium='java -jar /usr/local/bin/selenium-server-standalone.jar'
 
+# Reset the index and working tree and removes untracked files from the working tree
+alias nah="git reset --hard; git clean -df"
+
 
 # ------------------------------------------------------------------------------
 #  PHP Specific
