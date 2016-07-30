@@ -42,6 +42,9 @@ alias fs="stat -f \"%z bytes\""
 #  Miscellaneous
 # ------------------------------------------------------------------------------
 
+# Make aliases sudo-able
+alias sudo="sudo "
+
 # Super user
 alias _="sudo"
 alias please="sudo"
