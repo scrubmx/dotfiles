@@ -28,6 +28,7 @@ export PATH="$PHP7:$COMPOSER:$GOLANG:$MYSQL:$POSTGRES:$RVM:~/bin:/usr/local/bin:
 export DIGITALOCEAN_SECRET_KEY="SomeRandomString"
 export COMPOSER_DISABLE_XDEBUG_WARN=1
 export GOPATH="$HOME/Code/Golang"
+export PYTHONSTARTUP="$HOME/.pythonrc"
 
 # Change default text editor from vi to sublime text
 export EDITOR="subl -w"
