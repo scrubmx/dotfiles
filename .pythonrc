@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import os
+
+
+# Accept both exit and quit to accommodate the programmer's obvious
+# desire to quit its interactive console. Since Python pedantically instructs
+# the programmer how to properly do what's requested, even though it obviously
+# knows what is meant (since it's displaying the error message).
+class ReplExit(object):
+    def __repr__(self):
+        raise SystemExit
+
+exit = ReplExit()
+quit = ReplExit()
+
+
+# Since python won't provide a way to clear the screen
+class ReplClear(object):
+    def __repr__(self):
+        os.system('clear')
+        return ''
+
+clear = ReplClear()
+
+
+# Because this make more sense
+Nope = None
