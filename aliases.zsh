@@ -206,6 +206,9 @@ alias rd='rails dbconsole'
 # Testing with RSpec
 alias rt="rspec spec -f d"
 
+# Show all rake tasks
+alias tasks="rake --tasks --all"
+
 # Create a rails specific .gitignore
 alias gitignorerails="\curl https://www.gitignore.io/api/rails >> .gitignore"
 
