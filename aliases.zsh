@@ -203,6 +203,8 @@ alias rc='rails console'
 alias rs='rails server'
 alias rd='rails dbconsole'
 
+alias r:migrate='rake db:migrate'
+
 # Testing with RSpec
 alias rt="rspec spec -f d"
 
