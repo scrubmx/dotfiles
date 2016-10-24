@@ -204,6 +204,9 @@ alias rs='rails server'
 alias rd='rails dbconsole'
 
 alias r:migrate='rake db:migrate'
+alias r:model='rails generate model'
+alias r:controller='rails generate controller'
+alias r:migration='rails generate migration'
 
 # Testing with RSpec
 alias rt="rspec spec -f d"
