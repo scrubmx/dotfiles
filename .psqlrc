@@ -1,8 +1,24 @@
+-- Official docs: http://www.postgresql.org/docs/9.3/static/app-psql.html
+-- Unofficial docs: http://robots.thoughtbot.com/improving-the-command-line-postgres-experience
+
+\echo '\Host Date Time : '`date` '\n'
+\echo '    \\h\t-- Help with psql commands'
+\echo '    \\?\t-- Help with psql commands\n'
+
 -- prevent output of .psqlrc commands
 \set QUIET yes
 
 -- get rid of duplicates in history
 \set HISTCONTROL ignoredups
+
+-- display null as a visible string
+\pset null '[NULL]'
+
+-- autocomplete keywords in upper-case
+\set COMP_KEYWORD_CASE upper
+
+-- clear the screen usage: ':clear'
+\set clear '\\! clear;'
 
 -- show timing info for queries
 \timing
@@ -11,7 +27,7 @@
 \x auto
 
 -- customize the psql prompt
--- based on: http://i-dba.blogspot.mx/2014/02/colorizing-psql-prompt-guide.html
+-- http://i-dba.blogspot.mx/2014/02/colorizing-psql-prompt-guide.html
 \set PROMPT1 '\n%m %033[36m%n %033[2;37mat %033[0;33m%/ %033[2;37m%`\! date "+%d/%m/%Y %H:%M"` %[%033[1;31m%]%x %[%033[K%]%[%033[0m%]\n%[%033[1;34m%]%R%#%[%033[0m%] '
 \set PROMPT2 '%[%033[1;34m%]%33[2m%R%#%[%033[0m%] '
 
