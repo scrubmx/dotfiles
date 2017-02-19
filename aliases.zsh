@@ -193,6 +193,7 @@ alias tc="vendor/bin/codecept run"
 # Useful for laravel projects
 alias t="clear!; phpunit --stop-on-failure --stop-on-error"
 
+
 # ------------------------------------------------------------------------------
 #  Ruby
 # ------------------------------------------------------------------------------
@@ -216,6 +217,14 @@ alias tasks="rake --tasks --all"
 
 # Create a rails specific .gitignore
 alias gitignorerails="\curl https://www.gitignore.io/api/rails >> .gitignore"
+
+
+# ------------------------------------------------------------------------------
+#  Elixir
+# ------------------------------------------------------------------------------
+
+alias i='iex'
+alias ips='iex -S mix phoenix.server'
 
 
 # ------------------------------------------------------------------------------
