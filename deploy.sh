@@ -1,4 +1,4 @@
-cd /home/forge/appname.mx
+cd /home/forge/appname.com
 
 # Put the application into maintenance mode
 php artisan down
