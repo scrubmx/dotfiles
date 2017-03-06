@@ -1,4 +1,4 @@
-cd /home/forge/app.com
+cd /home/forge/appname.mx
 
 # Put the application into maintenance mode
 php artisan down
@@ -27,13 +27,13 @@ php artisan auth:clear-resets
 php artisan optimize --force
 
 # Submit a deployment notification to bugsnag
-# php artisan bugsnag:deploy                        \
-#  --repository "https://github.com/scrubmx/app"    \
-#  --branch "master"                                \
+# php artisan bugsnag:deploy                            \
+#  --repository "https://github.com/scrubmx/appname"    \
+#  --branch "master"                                    \
 #  --revision "$(git rev-parse HEAD)"
 
-# Restart the queue worker
-sudo supervisorctl restart app
+# Restart the queue workers
+sudo supervisorctl restart appname
 
 # Bring the application out of maintenance mode
 php artisan up
