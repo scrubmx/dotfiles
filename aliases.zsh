@@ -137,6 +137,9 @@ alias sha1='openssl sha1'
 # Copy output of last command to clipboard
 alias pblast="fc -e -|pbcopy"
 
+# Statistic of the frequnce of your command from your history
+alias commands="history | awk '{CMD[\$2]++; count++} END { for (x in CMD)print CMD[x] \" \" CMD[x]/count*100 \"% \" x }' | grep -v './' | column -c3 -s ' ' -t | sort -nr | nl | head -n10"
+
 
 # ------------------------------------------------------------------------------
 #  Web Development
