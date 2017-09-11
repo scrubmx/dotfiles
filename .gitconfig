@@ -18,7 +18,7 @@
     d = diff HEAD -- . ':!public/css' ':!public/js'
     la = "!git config -l | grep alias | cut -c 7-"
     lol = log --graph --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
-    wc = git whatchanged -p --abbrev-commit --pretty=medium
+    wc = git whatchanged
     dlc = diff --cached HEAD^
     append = commit --amend --no-edit
     branches = branch -vv
