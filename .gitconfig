@@ -15,7 +15,7 @@
     co = checkout
     st = status
     dt = difftool
-    d = diff HEAD -- . ':!public/css' ':!public/js'
+    d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/mix-manifest.json' ':!composer.lock*' ':!npm-shrinkwrap.json'
     la = "!git config -l | grep alias | cut -c 7-"
     lol = log --graph --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
     wc = git whatchanged
@@ -26,6 +26,7 @@
     changed = diff-tree --no-commit-id --name-only -r
     conflicts = diff --diff-filter=U
     unstage = reset HEAD --
+    cleanup = "!f() { git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
     ours = "!f() { git checkout --ours $@ && git add $@; }; f"
     theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
     filelog = log --graph --decorate --stat --pretty=short --abbrev-commit
