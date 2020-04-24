@@ -3,6 +3,8 @@
 # ---------------------------------------------------------
 
 Host *
+    AddKeysToAgent yes
+    UseKeychain yes
     ForwardAgent no
     ForwardX11 no
     ForwardX11Trusted yes
@@ -14,23 +16,22 @@ Host *
     TCPKeepAlive yes
 
 # ---------------------------------------------------------
-# Override as per host
+# Overrides
 # ---------------------------------------------------------
 
-# SolucionesDigital
-Host soluciones
-    Hostname solucionesdigital.com
+Host tangentlabs
+    Hostname 165.227.9.0
+    User scrub
+    
+Host sftp
+    Hostname ec2-54-191-8-6.us-west-2.compute.amazonaws.com
+    IdentityFile ~/.ssh/sftp/boombuilders-sftp.pem
+    User ubuntu
+
+Host links
+    HostName 159.203.110.184
     User forge
 
-# Tangentlabs
-Host tangentlabs
-    DynamicForward 8080
-    Hostname 162.249.126.18
-    Port 443
-    User root
-
-# DataCreativa
-Host datacreativa
-    Hostname datacreativa.rocks
-    IdentityFile ~/.ssh/boombuilders
+Host reports
+    HostName 52.42.218.254
     User forge
