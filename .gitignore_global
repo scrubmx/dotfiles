@@ -1,11 +1,17 @@
 .idea/
+.phpintel/
 _ide_helper.php
 .ruby-gemset
 .ruby-version
 .versions.conf
+.php_cs.cache
+.phpunit.result.cache
 .phpstorm.meta.php
 .DS_Store
-.DS_Store?
+.DS_Store*
+.env.dusk
+phpunit.dusk.xml
+todo.md
 
 *.swp
 *.swo
@@ -14,7 +20,7 @@ _ide_helper.php
 *.sql
 *.sqlite
 
-Icon?
+Icon
 Thumbs.db
 upstream-sync.sh
 tags
