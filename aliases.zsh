@@ -12,10 +12,7 @@ alias c="clear"
 
 # Shortcuts
 alias sites="cd ~/Sites"
-alias co="cd ~/Code"
-alias dl="cd ~/Downloads"
 alias dk="cd ~/Desktop"
-alias dr="cd ~/Dropbox"
 
 # List files pretty format and colors
 alias ls='ls -FGH'
@@ -28,15 +25,15 @@ alias history='fc -l 1'
 alias lsd='ls -l | grep "^d"'
 
 # Like cat but with colors (requires pygments)
+# https://gist.github.com/BretFisher/6f688dde0122399efdca5a9d26100437#gistcomment-2239975
 # pygments style: https://github.com/MozMorris/tomorrow-pygments
 alias check="pygmentize -O style=tomorrownight -f console256 -g"
 
-# Preview a file using QuickLook
-alias ql="qlmanage -p 2>/dev/null"
 
-# File size
-alias fs="stat -f \"%z bytes\""
-
+# Wrap settings
+# https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
+alias wrap="tput smam"
+alias nowrap="tput rmam"
 
 # ------------------------------------------------------------------------------
 #  Miscellaneous
@@ -44,12 +41,6 @@ alias fs="stat -f \"%z bytes\""
 
 # Make aliases sudo-able
 alias sudo="sudo "
-
-# Super user
-alias _="sudo"
-alias please="sudo"
-alias fucking="sudo"
-alias fuck="sudo $(fc -ln -1)"
 
 # Refresh dotfiles for the current shell
 alias refresh="source ~/.zshrc"
@@ -73,89 +64,42 @@ alias lolcow="fortune | cowsay | lolcat"
 #   .-(    ).   ← 12 km/h
 #  (___.__)__)  10 km
 #               0.1 mm
-alias weather="curl -4 http://wttr.in/Mexico_City"
-
-# brew install ctags
-# http://www.gmarik.info/blog/2010/ctags-on-OSX/
-alias ctags="`brew --prefix`/bin/ctags"
+# alias weather="curl -4 http://wttr.in/Mexico_City"
+alias weather="curl -4 http://wttr.in/New_York"
 
 # Create new aliases
 alias newalias="subl ~/.aliases"
 alias newfunction="subl ~/.functions"
-alias zshconfig="subl ~/.zshrc"
 alias zshconf="subl ~/.zshrc"
-alias gitconfig="subl ~/.gitconfig"
 alias gitconf="subl ~/.gitconfig"
 alias sshconf="subl ~/.ssh/config"
-alias sshedit="subl ~/.ssh/config"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Open Applications
-alias vi='vim'
-alias svi='sudo vim'
-alias ssubl="sudo subl"
-alias sublime="subl"
-alias chrome="open -a '/Applications/Google Chrome.app'"
-alias storm="open -a '/Applications/PhpStorm.app'"
-alias rmine="open -a '/Applications/RubyMine.app'"
-alias xcode="open -a '/Applications/Xcode.app'"
-alias calendar="open -a '/Applications/Calendar.app'"
+# alias chrome="open -a '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'"
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias spotify="open -a '/Applications/Spotify.app'"
-alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com/"
-alias github="open -a '/Applications/Google Chrome.app' https://github.com/$(whoami)"
-alias gist="open -a '/Applications/Google Chrome.app' https://gist.github.com/$(whoami)"
+alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com"
+alias gist="open -a '/Applications/Google Chrome.app' https://gist.github.com/scrubmx"
 alias trello="open -a '/Applications/Google Chrome.app' https://trello.com"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 
-# Start calculator with math support
-alias bc='bc -l'
-
-# Reboot / Halt / Shutdown
-alias reboot='sudo /sbin/reboot'
-alias halt='sudo /sbin/halt'
-alias shutdown='sudo /sbin/shutdown'
-
-# Display information about CPU and memory
-alias cpu='top -o cpu'
-alias mem='top -o rsize'
-
-# Displays changes in a repository or a selected set of commits. 
-alias gitk="/usr/local/git/bin/gitk"
-alias gitx="/Applications/GitX.app/Contents/Resources/gitx"
-
 # Open Firefox and browse to hulu.com, also open a socks5 proxy.
-# alias hulu="open -a '/Applications/Firefox.app' http://hulu.com & ssh user@server.com -D 8080"
-
-# Generate sha1 digest
-alias sha1='openssl sha1'
-
-# Copy output of last command to clipboard
-alias pblast="fc -e -|pbcopy"
-
-# Statistic of the frequnce of your command from your history
-alias commands="history | awk '{CMD[\$2]++; count++} END { for (x in CMD)print CMD[x] \" \" CMD[x]/count*100 \"% \" x }' | grep -v './' | column -c3 -s ' ' -t | sort -nr | nl | head -n10"
+alias hulu="open -a '/Applications/Firefox.app' http://hulu.com & ssh -p 443 root@162.249.126.18 -D 8080"
 
 
 # ------------------------------------------------------------------------------
 #  Web Development
 # ------------------------------------------------------------------------------
 
-# Start/Stop Local MySQL Server
-alias startmysql="sudo /usr/local/mysql/support-files/mysql.server start"
-alias mysqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
-
-# Create new virtual host
-alias vhost="subl /private/etc/apache2/extra/httpd-vhosts.conf; subl /etc/hosts"
-alias vm='function __homestead() { (cd ~/.composer/vendor/laravel/homestead && vagrant $*); unset -f __homestead; }; __homestead'
-
 # Download selenium standalone server from:
 # http://docs.seleniumhq.org/download/
-alias selenium='java -jar /usr/local/bin/selenium-server-standalone.jar'
+alias selenium='java -jar /usr/local/share/selenium/standalone-server.jar'
 
 # Reset the index and working tree and removes untracked files from the working tree
 alias nah="git reset --hard; git clean -df"
@@ -165,69 +109,28 @@ alias nah="git reset --hard; git clean -df"
 #  PHP Specific
 # ------------------------------------------------------------------------------
 
-# Create server in the current directory
-alias phpserve="php -S localhost:5000"
-
 # Composer dump autoload
-alias dal="sudo composer dump-autoload"
+alias dal="composer dump-autoload"
+
+# Run phpunit test suite
+alias t="clear & phpunit --order-by=defects --stop-on-failure --stop-on-error"
 
 # Laravel artisan shortcuts
-alias pa="php artisan"
-alias m:controller="php artisan make:controller"
-alias m:console="php artisan make:console"
-alias m:event="php artisan make:event"
-alias m:listener="php artisan make:listener"
-alias m:job="php artisan make:job"
-alias m:migration="php artisan make:migration"
-alias m:model="php artisan make:model"
-alias m:request="php artisan make:request"
-alias m:seeder="php artisan make:seeder"
-alias m:test="php artisan make:test"
-
-# Interact with your laravel application
+alias artisan="php artisan"
 alias tinker="php artisan tinker"
-
-# Testing
-alias tb="vendor/bin/behat"
-alias tu="vendor/bin/phpunit"
-alias ts="vendor/bin/phpspec run"
-alias tc="vendor/bin/codecept run"
-
-# Useful for laravel projects
-alias t="clear!; phpunit --stop-on-failure --stop-on-error"
-
-
-# ------------------------------------------------------------------------------
-#  Ruby
-# ------------------------------------------------------------------------------
-
-# Rails shortcuts
-alias rg='rails generate'
-alias rc='rails console'
-alias rs='rails server'
-alias rd='rails dbconsole'
-
-alias r:migrate='rake db:migrate'
-alias r:model='rails generate model'
-alias r:controller='rails generate controller'
-alias r:migration='rails generate migration'
-
-# Testing with RSpec
-alias rt="rspec spec -f d"
-
-# Show all rake tasks
-alias tasks="rake --tasks --all"
-
-# Create a rails specific .gitignore
-alias gitignorerails="\curl https://www.gitignore.io/api/rails >> .gitignore"
 
 
 # ------------------------------------------------------------------------------
 #  Elixir
 # ------------------------------------------------------------------------------
 
-alias i='iex'
-alias ips='iex -S mix phoenix.server'
+alias mixer="iex -S mix phoenix.server" # like tinker from laravel
+alias itest="iex -S mix test --trace" # run tests and stop on IEx.pry
+alias prytest="iex -S mix test --trace" # run tests and stop on IEx.pry
+alias pry='fc -e - mix\ test=iex\ -S\ mix\ test\ --trace mix\ test'
+alias server="mix phoenix.server"
+alias unfuckpg="rm /usr/local/var/postgres/postmaster.pid"
+alias refreshdb="dropdb paymex_test && createdb paymex_test && dropdb paymex && createdb paymex"
 
 
 # ------------------------------------------------------------------------------
@@ -245,18 +148,9 @@ jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources
 [ -e "${jscbin}" ] && alias jsc="${jscbin}";
 unset jscbin;
 
-
-# ------------------------------------------------------------------------------
-#  Python
-# ------------------------------------------------------------------------------
-
-alias py='python'
-alias py3='python3'
-alias ipy='ipython'
-alias ipy3='ipython3'
-
-# Create a python specific .gitignore
-alias gitignorepython="\curl https://www.gitignore.io/api/python >> .gitignore"
+# Fix: Node Sass does not yet support your current environment: OS X
+# https://github.com/sass/node-sass/issues/1764#issuecomment-262439819
+alias fixsass="npm rebuild node-sass"
 
 
 # ------------------------------------------------------------------------------
@@ -269,8 +163,12 @@ alias gitignorepython="\curl https://www.gitignore.io/api/python >> .gitignore"
 #   - Choose the voice: Spanish (Mexico) > Paulina
 alias say="say --voice=Paulina"
 
+# Flush DNS cache
+alias fushdns="sudo killall -HUP mDNSResponder"
+
 # Copy shy key to clipboard
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+alias copykey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 alias copyssh="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 
 # Show/hide full path on finder titlebar
@@ -288,3 +186,13 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Delete all .DS_Store files recursively
 alias deleteDS="find . -name '*.DS_Store' -type f -ls -delete"
 alias removeDS="find . -name '*.DS_Store' -type f -ls -delete"
+
+alias logs="tail -f $(pwd)/storage/logs/laravel.log | awk '\
+    {matched=0}\
+    /INFO:/    {matched=1; print \"\\033[0;37m\" \$0 \"\\033[0m\"}\
+    /WARNING:/ {matched=1; print \"\\033[0;34m\" \$0 \"\\033[0m\"}\
+    /ERROR:/   {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
+    /Next/     {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
+    /ALERT:/   {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
+    /Stack trace:/ {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
+    matched==0            {print \"\\033[0;33m\" \$0 \"\\033[0m\"}'"
