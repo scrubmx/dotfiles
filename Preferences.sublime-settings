@@ -4,25 +4,22 @@
 	"caret_extra_top": 6,
 	"caret_extra_width": 1,
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/User/Themes/Tomorrow-Night.tmTheme",
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
-		".index.html.swp",
-		".DS_Store",
-		"__init__.py",
-		"*.pyc"
+		".DS_Store"
 	],
 	"folder_exclude_patterns":
 	[
-		"env",
 		".git",
 		".sass-cache",
 		".idea",
-		"__pycache__"
+		".phpintel",
+		"_build"
 	],
-	"font_face": "Input Mono Narrow",
+	"font_face": "Hack",
 	"font_size": 15,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
