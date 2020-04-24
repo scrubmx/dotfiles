@@ -5,7 +5,7 @@
     user = scrubmx
 [core]
     editor = subl --wait
-    pager = /usr/local/git/contrib/diff-highlight/diff-highlight | less --chop-long-lines -M +Gg
+    pager = /usr/local/bin/diff-so-fancy | less --chop-long-lines -M +Gg
     excludesfile = ~/.gitignore_global
 [commit]
     template = ~/.gitmessage
@@ -15,7 +15,7 @@
     co = checkout
     st = status
     dt = difftool
-    d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/mix-manifest.json' ':!composer.lock*' ':!npm-shrinkwrap.json'
+    d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!package-lock.json' ':!yarn.lock' ':!npm-shrinkwrap.json' ':!composer.lock*'
     la = "!git config -l | grep alias | cut -c 7-"
     lol = log --graph --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
     wc = git whatchanged
@@ -31,6 +31,13 @@
     theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
     filelog = log --graph --decorate --stat --pretty=short --abbrev-commit
     latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+    tracking = "!f() { git for-each-ref --format '%(refname:short):%(upstream:short)' 'refs/heads' | egrep -v ':$'; }; f"
+    is-clean-workdir = "!f() { git diff --stat --exit-code || { echo \"Workdir dirty\"; exit 1; }; }; f"
+    is-clean-index = "!f() { git diff --stat --cached --exit-code || { echo \"Index dirty\"; exit 2; }; }; f"
+    is-clean = "!f() { git is-clean-workdir && git is-clean-index; }; f"
+    co-merge = "!f() { local=\"$1\"; remote=\"$2\"; git checkout \"$local\"; git merge --ff-only \"$remote\"; }; f"
+    current-branch = rev-parse --abbrev-ref HEAD
+    sync = "!f() { git is-clean || { echo Aborting sync.; exit 1; }; current=$(git current-branch); git fetch --all; git tracking | while IFS=: read local remote; do echo \"Merging $local with $remote\"; git co-merge \"$local\" \"$remote\"; done 3>&1 1>&2 2>&3 | egrep -i --color 'fatal|$' 3>&1 1>&2 2>&3; git checkout \"$current\"; }; f"
 [color]
     ui = true
     status = auto
@@ -54,13 +61,14 @@
     untracked = cyan
     branch = blue bold
 [push]
-    default = tracking
-[diff]
-    tool = kaleidoscope
-[difftool]
-    prompt = false
-[difftool "kaleidoscope"]
-    cmd = /Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff --wait "$LOCAL" "$REMOTE"
+    # https://git-scm.com/docs/git-config#git-config-pushdefault
+    # default = simple
+#[diff]
+#    tool = kaleidoscope
+#[difftool]
+#    prompt = false
+#[difftool "kaleidoscope"]
+#    cmd = /Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff --wait "$LOCAL" "$REMOTE"
 [filter "media"]
     required = true
     clean = git media clean %f
