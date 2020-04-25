@@ -1,0 +1,4 @@
+--theme=base16
+--paging=auto
+--pager="less --chop-long-lines -M +Gg"
+--style=plain

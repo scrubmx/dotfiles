@@ -13,6 +13,7 @@ brew update
 brew install fortune
 brew install cowsay
 brew install lolcat
+brew install bat
 brew install grep
 brew install wget
 brew install tree
@@ -37,7 +38,6 @@ brew tap homebrew/cask
 brew cask install 1password
 brew cask install alfred
 brew cask install bartender
-brew cask install bear
 brew cask install coderunner
 brew cask install daisydisk
 brew cask install dropbox
@@ -64,13 +64,10 @@ brew install mas
 
 mas install 937984704 # Amphetamine
 mas install 904280696 # Things
+mas install 1091189122 # Bear
 
 # Remove stale lock files and outdated downloads
-brew cleanup --force
-rm -f -r /Library/Caches/Homebrew/*
-
-# install pygmentize
-sudo easy_install Pygments
+brew cleanup
 
 # Install global composer packages
 /usr/local/bin/composer global require laravel/installer
