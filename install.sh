@@ -41,6 +41,8 @@ brew cask install bear
 brew cask install coderunner
 brew cask install daisydisk
 brew cask install dropbox
+brew cask install droplr
+brew cask install figma
 brew cask install google-chrome
 brew cask install insomnia
 brew cask install karabiner-elements
@@ -52,6 +54,7 @@ brew cask install sublime-text
 brew cask install tableplus
 brew cask install transmission
 brew cask install transmit
+brew cask install vitamin-r
 brew cask install visual-studio-code
 brew cask install vlc
 brew cask install zoomus
@@ -61,6 +64,10 @@ brew install mas
 
 mas install 937984704 # Amphetamine
 mas install 904280696 # Things
+
+# Remove stale lock files and outdated downloads
+brew cleanup --force
+rm -f -r /Library/Caches/Homebrew/*
 
 # install pygmentize
 sudo easy_install Pygments
