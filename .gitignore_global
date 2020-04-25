@@ -1,14 +1,17 @@
 .idea/
 .phpintel/
+.vagrant/
 _ide_helper.php
 .ruby-gemset
 .ruby-version
 .versions.conf
+.vscode
 .php_cs.cache
 .phpunit.result.cache
 .phpstorm.meta.php
 .DS_Store
 .DS_Store*
+.Trashes
 .env.dusk
 phpunit.dusk.xml
 todo.md

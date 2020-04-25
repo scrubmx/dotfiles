@@ -2,7 +2,6 @@
 
 import os
 
-
 # Accept both exit and quit to accommodate the programmer's obvious
 # desire to quit its interactive console. Since Python pedantically instructs
 # the programmer how to properly do what's requested, even though it obviously
@@ -26,3 +25,4 @@ clear = ReplClear()
 
 # Because this make more sense
 Nope = None
+

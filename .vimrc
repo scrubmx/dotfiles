@@ -96,3 +96,4 @@ augroup custom
   "Auto source the .vimrc file when saving
   autocmd BufWritePost .vimrc source %
 augroup END
+
