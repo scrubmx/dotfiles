@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Install oh-my-zsh
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-chsh -s $(which zsh)
-
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -69,10 +65,16 @@ mas install 1091189122 # Bear
 # Remove stale lock files and outdated downloads
 brew cleanup
 
+# Install oh-my-zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+
+# Get our custom theme
+wget -O ~/.oh-my-zsh/themes/custom.zsh-theme https://raw.githubusercontent.com/scrubmx/dotfiles/master/.oh-my-zsh/themes/custom.zsh-theme
+
 # Install global composer packages
-/usr/local/bin/composer global require laravel/installer
-/usr/local/bin/composer global require laravel/valet
-/usr/local/bin/composer global require friendsofphp/php-cs-fixer
+composer global require laravel/installer
+composer global require laravel/valet
+composer global require friendsofphp/php-cs-fixer
 
 # Create a sites directory
 mkdir $HOME/Sites
