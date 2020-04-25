@@ -21,6 +21,7 @@ brew install sqlite
 brew install node
 brew install yarn
 brew install php
+brew install mariadb
 brew install postgresql
 brew install composer
 
@@ -75,6 +76,10 @@ wget -O ~/.oh-my-zsh/themes/custom.zsh-theme https://raw.githubusercontent.com/s
 composer global require laravel/installer
 composer global require laravel/valet
 composer global require friendsofphp/php-cs-fixer
+
+# Install vim plugin manager https://linuxhint.com/vim-vundle-tutorial
+# Have to still run :PluginInstall
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Create a sites directory
 mkdir $HOME/Sites
