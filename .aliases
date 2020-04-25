@@ -118,6 +118,7 @@ alias t="clear & phpunit --order-by=defects --stop-on-failure --stop-on-error"
 # Laravel artisan shortcuts
 alias artisan="php artisan"
 alias tinker="php artisan tinker"
+alias migrate="php artisan migrate"
 
 
 # ------------------------------------------------------------------------------
