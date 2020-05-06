@@ -44,6 +44,7 @@ brew cask install google-chrome
 brew cask install insomnia
 brew cask install karabiner-elements
 brew cask install moom
+brew cask install nordvpn
 brew cask install phpstorm
 brew cask install slack
 brew cask install spotify
