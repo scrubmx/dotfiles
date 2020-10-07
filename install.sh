@@ -63,6 +63,7 @@ brew install mas
 mas install 937984704 # Amphetamine
 mas install 904280696 # Things
 mas install 1091189122 # Bear
+mas install 605732865 # RSS Bot
 
 # Remove stale lock files and outdated downloads
 brew cleanup
