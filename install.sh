@@ -69,7 +69,8 @@ mas install 605732865 # RSS Bot
 brew cleanup
 
 # Install oh-my-zsh
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+# https://github.com/ohmyzsh/ohmyzsh#basic-installation
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # Get our custom theme
 wget -O ~/.oh-my-zsh/themes/custom.zsh-theme https://raw.githubusercontent.com/scrubmx/dotfiles/master/.oh-my-zsh/themes/custom.zsh-theme
@@ -86,5 +87,4 @@ composer global require squizlabs/php_codesniffer
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Create custom directories
-mkdir "$HOME/Code"
-mkdir "$HOME/Sites"
+mkdir ~/Sites
