@@ -77,11 +77,14 @@ wget -O ~/.oh-my-zsh/themes/custom.zsh-theme https://raw.githubusercontent.com/s
 # Install global composer packages
 composer global require laravel/installer
 composer global require laravel/valet
+composer global require psy/psysh
 composer global require friendsofphp/php-cs-fixer
+composer global require squizlabs/php_codesniffer
 
 # Install vim plugin manager https://linuxhint.com/vim-vundle-tutorial
 # Have to still run :PluginInstall
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# Create a sites directory
-mkdir $HOME/Sites
+# Create custom directories
+mkdir "$HOME/Code"
+mkdir "$HOME/Sites"
