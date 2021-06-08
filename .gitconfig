@@ -4,33 +4,33 @@
 [github]
     user = scrubmx
 [core]
-    editor = subl --wait
+    editor = code --wait
     pager = /usr/local/bin/diff-so-fancy | less --chop-long-lines -M +Gg
     excludesfile = ~/.gitignore_global
 [commit]
     template = ~/.gitmessage
 [alias]
-    c = commit -v
     br = branch
     co = checkout
     st = status
     dt = difftool
     d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!package-lock.json' ':!yarn.lock' ':!npm-shrinkwrap.json' ':!composer.lock*'
     la = "!git config -l | grep alias | cut -c 7-"
-    lol = log --graph --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
-    wc = git whatchanged
-    wip="commit -m WIP"
+    l = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
+    lol = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
+    lf = log --color --stat --author-date-order --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
+    wip="commit --no-verify --no-gpg-sign -m WIP"
     dlc = diff --cached HEAD^
     append = commit --amend --no-edit
-    branches = branch -vv
-    remotes = remote -v
-    changed = diff-tree --no-commit-id --name-only -r
-    conflicts = diff --diff-filter=U
     unstage = reset HEAD --
+    branches = branch -vv
+    conflicts = diff --diff-filter=U
+    hash = rev-parse --short --verify HEAD
+    remotes = remote -v
+    stashes = stash list --pretty=format:'%C(yellow)%gd %C(green)%ar%C(reset) %gs'
     cleanup = "!f() { git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
     ours = "!f() { git checkout --ours $@ && git add $@; }; f"
     theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
-    filelog = log --graph --decorate --stat --pretty=short --abbrev-commit
     latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
     tracking = "!f() { git for-each-ref --format '%(refname:short):%(upstream:short)' 'refs/heads' | egrep -v ':$'; }; f"
     is-clean-workdir = "!f() { git diff --stat --exit-code || { echo \"Workdir dirty\"; exit 1; }; }; f"
@@ -39,6 +39,7 @@
     co-merge = "!f() { local=\"$1\"; remote=\"$2\"; git checkout \"$local\"; git merge --ff-only \"$remote\"; }; f"
     current-branch = rev-parse --abbrev-ref HEAD
     sync = "!f() { git is-clean || { echo Aborting sync.; exit 1; }; current=$(git current-branch); git fetch --all; git tracking | while IFS=: read local remote; do echo \"Merging $local with $remote\"; git co-merge \"$local\" \"$remote\"; done 3>&1 1>&2 2>&3 | egrep -i --color 'fatal|$' 3>&1 1>&2 2>&3; git checkout \"$current\"; }; f"
+    search ="!f() { git log -i --perl-regexp --all --color --graph --author-date-order --pretty=\"%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)\" --grep=\"$@\" ; }; f"
 [color]
     ui = true
     status = auto
@@ -61,9 +62,10 @@
     changed = yellow
     untracked = cyan
     branch = blue bold
-[push]
-    # https://git-scm.com/docs/git-config#git-config-pushdefault
-    # default = simple
+#[push]
+#    https://git-scm.com/docs/git-config#git-config-pushdefault
+#    default = upstream
+#    default = simple
 #[diff]
 #    tool = kaleidoscope
 #[difftool]
