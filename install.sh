@@ -30,32 +30,34 @@ brew tap caskroom/fonts
 brew cask install font-hack
 
 # Install applications
-brew tap homebrew/cask
+# brew tap homebrew/cask
+# brew install brew-cask
 
-brew cask install 1password
-brew cask install alfred
-brew cask install bartender
-brew cask install coderunner
-brew cask install daisydisk
-brew cask install dropbox
-brew cask install droplr
-brew cask install figma
-brew cask install google-chrome
-brew cask install insomnia
-brew cask install karabiner-elements
-brew cask install moom
-brew cask install nordvpn
-brew cask install phpstorm
-brew cask install slack
-brew cask install spotify
-brew cask install sublime-text
-brew cask install tableplus
-brew cask install transmission
-brew cask install transmit
-brew cask install vitamin-r
-brew cask install visual-studio-code
-brew cask install vlc
-brew cask install zoomus
+brew install --cask 1password
+brew install --cask alfred
+brew install --cask bartender
+brew install --cask coderunner
+brew install --cask daisydisk
+brew install --cask dropbox
+brew install --cask droplr
+brew install --cask figma
+brew install --cask github
+brew install --cask google-chrome
+brew install --cask insomnia
+brew install --cask karabiner-elements
+brew install --cask moom
+brew install --cask nordvpn
+brew install --cask phpstorm
+brew install --cask slack
+brew install --cask spotify
+brew install --cask sublime-text
+brew install --cask tableplus
+brew install --cask transmission
+brew install --cask transmit
+brew install --cask vitamin-r
+brew install --cask visual-studio-code
+brew install --cask vlc
+brew install --cask zoomus
 
 # Install software from the Mac App Store
 brew install mas
