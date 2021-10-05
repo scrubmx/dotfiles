@@ -46,6 +46,7 @@ brew install --cask google-chrome
 brew install --cask insomnia
 brew install --cask karabiner-elements
 brew install --cask moom
+brew install --cask mysqlworkbench
 brew install --cask nordvpn
 brew install --cask phpstorm
 brew install --cask slack
