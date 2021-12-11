@@ -91,3 +91,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Create custom directories
 mkdir ~/Sites
+
+# Create desktop shortcuts
+ln -s ~/ ~/Desktop/Home
