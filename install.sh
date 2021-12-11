@@ -36,6 +36,7 @@ brew cask install font-hack
 brew install --cask 1password
 brew install --cask alfred
 brew install --cask bartender
+brew install --cask brave-browser
 brew install --cask coderunner
 brew install --cask daisydisk
 brew install --cask dropbox
