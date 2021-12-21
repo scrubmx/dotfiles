@@ -131,5 +131,5 @@ EOF
         'NA' | *) option="" ;;
     esac
 
-    open -a '/Applications/Google Chrome.app' "$github_url$option"
+    open "$github_url$option"
 }
