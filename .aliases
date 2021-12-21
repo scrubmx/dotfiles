@@ -79,11 +79,11 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 # Open Applications
 # alias chrome="open -a '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'"
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-alias spotify="open -a '/Applications/Spotify.app'"
-alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com"
-alias gist="open -a '/Applications/Google Chrome.app' https://gist.github.com/scrubmx"
-alias trello="open -a '/Applications/Google Chrome.app' https://trello.com"
+alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias brave="open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser"
+# alias spotify="open -a /Applications/Spotify.app"
+alias reddit="open http://www.reddit.com"
+alias gist="open https://gist.github.com/scrubmx"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
