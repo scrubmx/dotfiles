@@ -1,3 +1,9 @@
+# Bluetooth restart
+function btrestart() {
+    sudo kextunload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+    sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+}
+
 # Create new file(s) change permissions and open in Sublime Text
 function create() {
     if [ $# -eq 0 ]; then
@@ -37,6 +43,18 @@ function phpserver() {
     local port="${1:-4000}";
     sleep 1 && open "http://localhost:${port}/" & php -S "localhost:${port}";
 }
+
+# Switch PHP versions
+# https://freek.dev/1185-easily-switch-php-versions-in-laravel-valet
+function phpv() {
+    brew unlink php@7.4 php@8.1
+    brew link —force —overwrite $1
+    brew services start $1
+    composer global update
+    valet use --force $1
+}
+alias php74="phpv php@7.4"
+alias php81="phpv php@8.1"
 
 # Filter processes with keyword
 function showps() {
