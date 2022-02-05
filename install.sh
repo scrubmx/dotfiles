@@ -41,6 +41,7 @@ brew install --cask coderunner
 brew install --cask daisydisk
 brew install --cask dropbox
 brew install --cask droplr
+brew install --cask fig
 brew install --cask figma
 brew install --cask github
 brew install --cask google-chrome
