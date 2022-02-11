@@ -7,9 +7,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# Clear the screen
-alias c="clear"
-
 # Shortcuts
 alias sites="cd ~/Sites"
 alias dk="cd ~/Desktop"
@@ -20,19 +17,11 @@ alias la='ls -AG'
 alias ll='ls -AlGh'
 alias history='fc -l 1'
 
-# List only directories
-alias lsd='ls -AlGh | grep "^d"'
-
-# Like cat but with colors (requires pygments)
-# https://gist.github.com/BretFisher/6f688dde0122399efdca5a9d26100437#gistcomment-2239975
-# pygments style: https://github.com/MozMorris/tomorrow-pygments
-alias check="bat"
-
-
 # Wrap settings
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
 alias wrap="tput smam"
 alias nowrap="tput rmam"
+
 
 # ------------------------------------------------------------------------------
 #  Miscellaneous
@@ -48,8 +37,6 @@ alias reload="source ~/.zshrc"
 # Clear terminal and reset the scrollback
 # https://til.hashrocket.com/posts/g1ola6c5ku-how-to-clear-a-mac-terminal-and-its-scroll-back
 alias clear!="clear && printf '\e[3J'"
-# alias clear!="printf '\033[2J\033[3J\033[1;1H'"
-
 
 # https://github.com/busyloop/lolcat
 # A journey of a thousand miles must begin with a single step.
@@ -80,12 +67,8 @@ alias sshconf="code ~/.ssh/config"
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Open Applications
-alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias brave="open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser"
-# alias spotify="open -a '/Applications/Spotify.app'"
-# alias reddit="open -a '/Applications/Google Chrome.app' http://www.reddit.com"
-# alias gist="open -a '/Applications/Google Chrome.app' https://gist.github.com/scrubmx"
-# alias pulls="open -a '/Applications/Google Chrome.app' https://github.com/kickfurther/kickfurther/pulls"
+
 alias gist="open https://gist.github.com/scrubmx"
 alias pulls="open https://github.com/kickfurther/kickfurther/pulls"
 alias jira="open https://kickfurther.atlassian.net/jira/software/projects/KC/boards/1"
@@ -118,14 +101,14 @@ alias nah="git reset --hard; git clean -df"
 alias dal="composer dump-autoload"
 
 # Run phpunit test suite
-alias t="clear & phpunit --order-by=defects --stop-on-failure --stop-on-error"
+alias t="clear & ./vendor/bin/phpunit --order-by=defects --stop-on-failure --stop-on-error"
 
 # Laravel artisan shortcuts
 alias artisan="php artisan"
 alias tinker="php artisan tinker"
 
 # PHP CS Fixer
-alias fix="php-cs-fixer fix --rules=@PSR2,binary_operator_spaces,no_unused_imports,phpdoc_trim,trailing_comma_in_multiline_array"
+alias phpfix="php-cs-fixer fix --rules=@PSR2,binary_operator_spaces,no_unused_imports,phpdoc_trim,trailing_comma_in_multiline_array"
 
 
 # ------------------------------------------------------------------------------
@@ -136,9 +119,10 @@ alias mixer="iex -S mix phoenix.server" # like tinker from laravel
 alias itest="iex -S mix test --trace" # run tests and stop on IEx.pry
 alias prytest="iex -S mix test --trace" # run tests and stop on IEx.pry
 alias pry='fc -e - mix\ test=iex\ -S\ mix\ test\ --trace mix\ test'
-alias server="mix phoenix.server"
+
+# Fix 'FATAL ERROR lock file "postmaster.pid" already exists'
+# https://stackoverflow.com/questions/36436120/fatal-error-lock-file-postmaster-pid-already-exists#answer-48146535
 alias unfuckpg="rm /usr/local/var/postgres/postmaster.pid"
-alias refreshdb="dropdb paymex_test && createdb paymex_test && dropdb paymex && createdb paymex"
 
 
 # ------------------------------------------------------------------------------
@@ -146,6 +130,8 @@ alias refreshdb="dropdb paymex_test && createdb paymex_test && dropdb paymex && 
 # ------------------------------------------------------------------------------
 
 alias minitest="ruby -r minitest/color"
+alias rc="rails console"
+alias rs="rails server"
 
 
 # ------------------------------------------------------------------------------
@@ -173,9 +159,9 @@ alias fixsass="npm rebuild node-sass"
 # ------------------------------------------------------------------------------
 
 # Add Paulina voice to Mac OS X
-#   - Navigate to: System Preferences > Dictation & Speech > Text to Speech
-#   - Select the System Voice menu and choose "Customize" in the drop-down
-#   - Choose the voice: Spanish (Mexico) > Paulina
+#  - Navigate to: System Preferences > Dictation & Speech > Text to Speech
+#  - Select the System Voice menu and choose "Customize" in the drop-down
+#  - Choose the voice: Spanish (Mexico) > Paulina
 alias say="say --voice=Paulina"
 
 # Flush DNS cache
@@ -191,8 +177,8 @@ alias showpath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool YE
 alias hidepath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool NO; killall Finder"
 
 # Show hidden Files in finder
-alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
-alias hideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
+alias showhidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
+alias hidehidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
 
 # Hide/show desktop icons
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
