@@ -4,15 +4,6 @@ function btrestart() {
     sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
 }
 
-# Create new file(s) change permissions and open in Sublime Text
-function create() {
-    if [ $# -eq 0 ]; then
-       echo "usage: create filename [filename [filename [...]]]"
-    else
-        touch $@; chmod 755 $@; subl $@
-    fi
-}
-
 # Disable line wrapping for output in the Terminal
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
 function _nowrap() {
@@ -59,6 +50,25 @@ alias php81="phpv php@8.1"
 # Filter processes with keyword
 function showps() {
     ps -A | grep -v 'grep' | grep -i "$@"
+}
+
+# Set a timer for the given number if minutes
+# "&" will send the process to the background
+function timer() {
+    _backround_timer $(( $1 * 60 )) &
+}
+
+# Set a timer for the given number of seconds
+function _backround_timer() {
+    for i in {1..$1}
+    do
+        sleep 1
+    done
+
+    # afplay /System/Library/Sounds/Glass.aiff
+    # afplay /System/Library/Sounds/Morse.aiff
+    afplay /System/Library/Sounds/Purr.aiff
+    osascript -e 'display notification "Get up, stretch, walk make some tea..." with title "The timer is up"'
 }
 
 # Shorthand for tree with hidden files and ignoring common vendors
