@@ -101,14 +101,28 @@ alias nah="git reset --hard; git clean -df"
 alias dal="composer dump-autoload"
 
 # Run phpunit test suite
-alias t="clear & ./vendor/bin/phpunit --order-by=defects --stop-on-failure --stop-on-error"
+alias t="clear! & ./vendor/bin/phpunit --order-by=defects --stop-on-failure --stop-on-error"
+alias tp="clear! & php artisan test --parallel"
+alias tpr="clear! & php artisan test --parallel --recreate-databases"
 
 # Laravel artisan shortcuts
 alias artisan="php artisan"
 alias tinker="php artisan tinker"
+alias migrate="php artisan migrate"
 
 # PHP CS Fixer
 alias phpfix="php-cs-fixer fix --rules=@PSR2,binary_operator_spaces,no_unused_imports,phpdoc_trim,trailing_comma_in_multiline_array"
+
+# Run "tail -f ./storage/logs/laravel.log" with color output
+alias logs="tail -f ./storage/logs/laravel.log | awk '\
+    {matched=0}\
+    /INFO:/        {matched=1; print \"\\033[0;37m\" \$0 \"\\033[0m\"}\
+    /WARNING:/     {matched=1; print \"\\033[0;34m\" \$0 \"\\033[0m\"}\
+    /ERROR:/       {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
+    /Next/         {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
+    /ALERT:/       {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
+    /Stack trace:/ {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
+    matched==0     {print \"\\033[0;33m\" \$0 \"\\033[0m\"}'"
 
 
 # ------------------------------------------------------------------------------
@@ -187,13 +201,3 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Delete all .DS_Store files recursively
 alias deleteDS="find . -name '*.DS_Store' -type f -ls -delete"
 alias removeDS="find . -name '*.DS_Store' -type f -ls -delete"
-
-alias logs="tail -f $(pwd)/storage/logs/laravel.log | awk '\
-    {matched=0}\
-    /INFO:/    {matched=1; print \"\\033[0;37m\" \$0 \"\\033[0m\"}\
-    /WARNING:/ {matched=1; print \"\\033[0;34m\" \$0 \"\\033[0m\"}\
-    /ERROR:/   {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
-    /Next/     {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
-    /ALERT:/   {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
-    /Stack trace:/ {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
-    matched==0            {print \"\\033[0;33m\" \$0 \"\\033[0m\"}'"
