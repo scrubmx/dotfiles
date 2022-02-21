@@ -5,3 +5,9 @@
 
 
 # Any references to tickets, articles, etc?
+
+
+# Attribute to more than one author or on behalf of an organization:
+# Co-authored-by: John Doe <john@example.com>
+# Co-authored-by: Jane Doe <jane@example.com>
+# On-behalf-of: @example <info@example.com>
