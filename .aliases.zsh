@@ -57,18 +57,19 @@ alias lolcow="fortune | cowsay | lolcat"
 alias weather="curl -4 http://wttr.in/Mexico_City"
 
 # Create new aliases
-alias newalias="code ~/.aliases"
-alias newfunction="code ~/.functions"
+alias newalias="code ~/.aliases.zsh"
+alias newfunction="code ~/.functions.zsh"
 alias zshconf="code ~/.zshrc"
 alias gitconf="code ~/.gitconfig"
 alias sshconf="code ~/.ssh/config"
+alias vimconf="code ~/.vimrc"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Open Applications
+alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias brave="open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser"
-
 alias gist="open https://gist.github.com/scrubmx"
 alias pulls="open https://github.com/kickfurther/kickfurther/pulls"
 alias jira="open https://kickfurther.atlassian.net/jira/software/projects/KC/boards/1"
