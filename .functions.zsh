@@ -161,3 +161,27 @@ EOF
 
     open "$github_url$option"
 }
+
+# Manage Python virtual environment
+function venv() {
+    local option="${1:-NA}"
+    read -r -d '' help_text<<EOF
+venv manages your python3 venv environment.
+
+Usage:
+  venv [options]
+
+Options:
+  -a, --activate      activate virtual environment
+  -c, --create        create virtual environment [default: "venv"]
+  -d, --deactivate    deactivate virtual environment
+  -h, --help          text
+EOF
+
+    case "$option" in
+        '-a' | '--activate' ) . venv/bin/activate ;;
+        '-c' | '--create' ) python3 -m venv "${2:-venv}" ;;
+        '-d' | '--deactivate' ) deactivate ;;
+        '-h' | '--help' | 'NA' | * ) echo $help_text && return ;;
+    esac
+}
