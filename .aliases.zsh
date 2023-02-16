@@ -22,7 +22,6 @@ alias history='fc -l 1'
 alias wrap="tput smam"
 alias nowrap="tput rmam"
 
-
 # ------------------------------------------------------------------------------
 #  Miscellaneous
 # ------------------------------------------------------------------------------
@@ -62,7 +61,7 @@ alias newfunction="code ~/.functions.zsh"
 alias zshconf="code ~/.zshrc"
 alias gitconf="code ~/.gitconfig"
 alias sshconf="code ~/.ssh/config"
-alias vimconf="code ~/.vimrc"
+alias vimconf="nvim ~/.config/nvim/init.lua"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -102,9 +101,9 @@ alias nah="git reset --hard; git clean -df"
 alias dal="composer dump-autoload"
 
 # Run phpunit test suite
-alias t="clear! & ./vendor/bin/phpunit --order-by=defects --stop-on-failure --stop-on-error"
-alias tp="clear! & php artisan test --parallel"
-alias tpr="clear! & php artisan test --parallel --recreate-databases"
+alias t="clear! && ./vendor/bin/phpunit --order-by=defects --stop-on-failure --stop-on-error"
+alias tp="clear! && php artisan test --parallel"
+alias tpr="clear! && php artisan test --parallel --recreate-databases"
 
 # Laravel artisan shortcuts
 alias artisan="php artisan"
@@ -117,14 +116,14 @@ alias phpfix="php-cs-fixer fix --rules=@PSR2,binary_operator_spaces,no_unused_im
 # Run "tail -f ./storage/logs/laravel.log" with color output
 alias logs="tail -f ./storage/logs/laravel.log | awk '\
     {matched=0}\
-    /INFO:/        {matched=1; print \"\\033[0;37m\" \$0 \"\\033[0m\"}\
-    /WARNING:/     {matched=1; print \"\\033[0;34m\" \$0 \"\\033[0m\"}\
-    /ERROR:/       {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
-    /Next/         {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
-    /ALERT:/       {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
-    /Stack trace:/ {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
-    matched==0     {print \"\\033[0;33m\" \$0 \"\\033[0m\"}'"
-
+    /INFO:/           {matched=1; print \"\\033[0;34m\" \$0 \"\\033[0m\"}\
+    /NOTICE:/         {matched=1; print \"\\033[0;37m\" \$0 \"\\033[0m\"}\
+    /DEBUG:/          {matched=1; print \"\\033[0;36m\" \$0 \"\\033[0m\"}\
+    /WARNING:/        {matched=1; print \"\\033[0;33m\" \$0 \"\\033[0m\"}\
+    /ERROR:/          {matched=1; print \"\\033[0;31m\" \$0 \"\\033[0m\"}\
+    /ALERT:/          {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
+    /\[stacktrace\]/  {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
+    matched==0        {print \"\\033[0;37m\" \$0 \"\\033[0m\"}'"
 
 # ------------------------------------------------------------------------------
 #  Elixir
@@ -134,6 +133,7 @@ alias mixer="iex -S mix phoenix.server" # like tinker from laravel
 alias itest="iex -S mix test --trace" # run tests and stop on IEx.pry
 alias prytest="iex -S mix test --trace" # run tests and stop on IEx.pry
 alias pry='fc -e - mix\ test=iex\ -S\ mix\ test\ --trace mix\ test'
+alias server="mix phoenix.server"
 
 # Fix 'FATAL ERROR lock file "postmaster.pid" already exists'
 # https://stackoverflow.com/questions/36436120/fatal-error-lock-file-postmaster-pid-already-exists#answer-48146535
@@ -147,7 +147,6 @@ alias unfuckpg="rm /usr/local/var/postgres/postmaster.pid"
 alias minitest="ruby -r minitest/color"
 alias rc="rails console"
 alias rs="rails server"
-
 
 # ------------------------------------------------------------------------------
 #  JavaScript
@@ -180,7 +179,7 @@ alias fixsass="npm rebuild node-sass"
 alias say="say --voice=Paulina"
 
 # Flush DNS cache
-alias fushdns="sudo killall -HUP mDNSResponder"
+alias flushdns="sudo killall -HUP mDNSResponder"
 
 # Copy shy key to clipboard
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"

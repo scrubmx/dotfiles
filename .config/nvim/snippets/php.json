@@ -1,0 +1,12 @@
+{
+  "public function …": {
+    "prefix": "met",
+    "body": [
+      "public function ${1:name}(${2:args})",
+      "{",
+      "\t$0",
+      "}"
+    ],
+    "description": "Public class method"
+  }
+}

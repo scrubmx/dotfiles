@@ -4,9 +4,16 @@
 [github]
     user = scrubmx
 [core]
-    editor = code --wait
-    pager = /usr/local/bin/diff-so-fancy | less --chop-long-lines -M +Gg
+    # editor = code --wait
+    editor = nvim
     excludesfile = ~/.gitignore_global
+    pager = /usr/local/bin/diff-so-fancy | less --chop-long-lines -M +Gg
+[init]
+    defaultBranch = main
+[log]
+    date = relative
+    decorate = short
+    abbrevCommit = true
 [commit]
     template = ~/.gitmessage
 [alias]
@@ -22,8 +29,10 @@
     wip="commit --no-verify --no-gpg-sign -m WIP"
     dlc = diff --cached HEAD^
     append = commit --amend --no-edit
+    authors = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(magenta)%ae %C(white)%s %C(reset)'
     unstage = reset HEAD --
     branches = branch -vv
+    branch-name = rev-parse --abbrev-ref HEAD
     conflicts = diff --diff-filter=U
     hash = rev-parse --short --verify HEAD
     remotes = remote -v
@@ -81,6 +90,7 @@
     smudge = git hawser smudge %f
     required = true
 [filter "lfs"]
-    clean = git lfs clean %f
-    smudge = git lfs smudge %f
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
     required = true
+    process = git-lfs filter-process

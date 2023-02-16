@@ -1,7 +1,35 @@
-# Bluetooth restart
-function btrestart() {
-    sudo kextunload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
-    sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+# List all terminal colors
+function clicolors() {
+    local i=1
+    local c
+
+    for color in {000..255}; do;
+        c=$c"$FG[$color]$color✔$reset_color  ";
+        if [ `expr $i % 8` -eq 0 ]; then
+            c=$c"\n"
+        fi
+        i=`expr $i + 1`
+    done;
+    echo $c | sed 's/%//g' | sed 's/{//g' | sed 's/}//g' | sed '$s/..$//';
+    c=''
+}
+
+# Create new file(s) change permissions and open in VS Code
+function create() {
+    if [ $# -eq 0 ]; then
+       echo "usage: create filename [filename [filename [...]]]"
+    else
+        touch $@; chmod 755 $@; code $@
+    fi
+}
+
+# Require a package from a local directory
+function composer_local() {
+    if [ $# -eq 0 ]; then
+       echo "usage: composer_local ~/package/directory"
+    else
+        composer config repositories.local '{ "type": "path", "url": "'$1'" }' --file composer.json
+    fi
 }
 
 # Disable line wrapping for output in the Terminal
@@ -15,6 +43,12 @@ function _wrap() {
     tput smam;
 }
 
+# https://github.com/arnaud-lb/vim-php-namespace
+function maketags() {
+    ctags -R --PHP-kinds=cfi --regex-php="/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i" --exclude=.git --exclude=node_modules --exclude=vendor --exclude=storage --exclude=bootstrap --exclude=public
+    ctags -R --PHP-kinds=cfi --regex-php="/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i" --exclude=vendor/_laravel_idea --exclude=vendor/psy --exclude=vendor/vlucas --exclude=vendor/brianium -f tags.vendors vendor > /dev/null 2>&1
+}
+
 # Create new directory and cd into it
 function mkd() {
     if [ $# -eq 0 ]; then
@@ -25,7 +59,7 @@ function mkd() {
 }
 
 # Generate random password with default lenght of 32 characters
-function password () {
+function password() {
     openssl rand -base64 ${1:-32}
 }
 
@@ -35,17 +69,16 @@ function phpserver() {
     sleep 1 && open "http://localhost:${port}/" & php -S "localhost:${port}";
 }
 
-# Switch PHP versions
-# https://freek.dev/1185-easily-switch-php-versions-in-laravel-valet
-function phpv() {
-    brew unlink php@7.4 php@8.1
-    brew link —force —overwrite $1
-    brew services start $1
-    composer global update
-    valet use --force $1
+function mtdb() {
+    rm -f ./database/schema/mysql-schema.dump
+    php artisan migrate:fresh --env="testing" --seed
+    php artisan schema:dump --env="testing"
 }
-alias php74="phpv php@7.4"
-alias php81="phpv php@8.1"
+
+function restartdb () {
+    brew services stop mysql@5.7
+    brew services start mysql@5.7
+}
 
 # Filter processes with keyword
 function showps() {
@@ -115,14 +148,14 @@ function extract () {
 # Open the current git repository in the browser
 function github() {
     if [ ! -d .git ]; then
-        echo "ERROR: This isnt a git directory" && exit 1;
+        echo "ERROR: This isn't a git directory" && exit 1;
     fi
 
     local option="${1:-NA}"
     local remote=$(git config --get remote.origin.url)
-    local github_url github_help
+    local github_url github_path help_text
 
-    read -r -d '' github_help<<EOF
+    read -r -d '' help_text<<EOF
 github opens the current git repository in the browser.
 
 Usage:
@@ -131,8 +164,10 @@ Usage:
 Options:
   -b, --branch        open repository on the current branch
   -c, --commit        open repository current commit
-  -d, --diff          open a diff with two commits or refs [default: "develop", "master"]
+  -d, --diff          open a diff with two commits or refs [default: "develop", "main"]
+  -h, --help          show help text for this command
   -p, --pulls         open the pull requests page
+  -r, --pull-request  open a pull requests for the current branch [default: "develop"]
   -s, --settings      open settings page for the project
   -w, --wiki          open wiki page for the project
 EOF
@@ -143,28 +178,48 @@ EOF
 
     github_url="${remote%.git}" # remove ".git" suffix
 
+    # Convert "git@github.com:" to https://github.com
     if [[ $github_url =~ git@github.com:* ]]; then
-        # remove "git@github.com:" prefix
         github_url="https://github.com/${github_url#*:}"
     fi
 
     case "$option" in
-        '-b' | '--branch' ) option="/tree/$(git rev-parse --abbrev-ref HEAD)" ;;
-        '-c' | '--commit' ) option="/tree/$(git rev-parse HEAD)" ;;
-        '-d' | '--diff' ) option="/compare/${2:-develop}...${3:-master}" ;;
-        '-h' | '--help' ) echo $github_help && return ;;
-        '-p' | '--pulls' ) option="/pulls" ;;
-        '-s' | '--settings' ) option="/settings" ;;
-        '-w' | '--wiki' ) option="/wiki" ;;
-        'NA' | *) option="" ;;
+        '-b' | '--branch' ) github_path="/tree/$(git rev-parse --abbrev-ref HEAD)" ;;
+        '-c' | '--commit' ) github_path="/tree/$(git rev-parse HEAD)" ;;
+        '-d' | '--diff' ) github_path="/compare/${2:-develop}...${3:-main}" ;;
+        '-h' | '--help' ) echo $help_text && return ;;
+        '-p' | '--pulls' ) github_path="/pulls" ;;
+        '-r' | '--pull-request' ) github_path="/compare/${2:-develop}...$(git rev-parse --abbrev-ref HEAD)" ;;
+        '-s' | '--settings' ) github_path="/settings" ;;
+        '-w' | '--wiki' ) github_path="/wiki" ;;
+        '-h' | '--help' | 'NA' | * ) github_path="" ;;
     esac
 
-    open "$github_url$option"
+    open "$github_url$github_path"
 }
+
+# Bluetooth restart
+function btrestart() {
+    sudo kextunload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+    sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+}
+
+function phpv() {
+    brew unlink php@7.4 php@8.1
+    brew link —force —overwrite $1
+    brew services start $1
+    composer global update
+    valet use --force $1
+}
+
+alias php74="phpv php@7.4"
+alias php81="phpv php@8.1"
 
 # Manage Python virtual environment
 function venv() {
     local option="${1:-NA}"
+    local help_text
+
     read -r -d '' help_text<<EOF
 venv manages your python3 venv environment.
 
@@ -173,7 +228,7 @@ Usage:
 
 Options:
   -a, --activate      activate virtual environment
-  -c, --create        create virtual environment [default: "venv"]
+  -c, --create        create a virtual environment [default: "venv"]
   -d, --deactivate    deactivate virtual environment
   -h, --help          text
 EOF
@@ -184,4 +239,60 @@ EOF
         '-d' | '--deactivate' ) deactivate ;;
         '-h' | '--help' | 'NA' | * ) echo $help_text && return ;;
     esac
+}
+
+function work() {
+    open "https://envoyer.io"
+    open "https://notion.so"
+    open "https://github.com/notifications"
+    open "https://sentry.io"
+
+    open -a "/Applications/Slack.app"
+}
+
+function slack() {
+    local slack_shortcuts
+
+    read -r -d '' slack_shortcuts<<EOF
+Slack keyboard shortcuts
+
+Help Center:
+https://slack.com/help/articles/201374536-Slack-keyboard-shortcuts
+
+Action                                Shortcut
+  Compose a new message                 ⌘ N
+  Unsend a message                      ⌘ Z
+  Set your status                       ⌘ Shift Y
+  Show or hide the left sidebar	        ⌘ Shift D
+  Show or hide the right sidebar        ⌘ .
+  Open your preferences                 ⌘ ,
+  Create a new snippet                  ⌘ Shift Enter
+  Start a search                        ⌘ G
+  Search in the current conversation    ⌘ F
+  Start, join, leave, or end a huddle   ⌘ Shift H
+  Toggle mute on a huddle               ⌘ Shift Space
+EOF
+
+    echo $slack_shortcuts
+}
+
+function phpstorm() {
+    local phpstorm_keybindings
+
+    read -r -d '' phpstorm_keybindings<<EOF
+Action                      Shortcut
+  Show intention actions       ⌥ ⏎
+  Toggle structure pane        ⌘ 7
+  Toggle git pane              ⌘ 9
+  Open navigation bar          ⌘ ↑
+  Search everywhere            ⇧ ⇧
+  Close most recent pane       ⌘ ⇧ W
+  Go to recent files           ⌘ E
+  Go to recent locations       ⌘ ⇧ E
+  Toggle terminal panel        ^ ⇧ T
+  Run test class/method        ^ ⇧ R
+  Run last test class/method   ^ R
+EOF
+
+    echo $phpstorm_keybindings
 }

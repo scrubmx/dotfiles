@@ -6,3 +6,10 @@
 
 # npm update version every month
 @monthly /usr/local/bin/npm install --global npm@latest >> /dev/null 2>&1
+
+# clear log files (which can grow a lot if left unchecked)
+# @weekly echo '' > /usr/local/var/log/postgres.log >> /dev/null 2>&1
+@weekly echo '' > /usr/local/var/log/php-fpm.log >> /dev/null 2>&1
+
+# clear "mysite" debugbar storage every week
+# @weekly /usr/local/bin/php /Users/scrub/Sites/mysite/artisan debugbar:clear >> /dev/null 2>&1

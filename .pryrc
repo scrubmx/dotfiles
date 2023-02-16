@@ -1,5 +1,5 @@
 # EDITOR
-Pry.editor = 'vim'
+Pry.editor = 'nvim'
 Pry.config.color = true
 Pry.config.theme = "tomorrow-night"
 

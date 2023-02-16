@@ -35,7 +35,6 @@ brew cask install font-hack
 
 brew install --cask 1password
 brew install --cask alfred
-brew install --cask bartender
 brew install --cask brave-browser
 brew install --cask coderunner
 brew install --cask daisydisk
@@ -44,7 +43,7 @@ brew install --cask dropbox
 brew install --cask droplr
 brew install --cask figma
 brew install --cask github
-brew install --cask google-chrome
+# brew install --cask google-chrome
 brew install --cask insomnia
 brew install --cask iterm2
 brew install --cask jumpshare
@@ -62,7 +61,7 @@ brew install --cask transmit
 brew install --cask vitamin-r
 brew install --cask visual-studio-code
 brew install --cask vlc
-brew install --cask zoomus
+brew install --cask zoom
 
 # Install software from the Mac App Store
 brew install mas
@@ -94,7 +93,9 @@ composer global require squizlabs/php_codesniffer
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Create custom directories
+mkdir ~/Code
 mkdir ~/Sites
 
 # Create desktop shortcuts
 ln -s ~/ ~/Desktop/Home
+ln -s ~/Code ~/Desktop/Code

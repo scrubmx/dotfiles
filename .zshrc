@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -95,8 +96,8 @@ export COMPOSER_MEMORY_LIMIT=-1
 export ERL_AFLAGS="-kernel shell_history enabled"
 export HOMEBREW_GITHUB_API_TOKEN="SomeRandomString"
 export PYTHONSTARTUP="$HOME/.pythonrc"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # Defined in ~/.config/bat/config
@@ -128,3 +129,9 @@ unset file
 # Tracks your most used directories, based on 'frecency'
 # source https://github.com/rupa/z
 [ -s ~/Applications/Rupa/z.sh ] && source ~/Applications/Rupa/z.sh
+
+# This line allows you to run rvm use to switch Ruby versions
+# [ -s ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"

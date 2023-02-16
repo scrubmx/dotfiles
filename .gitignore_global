@@ -1,7 +1,9 @@
+.fleet/
 .idea/
 .phpintel/
 .vagrant/
 _ide_helper.php
+_ide_helper_models.php
 .ruby-gemset
 .ruby-version
 .versions.conf
@@ -13,7 +15,13 @@ _ide_helper.php
 .DS_Store*
 .Trashes
 .env.dusk
+.env.staging
+mysql-schema.dump
 phpunit.dusk.xml
+phpcs.xml
+ray.php
+session.vim
+routes.txt
 todo.md
 
 *.swp
@@ -27,3 +35,4 @@ Icon
 Thumbs.db
 upstream-sync.sh
 tags
+tags.*
