@@ -19,36 +19,35 @@
 [alias]
     br = branch
     co = checkout
-    st = status
+    cm = commit -v
     dt = difftool
+    st = status
     d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!package-lock.json' ':!yarn.lock' ':!npm-shrinkwrap.json' ':!composer.lock*'
-    la = "!git config -l | grep alias | cut -c 7-"
-    l = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
     lol = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
-    lf = log --color --stat --author-date-order --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
-    wip="commit --no-verify --no-gpg-sign -m WIP"
-    dlc = diff --cached HEAD^
     append = commit --amend --no-edit
-    authors = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(magenta)%ae %C(white)%s %C(reset)'
-    unstage = reset HEAD --
     branches = branch -vv
-    branch-name = rev-parse --abbrev-ref HEAD
+    changed = whatchanged -p --name-only --since='7 days ago' --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
     conflicts = diff --diff-filter=U
     hash = rev-parse --short --verify HEAD
+    last = diff --cached HEAD^
     remotes = remote -v
     stashes = stash list --pretty=format:'%C(yellow)%gd %C(green)%ar%C(reset) %gs'
-    cleanup = "!f() { git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
-    ours = "!f() { git checkout --ours $@ && git add $@; }; f"
-    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
-    latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
-    tracking = "!f() { git for-each-ref --format '%(refname:short):%(upstream:short)' 'refs/heads' | egrep -v ':$'; }; f"
-    is-clean-workdir = "!f() { git diff --stat --exit-code || { echo \"Workdir dirty\"; exit 1; }; }; f"
-    is-clean-index = "!f() { git diff --stat --cached --exit-code || { echo \"Index dirty\"; exit 2; }; }; f"
-    is-clean = "!f() { git is-clean-workdir && git is-clean-index; }; f"
-    co-merge = "!f() { local=\"$1\"; remote=\"$2\"; git checkout \"$local\"; git merge --ff-only \"$remote\"; }; f"
-    current-branch = rev-parse --abbrev-ref HEAD
-    sync = "!f() { git is-clean || { echo Aborting sync.; exit 1; }; current=$(git current-branch); git fetch --all; git tracking | while IFS=: read local remote; do echo \"Merging $local with $remote\"; git co-merge \"$local\" \"$remote\"; done 3>&1 1>&2 2>&3 | egrep -i --color 'fatal|$' 3>&1 1>&2 2>&3; git checkout \"$current\"; }; f"
-    search ="!f() { git log -i --perl-regexp --all --color --graph --author-date-order --pretty=\"%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)\" --grep=\"$@\" ; }; f"
+    unstage = reset HEAD --
+    wip = commit --no-verify --no-gpg-sign -m WIP
+    cleanup = ! git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+    list = ! git config -l | grep "alias" | cut -c 7-
+    ours = ! git checkout --ours $@ && git add $@
+    theirs = ! git checkout --theirs $@ && git add $@
+    search = ! git log -i --perl-regexp --all --color --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)' --grep="\"$@\"" -- .
+    sync-branches = ! git for-each-ref --format '%(refname:short):%(upstream:short)' 'refs/heads' | egrep -v ':$'
+    sync-ready = ! git --no-pager diff-index --stat --name-status --color --exit-code HEAD -- || (echo "Your working directory is dirty." && exit 1)
+    sync = "!f() { \
+            git sync-ready || { echo 'Please commit your changes or stash them before you sync branches.'; echo 'Aborting'; exit 1; }; \
+            current=$(git rev-parse --abbrev-ref HEAD); \
+            git fetch --all; \
+            git sync-branches | while IFS=: read local remote; do echo \"Merging $local with $remote\"; git checkout \"$local\" ; git merge --ff-only \"$remote\"; echo '\n'; done; \
+            git checkout $current; \
+        }; f(); unset f"
 [color]
     ui = true
     status = auto
