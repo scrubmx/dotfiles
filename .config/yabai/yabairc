@@ -1,0 +1,93 @@
+#!/usr/bin/env sh
+
+# Configuration
+# - https://github.com/koekeishiya/yabai/wiki/Configuration
+#
+# Available options overview:
+# - https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc#61-config
+#
+# Configure scripting addition:
+# - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+
+# ---------------------------------------------------------------------
+# Global settings
+# ---------------------------------------------------------------------
+
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_origin_display        default
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                off
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.00
+yabai -m config active_window_opacity        1.00
+yabai -m config normal_window_opacity        0.90
+# yabai -m config window_border                on # Deprecated?
+# yabai -m config window_border_width          1  # Deprecated?
+# yabai -m config window_border_hidpi          on # Deprecated?
+# yabai -m config active_window_border_color   0xff00b100 # Deprecated?
+# yabai -m config normal_window_border_color   0x00010101 # Deprecated?
+yabai -m config insert_feedback_color        0xff8ebd6b
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
+
+# Set padding, window gap, and layout [bsp|float|stack]
+yabai -m config layout                       bsp
+yabai -m config top_padding                  10
+yabai -m config bottom_padding               10
+yabai -m config left_padding                 10
+yabai -m config right_padding                10
+yabai -m config window_gap                   10
+
+# Configuration for space 5 (macbook screen)
+yabai -m config --space 5 top_padding        2
+yabai -m config --space 5 bottom_padding     2
+yabai -m config --space 5 left_padding       2
+yabai -m config --space 5 right_padding      2
+yabai -m config --space 5 window_gap         1
+yabai -m config --space 5 split_ratio        0.50
+
+
+# ---------------------------------------------------------------------
+# Window rules
+# ---------------------------------------------------------------------
+
+# PhpStorm settings windows:
+#   - https://github.com/koekeishiya/yabai/issues/194
+# Brave browser picture-in-picture:
+#   - https://github.com/koekeishiya/yabai/issues/165#issuecomment-515875695
+
+# yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Brave Browser$" title="^Picture in Picture$" layer=above manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Finder$" title="^Copy$" layer=above manage=off
+yabai -m rule --add app="^JetBrains Toolbox$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Logi Options$" manage=off
+yabai -m rule --add app="^Loading Microsoft Teams$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+# yabai -m rule --add app=".+| Microsoft Teams$" manage=off
+yabai -m rule --add app="^Moom$" layer=above border=off manage=off
+yabai -m rule --add app="^OpenVPNConnect$" layer=above manage=off
+yabai -m rule --add app="^Photo Booth$" layer=above manage=off
+yabai -m rule --add app="^PhpStorm$" title="^Settings$" layer=above manage=off
+yabai -m rule --add app="^Preview$" layer=above border=off manage=off
+# yabai -m rule --add app="^PhpStorm$" subrole="^AXDialog$" layer=above manage=off
+yabai -m rule --add app="^Raycast$" layer=above border=off manage=off
+yabai -m rule --add app="^Stickies$" layer=above border=off manage=off
+yabai -m rule --add app="^System Information$" layer=above manage=off
+yabai -m rule --add app="^System Settings$" layer=above manage=off
+yabai -m rule --add app="^TablePlus$" title="^Connection\.\.\.$" layer=above manage=off
+yabai -m rule --add app="^Vitamin-R 4$" sticky=on layer=above manage=off
