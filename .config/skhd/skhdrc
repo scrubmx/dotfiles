@@ -1,0 +1,72 @@
+# Configuration
+# - https://github.com/koekeishiya/skhd#configuration
+#
+# A sample config is available at:
+# - https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
+#
+# A list of all built-in modifier and literal keywords can be found at:
+# https://github.com/koekeishiya/skhd/issues/1
+
+# focus window
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# swap window
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# move window to desktop
+shift + alt - 1 : yabai -m window --space 1
+shift + alt - 2 : yabai -m window --space 2
+shift + alt - 3 : yabai -m window --space 3
+shift + alt - 4 : yabai -m window --space 4
+
+# send window to monitor and follow focus (previous not working)
+shift + alt - n : yabai -m window --display next
+# shift + alt - p : yabai -m window --display previous
+
+# move window
+shift + alt + ctrl - h : yabai -m window --warp west
+shift + alt + ctrl - j : yabai -m window --warp south
+shift + alt + ctrl - k : yabai -m window --warp north
+shift + alt + ctrl - l : yabai -m window --warp east
+
+# flip layout along the x and y axis
+shift + alt - x : yabai -m space --mirror x-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# equalize size of windows
+shift + alt - 0 : yabai -m space --balance
+
+# toggle window split type
+alt - e : yabai -m window --toggle split
+
+# toggle window fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle sticky, float and resize to picture-in-picture size (not working)
+alt - p : yabai -m window --toggle sticky;\
+          yabai -m window --grid 5:5:4:0:1:1
+
+# rotate tree (I never use this)
+# alt - r : yabai -m space --rotate 90
+
+# toggle sticky (not working)
+# alt - s : yabai -m window --toggle sticky
+
+# float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+# fast focus desktop (not working)
+alt - tab : yabai -m space --focus recent
+
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+# shift + alt - n : yabai -m space --create && \
+#                   index="$(yabai -m query --spaces --display | jq 'map(select(.\"native-fullscreen\" == 0))[-1].index')" && \
+#                   yabai -m window --space "${index}" && \
+#                   yabai -m space --focus "${index}"
