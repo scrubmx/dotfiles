@@ -1,0 +1,11 @@
+# https://github.com/lsd-rs/lsd#icon-theme-file-content
+# ℹ️  This feature is not available in a release yet
+name:
+  .cargo: 
+  a.out: 
+extension:
+  go: 
+  blade.php: 
+filetype:
+  dir: 
+  file: 

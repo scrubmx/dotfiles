@@ -1,0 +1,40 @@
+# == Custom Theme ==
+# https://github.com/lsd-rs/lsd#color-theme
+#
+# Theme file use the crossterm to configure the colors
+# https://crates.io/crates/crossterm
+#
+# Supported colors:
+# https://docs.rs/crossterm/0.20.0/crossterm/style/enum.Color.html
+# expected black, blue, dark_blue, cyan, dark_cyan, green, dark_green, grey, dark_grey, magenta, dark_magenta, red
+# , dark_red, white, yellow, dark_yellow
+#
+# Color table:
+# https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+user: dark_cyan
+group: dark_cyan
+permission:
+  read: dark_cyan
+  write: magenta
+  exec: green
+  exec-sticky: 5
+  no-access: 245
+  octal: 6
+  acl: dark_cyan
+  context: cyan
+date:
+  hour-old: blue
+  day-old: blue
+  older: blue
+size:
+  none: 249
+  small: 249
+  medium: 249
+  large: 249
+inode:
+  valid: 13
+  invalid: 245
+links:
+  valid: 13
+  invalid: 245
+tree-edge: 254
