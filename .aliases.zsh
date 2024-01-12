@@ -7,15 +7,30 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# List files in pretty format and colors
+# https://github.com/lsd-rs/lsd
+alias ls='lsd -lh'
+alias la='lsd -lhA'
+alias ll='lsd -lhA'
+# alias ls='ls -FGH'
+# alias la='ls -AG'
+# alias ll='ls -AlGh'
+
 # Shortcuts
-alias sites="cd ~/Sites"
 alias dk="cd ~/Desktop"
+alias sites="cd ~/Sites"
+alias config="cd ~/.config"
 
 # List files pretty format and colors
 # alias ls='ls -FGH'
 alias la='ls -AG'
 alias ll='ls -AlGh'
-alias history='fc -l 1'
+
+# alias history='fc -l 1'
+alias history="fc -ln 0 | fzf --prompt 'search> ' --color header:bold --header 'Press ⏎ to copy into clipboard' | tr -d '\n' | pbcopy"
+
+# https://www.cyberciti.biz/howto/neofetch-awesome-system-info-bash-script-for-linux-unix-macos
+alias about="neofetch --config none --bold off --colors 6 6 8 8 8 7 --ascii $HOME/ascii-apple.txt --ascii_colors 6 2 3 1 5 4"
 
 # Wrap settings
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
@@ -35,7 +50,7 @@ alias reload="source ~/.zshrc"
 
 # Clear terminal and reset the scrollback
 # https://til.hashrocket.com/posts/g1ola6c5ku-how-to-clear-a-mac-terminal-and-its-scroll-back
-alias clear!="clear && printf '\e[3J'"
+# alias clear!="clear && printf '\e[3J'"
 
 # https://github.com/busyloop/lolcat
 # A journey of a thousand miles must begin with a single step.
@@ -55,13 +70,23 @@ alias lolcow="fortune | cowsay | lolcat"
 # alias weather="curl -4 http://wttr.in/Mexico_City"
 alias weather="curl -4 http://wttr.in/Mexico_City"
 
+# Display a clock in the terminal
+#
+# https://github.com/xorg62/tty-clock#readme
+# https://formulae.brew.sh/formula/tty-clock
+# alias clock="tty-clock -c -n -D -C 6 -d 60"
+alias clock="tty-clock -c -n -D -C 6"
+alias clockdate="tty-clock -c -n -C 6"
+
 # Create new aliases
-alias newalias="code ~/.aliases.zsh"
-alias newfunction="code ~/.functions.zsh"
-alias zshconf="code ~/.zshrc"
-alias gitconf="code ~/.gitconfig"
-alias sshconf="code ~/.ssh/config"
+alias newalias="nvim ~/.aliases.zsh"
+alias newfunction="nvim ~/.functions.zsh"
+alias zshconf="nvim ~/.zshrc"
+alias gitconf="nvim ~/.gitconfig"
+alias sshconf="nvim ~/.ssh/config"
 alias vimconf="nvim ~/.config/nvim/init.lua"
+alias vimconf="cd ~/.config/nvim && nvim init.lua"
+alias yabaiconf="cd ~/.config/yabai && nvim yabairc"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -85,11 +110,11 @@ alias hulu="open -a '/Applications/Firefox.app' http://hulu.com & ssh -p 443 roo
 #  Web Development
 # ------------------------------------------------------------------------------
 
-# Download selenium standalone server from:
+# Download the Selenium standalone server from:
 # http://docs.seleniumhq.org/download/
 alias selenium='java -jar /usr/local/share/selenium/standalone-server.jar'
 
-# Reset the index and working tree and removes untracked files from the working tree
+# Reset the index and working tree and remove untracked files from the working tree
 alias nah="git reset --hard; git clean -df"
 
 
@@ -97,10 +122,10 @@ alias nah="git reset --hard; git clean -df"
 #  PHP Specific
 # ------------------------------------------------------------------------------
 
-# Composer dump autoload
+# Composer dump-autoload
 alias dal="composer dump-autoload"
 
-# Run phpunit test suite
+# Run PHPUnit test suite
 alias t="clear! && ./vendor/bin/phpunit --order-by=defects --stop-on-failure --stop-on-error"
 alias tp="clear! && php artisan test --parallel"
 alias tpr="clear! && php artisan test --parallel --recreate-databases"
@@ -129,11 +154,10 @@ alias logs="tail -f ./storage/logs/laravel.log | awk '\
 #  Elixir
 # ------------------------------------------------------------------------------
 
-alias mixer="iex -S mix phoenix.server" # like tinker from laravel
+alias mixs="iex -S mix phoenix.server" # like Laravel tinker
 alias itest="iex -S mix test --trace" # run tests and stop on IEx.pry
 alias prytest="iex -S mix test --trace" # run tests and stop on IEx.pry
 alias pry='fc -e - mix\ test=iex\ -S\ mix\ test\ --trace mix\ test'
-alias server="mix phoenix.server"
 
 # Fix 'FATAL ERROR lock file "postmaster.pid" already exists'
 # https://stackoverflow.com/questions/36436120/fatal-error-lock-file-postmaster-pid-already-exists#answer-48146535
@@ -172,7 +196,7 @@ alias fixsass="npm rebuild node-sass"
 #  OS X Specific aliases
 # ------------------------------------------------------------------------------
 
-# Add Paulina voice to Mac OS X
+# Add Paulina's voice to Mac OS X
 #  - Navigate to: System Preferences > Dictation & Speech > Text to Speech
 #  - Select the System Voice menu and choose "Customize" in the drop-down
 #  - Choose the voice: Spanish (Mexico) > Paulina
