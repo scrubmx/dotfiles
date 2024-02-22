@@ -7,24 +7,34 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+
 # List files in pretty format and colors
 # https://github.com/lsd-rs/lsd
 alias ls='lsd -lh'
 alias la='lsd -lhA'
 alias ll='lsd -lhA'
+
+# List files in pretty format and colors
 # alias ls='ls -FGH'
 # alias la='ls -AG'
 # alias ll='ls -AlGh'
+
+# Human readable disk-free output
+alias free='df -h'
+
+# Start basic calculator REPL
+alias calc='bc -l'
 
 # Shortcuts
 alias dk="cd ~/Desktop"
 alias sites="cd ~/Sites"
 alias config="cd ~/.config"
 
-# List files pretty format and colors
-# alias ls='ls -FGH'
-alias la='ls -AG'
-alias ll='ls -AlGh'
+alias vi='nvim'
+alias vim='nvim'
 
 # alias history='fc -l 1'
 alias history="fc -ln 0 | fzf --prompt 'search> ' --color header:bold --header 'Press ⏎ to copy into clipboard' | tr -d '\n' | pbcopy"
@@ -32,7 +42,7 @@ alias history="fc -ln 0 | fzf --prompt 'search> ' --color header:bold --header '
 # https://www.cyberciti.biz/howto/neofetch-awesome-system-info-bash-script-for-linux-unix-macos
 alias about="neofetch --config none --bold off --colors 6 6 8 8 8 7 --ascii $HOME/ascii-apple.txt --ascii_colors 6 2 3 1 5 4"
 
-# Wrap settings
+# Toggle wrap settings
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
 alias wrap="tput smam"
 alias nowrap="tput rmam"
@@ -88,22 +98,21 @@ alias vimconf="nvim ~/.config/nvim/init.lua"
 alias vimconf="cd ~/.config/nvim && nvim init.lua"
 alias yabaiconf="cd ~/.config/yabai && nvim yabairc"
 
-# Pretty print the path
+# Pretty print the $PATH values
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Open Applications
 alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias brave="open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser"
+alias emacs='open -a /Applications/Emacs.app/Contents/MacOS/Emacs'
 alias gist="open https://gist.github.com/scrubmx"
-alias pulls="open https://github.com/kickfurther/kickfurther/pulls"
-alias jira="open https://kickfurther.atlassian.net/jira/software/projects/KC/boards/1"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 
 # Open Firefox and browse to hulu.com, also open a socks5 proxy.
-alias hulu="open -a '/Applications/Firefox.app' http://hulu.com & ssh -p 443 root@162.249.126.18 -D 8080"
+alias hulu="open -a '/Applications/Firefox.app' http://hulu.com & ssh tangentlabs -D 8080"
 
 
 # ------------------------------------------------------------------------------
@@ -154,8 +163,7 @@ alias logs="tail -f ./storage/logs/laravel.log | awk '\
 #  Elixir
 # ------------------------------------------------------------------------------
 
-alias mixs="iex -S mix phoenix.server" # like Laravel tinker
-alias itest="iex -S mix test --trace" # run tests and stop on IEx.pry
+alias mixs="iex -S mix phoenix.server"
 alias prytest="iex -S mix test --trace" # run tests and stop on IEx.pry
 alias pry='fc -e - mix\ test=iex\ -S\ mix\ test\ --trace mix\ test'
 
@@ -205,20 +213,20 @@ alias say="say --voice=Paulina"
 # Flush DNS cache
 alias flushdns="sudo killall -HUP mDNSResponder"
 
-# Copy shy key to clipboard
-alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
-alias copykey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
-alias copyssh="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
+# Copy public SSH key to clipboard
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied id_rsa.pub to clipboard.'"
+alias copykey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied id_rsa.pub to clipboard.'"
+alias copyssh="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied id_rsa.pub to clipboard.'"
 
-# Show/hide full path on finder titlebar
+# Show/hide full path on finder title bar
 alias showpath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES; killall Finder"
 alias hidepath="defaults write com.apple.finder _FXShowPosixPathInTitle -bool NO; killall Finder"
 
-# Show hidden Files in finder
+# Show hidden files in Finder
 alias showhidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
 alias hidehidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
 
-# Hide/show desktop icons
+# Hide/show Desktop icons
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
