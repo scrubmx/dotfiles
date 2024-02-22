@@ -25,7 +25,7 @@
     d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!package-lock.json' ':!yarn.lock' ':!npm-shrinkwrap.json' ':!composer.lock*'
     lol = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
     append = commit --amend --no-edit
-    branches = branch -vv
+    branches = branch --sort=-committerdate -vv
     changed = whatchanged -p --name-only --since='7 days ago' --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
     conflicts = diff --diff-filter=U
     hash = rev-parse --short --verify HEAD
@@ -91,5 +91,5 @@
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
-    required = true
     process = git-lfs filter-process
+    required = true
