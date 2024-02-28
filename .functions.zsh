@@ -29,15 +29,6 @@ function clicolors() {
     c=''
 }
 
-# Create new file(s) change permissions and open in VS Code
-function create() {
-    if [ $# -eq 0 ]; then
-       echo "usage: create filename [filename [filename [...]]]"
-    else
-        touch $@; chmod 755 $@; code $@
-    fi
-}
-
 # Require a package from a local directory
 function composer_local() {
     if [ $# -eq 0 ]; then
@@ -64,16 +55,7 @@ function maketags() {
     ctags -R --PHP-kinds=cfi --regex-php="/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i" --exclude=vendor/_laravel_idea --exclude=vendor/psy --exclude=vendor/vlucas --exclude=vendor/brianium -f tags.vendors vendor > /dev/null 2>&1
 }
 
-# Create new directory and cd into it
-function mkd() {
-    if [ $# -eq 0 ]; then
-        echo "usage: mkd directory [directory [directory [...]]]"
-    else
-        mkdir -p "$@" && cd "$_";
-    fi
-}
-
-# Generate random password with default lenght of 32 characters
+# Generate a random password with a default lenght of 32 characters
 function password() {
     openssl rand -base64 ${1:-32}
 }
@@ -84,23 +66,12 @@ function phpserver() {
     sleep 1 && open "http://localhost:${port}/" & php -S "localhost:${port}";
 }
 
-function mtdb() {
-    rm -f ./database/schema/mysql-schema.dump
-    php artisan migrate:fresh --env="testing" --seed
-    php artisan schema:dump --env="testing"
-}
-
-function restartdb () {
-    brew services stop mysql@5.7
-    brew services start mysql@5.7
-}
-
 # Filter processes with keyword
 function showps() {
     ps -A | grep -v 'grep' | grep -i "$@"
 }
 
-# Set a timer for the given number if minutes
+# Set a timer for the given number of minutes
 # "&" will send the process to the background
 function timer() {
     _backround_timer $(( $1 * 60 )) &
@@ -119,13 +90,13 @@ function _backround_timer() {
     osascript -e 'display notification "Get up, stretch, walk make some tea..." with title "The timer is up"'
 }
 
-# Shorthand for tree with hidden files and ignoring common vendors
+# Shorthand for `tree` with hidden files and ignoring common vendors
 # The output gets piped into less
 function tre() {
     tree -aC -I '.git|vendor|node_modules|bower_components' --dirsfirst "$@" | less -FRX;
 }
 
-# Get colors in manual pages
+# Get colors on manual pages
 function man() {
     env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m")    \
@@ -182,7 +153,7 @@ Options:
   -d, --diff          open a diff with two commits or refs [default: "develop", "main"]
   -h, --help          show help text for this command
   -p, --pulls         open the pull requests page
-  -r, --pull-request  open a pull requests for the current branch [default: "develop"]
+  -r, --pull-request  open a pull request for the current branch [default: "develop"]
   -s, --settings      open settings page for the project
   -w, --wiki          open wiki page for the project
 EOF
@@ -256,15 +227,6 @@ EOF
     esac
 }
 
-function work() {
-    open "https://envoyer.io"
-    open "https://notion.so"
-    open "https://github.com/notifications"
-    open "https://sentry.io"
-
-    open -a "/Applications/Slack.app"
-}
-
 function slack() {
     local slack_shortcuts
 
@@ -301,7 +263,7 @@ Action                      Shortcut
   Toggle git pane              ⌘ 9
   Open navigation bar          ⌘ ↑
   Search everywhere            ⇧ ⇧
-  Close most recent pane       ⌘ ⇧ W
+  Close the most recent pane   ⌘ ⇧ W
   Go to recent files           ⌘ E
   Go to recent locations       ⌘ ⇧ E
   Toggle terminal panel        ^ ⇧ T
