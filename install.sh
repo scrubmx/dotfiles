@@ -9,20 +9,31 @@ brew update
 brew install fortune
 brew install cowsay
 brew install lolcat
+brew install lsd
 brew install bat
+brew install fzf
 brew install grep
+brew install hyperfine
+brew install jq
 brew install wget
+brew install tty-clock
+brew install tmux
 brew install tree
 brew install httpie
 brew install diff-so-fancy
 brew install git
+brew install neofetch
+brew install neovim
 brew install nginx
+brew install ripgrep
+brew install spotify-tui
 brew install sqlite
 brew install node
+brew install yabai
 brew install yarn
-brew install php
+brew install php@8.2
 brew install mariadb
-brew install postgresql
+brew install postgresql@16
 brew install composer
 
 # Install fonts
@@ -47,7 +58,7 @@ brew install --cask github
 brew install --cask insomnia
 brew install --cask iterm2
 brew install --cask jumpshare
-brew install --cask karabiner-elements
+brew install --cask karabiner-elementsq
 brew install --cask moom
 brew install --cask mysqlworkbench
 brew install --cask nordvpn
