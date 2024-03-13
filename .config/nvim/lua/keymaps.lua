@@ -2,18 +2,79 @@
 -- Notes & Tips
 -------------------------------------------------
 
--- Add plugins to ~/.config/nvim/lua/plugins.lua, then run :PackerSync
 -- Press 'zz' to instantly center the line where the cursor is located
 -- Change quotes with cs'" or cs"'
--- Press "*y to copy to system clipboard
+-- Press "*y to copy to the system clipboard
+-- Configure iTerm2 Profiles > Keys > Key Mappings
+--  * https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+--  * https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797#keyboard-strings
 
 -------------------------------------------------
 -- General
 -------------------------------------------------
 
+-- Press (gcc) To comment a line or selection. Plugin mini.comment
+-- Press <leader>bd To close a buffer without altering the window layout. Plugin mini.buffremove
+
+-- Press (dt{char}) To delete up to the next {char}
+-- Press (df{char}) To delete up to and including the next {char}
+-- Press (dT{char}) To delete up to the previous {char}
+-- Press (dF{char}) To delete up to and including the previous {char}
+-- Press (d/) To delete up to the next match of the {pattern}
+-- This also works with c (change) and y (yank)
+
+-- Remove Lines Matching a Pattern
+-- https://vimtricks.com/p/remove-lines-matching-a-pattern-in-vim/
+-- :g/pattern/d     Remove lines matching pattern
+-- :g!/pattern/d    Remove lines that do NOT match the pattern
+-- :v/pattern/d     Also removes lines that do not match the pattern
+
 -- Move selected lines Up/Down in Visual mode
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+-- vim.keymap.set('v', 'J', "<Cmd>m '>+1<Return>gv=gv")
+-- vim.keymap.set('v', 'K', "<Cmd>m '<-2<Return>gv=gv")
+
+-- Increment/Decrement
+vim.keymap.set('n', '+', '<C-a>', { noremap = true, silent = true })
+vim.keymap.set('n', '-', '<C-x>', { noremap = true, silent = true })
+
+-- Clear search highlight
+-- vim.keymap.set('n', '<Esc>', ':nohlsearch <CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader><Space>', ':nohlsearch<CR>', { noremap = true, silent = true })
+
+-- Reselect last visual selection after indent/outdent
+vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
+vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
+
+-- Jump half page up/down and center cursor on screen
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+
+-- :bd          - deletes the current buffer, error if there are unwritten changes
+-- :bd!         - deletes the current buffer, no error if unwritten changes
+-- :bufdo bd    - deletes all buffers, stops at first error (unwritten changes)
+-- :bufdo! bd   - deletes all buffers except those with unwritten changes
+-- :bufdo! bd!  - deletes all buffers, no error on any unwritten changes
+--
+-- :bw          - completely deletes the current buffer, error if there are unwritten changes
+-- :bw!         - completely deletes the current buffer, no error if unwritten changes
+-- :bufdo bw    - completely deletes all buffers, stops at first error (unwritten changes)
+-- :bufdo! bw   - completely deletes all buffers except those with unwritten changes
+-- :bufdo! bw!  - completely deletes all buffers, no error on any unwritten changes
+--
+-- :b N         - open buffer number N (as shown in ls)
+-- :tabe +Nbuf  - open buffer number N in new tab
+-- :bnext       - go to the next buffer (:bn also)
+-- :bprevious   - go to the previous buffer (:bp also)
+
+-- Resize window
+-- vim.keymap.set('n', '<C-w><Left>', '<C-w><')
+-- vim.keymap.set('n', '<C-w><Right>', '<C-w>>')
+-- vim.keymap.set('n', '<C-w><Up>', '<C-w>+')
+-- vim.keymap.set('n', '<C-w><Down>', '<C-w>-')
+
+-- Prevent 'change' commands from yanking text
+-- https://stackoverflow.com/questions/62675763/how-can-i-stop-a-change-from-copying-to-my-paste-buffer#answer-62676339
+vim.keymap.set('n', 'c', '"_c', { noremap = true, silent = true })
 
 -------------------------------------------------
 -- Tabs
@@ -26,29 +87,23 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- https://superuser.com/questions/410982/in-vim-how-can-i-quickly-switch-between-tabs#answer-884981
 -- You may need to disable the default Mission Control spaces keyboard shortcuts
 -- https://stackoverflow.com/questions/15719135/how-to-disable-keyboard-shortcuts-in-mac-os-x#answer-15719195
-vim.keymap.set('n', '<C-Left>', '<Cmd>tabprevious<CR>', { noremap = true })
-vim.keymap.set('n', '<C-Right>', '<Cmd>tabnext<CR>', { noremap = true })
-vim.keymap.set('n', '<Tab>', '<Cmd>tabnext<CR>', { noremap = true })
-vim.keymap.set('n', '<S-Tab>', '<Cmd>tabprevious<CR>', { noremap = true })
+--
+-- !! Comented in favor of akinsho/bufferline.nvim plugin
+-- vim.keymap.set('n', '<C-Left>', '<Cmd>tabprevious<CR>', { noremap = true })
+-- vim.keymap.set('n', '<C-Right>', '<Cmd>tabnext<CR>', { noremap = true })
+-- vim.keymap.set('n', '<Tab>', '<Cmd>tabnext<CR>', { noremap = true })
+-- vim.keymap.set('n', '<S-Tab>', '<Cmd>tabprevious<CR>', { noremap = true })
 
 -------------------------------------------------
--- Splits
+-- Splits/Tabs
 -------------------------------------------------
+
+-- Create a new tab
+vim.keymap.set('n', 'te', '<Cmd>tabedit<Return>', { silent = true })
 
 -- Split window and move focus to new splits
-vim.keymap.set('n', 'ss', '<Cmd>split<CR><C-w>w', { noremap = true })
-vim.keymap.set('n', 'sv', '<Cmd>vsplit<CR><C-w>w', { noremap = true })
-
--- Move between splits
-vim.keymap.set('n', 's<Left>', '<C-w>h', { noremap = true })
-vim.keymap.set('n', 's<Down>', '<C-w>j', { noremap = true })
-vim.keymap.set('n', 's<Up>', '<C-w>k', { noremap = true })
-vim.keymap.set('n', 's<Right>', '<C-w>l', { noremap = true })
-
-vim.keymap.set('n', 'sh', '<C-w>h', { noremap = true })
-vim.keymap.set('n', 'sj', '<C-w>j', { noremap = true })
-vim.keymap.set('n', 'sk', '<C-w>k', { noremap = true })
-vim.keymap.set('n', 'sl', '<C-w>l', { noremap = true })
+vim.keymap.set('n', 'ss', '<Cmd>split<Return><C-w>j', { silent = true })
+vim.keymap.set('n', 'sv', '<Cmd>vsplit<Return><C-w>l', { silent = true })
 
 -------------------------------------------------
 -- NeoTree
@@ -90,25 +145,7 @@ vim.keymap.set('n', 'sl', '<C-w>l', { noremap = true })
 -- ,]z move to end of open fold
 
 -------------------------------------------------
--- LSP
--------------------------------------------------
-
--- K: Displays hover information about the symbol under the cursor in a floating window. See :help vim.lsp.buf.hover().
--- gd: Jumps to the definition of the symbol under the cursor. See :help vim.lsp.buf.definition().
--- gD: Jumps to the declaration of the symbol under the cursor. See :help vim.lsp.buf.declaration().
--- gi: Lists all the implementations for the symbol under the cursor in the quickfix window. See :help vim.lsp.buf.implementation().
--- go: Jumps to the definition of the type of the symbol under the cursor. See :help vim.lsp.buf.type_definition().
--- gr: Lists all the references to the symbol under the cursor in the quickfix window. See :help vim.lsp.buf.references().
--- <Ctrl-k>: Displays signature information about the symbol under the cursor in a floating window. See :help vim.lsp.buf.signature_help(). If a mapping already exists for this key this function is not bound.
--- <F2>: Renames all references to the symbol under the cursor. See :help vim.lsp.buf.rename().
--- <F4>: Selects a code action available at the current cursor position. See :help vim.lsp.buf.code_action().
--- gl: Show diagnostics in a floating window. See :help vim.diagnostic.open_float().
--- [d: Move to the previous diagnostic in the current buffer. See :help vim.diagnostic.goto_prev().
--- ]d: Move to the next diagnostic. See :help vim.diagnostic.goto_next().
-
-
--------------------------------------------------
--- Telescope File Broweser
+-- Telescope File Browser
 -------------------------------------------------
 
 -- <Leader>b  open                  Open Telescope file browser (Defined in after/plugins/telescope.lua)
@@ -134,16 +171,16 @@ vim.keymap.set('n', 'sl', '<C-w>l', { noremap = true })
 -------------------------------------------------
 
 -- <Ctrl-y>: Confirms selection
--- <Ctrl-e>: Toggles the completion (Okay, in vim the default just cancels the completion. I set it to toggle)
--- <Up>: Navigate to previous item on the list
+-- <Ctrl-e>: Toggles the completion (Okay, in Vim the default just cancels the completion. I set it to toggle)
+-- <Up>: Navigate to the previous item on the list
 -- <Down>: Navigate to the next item on the list
--- <Ctrl-p>: Navigate to previous item on the list
+-- <Ctrl-p>: Navigate to the previous item on the list
 -- <Ctrl-n>: Navigate to the next item on the list
 --
 -- <Enter>: Confirms selection
 -- <Ctrl-d>: Go to the next placeholder in the snippets
 -- <Ctrl-b>: Go to the previous placeholder in the snippets
--- <Tab>: Complete when the cursor is inside a word (When menu is visible it'll navigate to the next item in the list)
+-- <Tab>: Complete when the cursor is inside a word (When the menu is visible it'll navigate to the next item in the list)
 -- <S-Tab>: When the completion menu is visible navigate to the previous item in the list
 
 -------------------------------------------------
@@ -156,7 +193,7 @@ vim.keymap.set('n', 'sl', '<C-w>l', { noremap = true })
 -- 4dw          Delete the next four words
 -- dd           Delete the current line
 -- 5dd          Delete five lines
--- d$           Delete to the end of line
+-- d$           Delete to the end of the line
 -- d0           Delete to the beginning of line
 -- <Cmd>1,.d    Delete to beginning of file
 -- <Cmd>.,$d    Delete to end of file
