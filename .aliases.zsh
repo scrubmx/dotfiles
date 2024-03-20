@@ -40,7 +40,7 @@ alias vim='nvim'
 alias history="fc -ln 0 | fzf --prompt 'search> ' --color header:bold --header 'Press ⏎ to copy into clipboard' | tr -d '\n' | pbcopy"
 
 # https://www.cyberciti.biz/howto/neofetch-awesome-system-info-bash-script-for-linux-unix-macos
-alias about="neofetch --config none --bold off --colors 6 6 8 8 8 7 --ascii $HOME/ascii-apple.txt --ascii_colors 6 2 3 1 5 4"
+alias about="neofetch --config none --bold off --colors 6 6 8 8 8 7 --ascii $HOME/.config/neofetch/ascii-apple-custom.txt --ascii_colors 6 2 3 1 5 4"
 
 # Toggle wrap settings
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
