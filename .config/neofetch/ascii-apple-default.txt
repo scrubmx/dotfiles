@@ -1,19 +1,18 @@
-                        ${c1}#
-                      ###
-                     ####
-                    ####
-                    ##
-           ${c2}########   #########
-        ##########################
-      ${c3}#############################
-     #############################
-    ############################
-    ${c4}############################
-    ############################
-     ############################
-     ${c5}##############################
-      ##############################
-       ############################
-        ${c6}##########################
-          ######################
-            #######    #######
+
+    ${c1}                    c.'
+                     ,xNMM.
+                   .OMMMMo
+                   lMM"
+         .;loddddo:.  .olloddddol;.
+       cKMMMMMMMMMMMNWNMMMMMMMMMM0:
+    ${c2} .KMMMMMMMMMMMMMMMMMMMMMMMMMWd.
+     XMMMMMMMMMMMMMMMMMMMMMMMMMX.
+    ${c3};MMMMMMMMMMMMMMMMMMMMMMMMMM:
+    :MMMMMMMMMMMMMMMMMMMMMMMMMM:
+    ${c4}.MMMMMMMMMMMMMMMMMMMMMMMMMMX.
+     kMMMMMMMMMMMMMMMMMMMMMMMMMMWd.
+     ${c5}'XMMMMMMMMMMMMMMMMMMMMMMMMMMMMk
+      'XMMMMMMMMMMMMMMMMMMMMMMMMMMK.
+        ${c6}kMMMMMMMMMMMMMMMMMMMMMMMMd
+         ;KMMMMMMMMWXXWMMMMMMMMk.
+           "coooc*"    "*cooo'"
