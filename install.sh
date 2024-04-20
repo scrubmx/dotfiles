@@ -40,6 +40,10 @@ brew install composer
 brew tap caskroom/fonts
 brew cask install font-hack
 
+# Install timer https://github.com/caarlos0/timer
+brew tap caarlos0/homebrew-tap
+brew install timer
+
 # Install applications
 # brew tap homebrew/cask
 # brew install brew-cask
