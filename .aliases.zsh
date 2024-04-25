@@ -22,6 +22,10 @@ alias ll='lsd -lhA'
 # alias la='ls -AG'
 # alias ll='ls -AlGh'
 
+# Open files with Quick Look
+# https://superuser.com/questions/93383/open-file-with-quick-look-from-command-shell#answer-93395
+alias ql="qlmanage -p 2>/dev/null"
+
 # Human readable disk-free output
 alias free='df -h'
 
