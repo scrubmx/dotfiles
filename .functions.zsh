@@ -10,7 +10,16 @@ function tilecolors() {
 
 # Show the current font variants: normal, bold, italic, underline, and strikethrough
 function testfont() {
-  echo -e "normal\n\e[1mbold\e[0m\n\e[3mitalic\e[0m\n\e[4munderline\e[0m\n\e[9mstrikethrough\e[0m"
+    echo -e "normal\n\e[1mbold\e[0m\n\e[3mitalic\e[0m\n\e[4munderline\e[0m\n\e[9mstrikethrough\e[0m"
+}
+
+function battail() {
+    tail "$@" | bat --paging=never -l log
+}
+
+# Print the first 16 numbers from the Fibonacci sequence
+function fibonacci() {
+    echo "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, ..."
 }
 
 # List all terminal colors
