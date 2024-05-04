@@ -27,11 +27,6 @@ yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.00
 yabai -m config active_window_opacity        1.00
 yabai -m config normal_window_opacity        0.90
-# yabai -m config window_border                on # Deprecated?
-# yabai -m config window_border_width          1  # Deprecated?
-# yabai -m config window_border_hidpi          on # Deprecated?
-# yabai -m config active_window_border_color   0xff00b100 # Deprecated?
-# yabai -m config normal_window_border_color   0x00010101 # Deprecated?
 yabai -m config insert_feedback_color        0xff8ebd6b
 yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
@@ -66,9 +61,9 @@ yabai -m config --space 5 split_ratio        0.50
 # Brave browser picture-in-picture:
 #   - https://github.com/koekeishiya/yabai/issues/165#issuecomment-515875695
 
-# yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^1Password$" layer=above manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
-yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Alfred Preferences$" layer=above manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Brave Browser$" title="^Picture in Picture$" layer=above manage=off
 yabai -m rule --add app="^Calculator$" manage=off
@@ -76,18 +71,20 @@ yabai -m rule --add app="^Finder$" title="^Copy$" layer=above manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Logi Options$" manage=off
-yabai -m rule --add app="^Loading Microsoft Teams$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
-# yabai -m rule --add app=".+| Microsoft Teams$" manage=off
-yabai -m rule --add app="^Moom$" layer=above border=off manage=off
+# yabai -m rule --add app="^Loading Microsoft Teams$" layer=above manage=off
+# yabai -m rule --add app="^Microsoft Teams(.+)?$" manage=off
+yabai -m rule --add app="^Microsoft Teams(.+)?$" title="^(.+) \| Microsoft Teams$" layer=above manage=off
+yabai -m rule --add app="^Moom$" layer=above manage=off
 yabai -m rule --add app="^OpenVPNConnect$" layer=above manage=off
-yabai -m rule --add app="^Photo Booth$" layer=above manage=off
+yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^PhpStorm$" title="^Settings$" layer=above manage=off
-yabai -m rule --add app="^Preview$" layer=above border=off manage=off
+yabai -m rule --add app="^Preview$" layer=above manage=off
 # yabai -m rule --add app="^PhpStorm$" subrole="^AXDialog$" layer=above manage=off
-yabai -m rule --add app="^Raycast$" layer=above border=off manage=off
-yabai -m rule --add app="^Stickies$" layer=above border=off manage=off
+yabai -m rule --add app="^Raycast$" layer=above manage=off
+yabai -m rule --add app="^Stickies$" layer=above manage=off
 yabai -m rule --add app="^System Information$" layer=above manage=off
 yabai -m rule --add app="^System Settings$" layer=above manage=off
 yabai -m rule --add app="^TablePlus$" title="^Connection\.\.\.$" layer=above manage=off
-yabai -m rule --add app="^Vitamin-R 4$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Vitamin-R 4$" layer=above manage=off
+yabai -m rule --add app="^WhatsApp$" layer=above manage=off
