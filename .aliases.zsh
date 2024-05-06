@@ -17,7 +17,6 @@ alias ls='lsd -lh'
 alias la='lsd -lhA'
 alias ll='lsd -lhA'
 
-# List files in pretty format and colors
 # alias ls='ls -FGH'
 # alias la='ls -AG'
 # alias ll='ls -AlGh'
@@ -37,6 +36,7 @@ alias dk="cd ~/Desktop"
 alias sites="cd ~/Sites"
 alias config="cd ~/.config"
 
+# Alias vi and vim to nvim
 alias vi='nvim'
 alias vim='nvim'
 
@@ -81,8 +81,8 @@ alias lolcow="fortune | cowsay | lolcat"
 #   .-(    ).   ← 12 km/h
 #  (___.__)__)  10 km
 #               0.1 mm
-# alias weather="curl -4 http://wttr.in/Mexico_City"
-alias weather="curl -4 http://wttr.in/Mexico_City"
+# alias weather="curl 'wttr.in/Mexico_City?1'"
+alias weather="curl 'wttr.in/Mexico_City?0'"
 
 # Display a clock in the terminal
 #
@@ -103,13 +103,16 @@ alias vimconf="cd ~/.config/nvim && nvim init.lua"
 alias yabaiconf="cd ~/.config/yabai && nvim yabairc"
 
 # Pretty print the $PATH values
-alias path='echo $PATH | tr -s ":" "\n"'
+alias path='echo $PATH | tr -s ":" "\n" | sort'
 
 # Open Applications
 alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias brave="open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser"
 alias emacs='open -a /Applications/Emacs.app/Contents/MacOS/Emacs'
 alias gist="open https://gist.github.com/scrubmx"
+alias pulls="open https://github.com/kickfurther/kickfurther/pulls"
+alias cloud="open ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+# alias emacs='$(/Applications/Emacs.app/Contents/MacOS/Emacs -nw)'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -139,7 +142,6 @@ alias nah="git reset --hard; git clean -df"
 alias dal="composer dump-autoload"
 
 # Run PHPUnit test suite
-alias t="clear! && ./vendor/bin/phpunit --order-by=defects --stop-on-failure --stop-on-error"
 alias tp="clear! && php artisan test --parallel"
 alias tpr="clear! && php artisan test --parallel --recreate-databases"
 
@@ -167,7 +169,9 @@ alias logs="tail -f ./storage/logs/laravel.log | awk '\
 #  Elixir
 # ------------------------------------------------------------------------------
 
-alias mixs="iex -S mix phoenix.server"
+alias ms="iex -S mix phoenix.server"
+alias t="clear! && ENV_MIX=test mix test"
+alias tr="clear! && ENV_MIX=test mix ecto.reset && mix test"
 alias prytest="iex -S mix test --trace" # run tests and stop on IEx.pry
 alias pry='fc -e - mix\ test=iex\ -S\ mix\ test\ --trace mix\ test'
 
