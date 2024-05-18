@@ -16,6 +16,7 @@ brew install grep
 brew install hyperfine
 brew install jq
 brew install wget
+brew install terminal-notifier
 brew install tty-clock
 brew install tmux
 brew install tree
@@ -31,10 +32,11 @@ brew install sqlite
 brew install node
 brew install yabai
 brew install yarn
-brew install php@8.2
+brew install php@8.3
 brew install mariadb
 brew install postgresql@16
 brew install composer
+brew install elixir
 
 # Install fonts
 brew tap caskroom/fonts
@@ -102,6 +104,11 @@ composer global require laravel/valet
 composer global require psy/psysh
 composer global require friendsofphp/php-cs-fixer
 composer global require squizlabs/php_codesniffer
+
+# https://hexdocs.pm/phoenix/installation.html
+# Install hex package manager and Phoenix app generator
+mix local.hex
+mix archive.install hex phx_new
 
 # Install vim plugin manager https://linuxhint.com/vim-vundle-tutorial
 # Have to still run :PluginInstall
