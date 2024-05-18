@@ -21,10 +21,6 @@ alias ll='lsd -lhA'
 # alias la='ls -AG'
 # alias ll='ls -AlGh'
 
-# Open files with Quick Look
-# https://superuser.com/questions/93383/open-file-with-quick-look-from-command-shell#answer-93395
-alias ql="qlmanage -p 2>/dev/null"
-
 # Human readable disk-free output
 alias free='df -h'
 
@@ -50,6 +46,7 @@ alias about="neofetch --config none --bold off --colors 6 6 8 8 8 7 --ascii $HOM
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
 alias wrap="tput smam"
 alias nowrap="tput rmam"
+
 
 # ------------------------------------------------------------------------------
 #  Miscellaneous
@@ -86,11 +83,15 @@ alias weather="curl 'wttr.in/Mexico_City?0'"
 
 # Display a clock in the terminal
 #
-# https://github.com/xorg62/tty-clock#readme
-# https://formulae.brew.sh/formula/tty-clock
-# alias clock="tty-clock -c -n -D -C 6 -d 60"
-alias clock="tty-clock -c -n -D -C 6"
-alias clockdate="tty-clock -c -n -C 6"
+# Install:
+#   https://formulae.brew.sh/formula/tty-clock
+# Documentation:
+#   https://github.com/xorg62/tty-clock#readme
+# Options:
+#   -c (centered) | -n (no-seconds) | -D (no-date) | -C (color [0-7]) | -d (delay between redraws)
+# alias clock="tty-clock -c -d 60 -n -C 4 -D"
+alias clock="tty-clock -c -d 60 -n -C 6 -D"
+alias clockdate="tty-clock -c -d 60 -n -C 6"
 
 # Create new aliases
 alias newalias="nvim ~/.aliases.zsh"
@@ -165,6 +166,7 @@ alias logs="tail -f ./storage/logs/laravel.log | awk '\
     /\[stacktrace\]/  {matched=1; print \"\\033[0;35m\" \$0 \"\\033[0m\"}\
     matched==0        {print \"\\033[0;37m\" \$0 \"\\033[0m\"}'"
 
+
 # ------------------------------------------------------------------------------
 #  Elixir
 # ------------------------------------------------------------------------------
@@ -188,6 +190,7 @@ alias minitest="ruby -r minitest/color"
 alias rc="rails console"
 alias rs="rails server"
 
+
 # ------------------------------------------------------------------------------
 #  JavaScript
 # ------------------------------------------------------------------------------
@@ -209,8 +212,12 @@ alias fixsass="npm rebuild node-sass"
 
 
 # ------------------------------------------------------------------------------
-#  OS X Specific aliases
+#  Mac Specific
 # ------------------------------------------------------------------------------
+
+# Open files with Quick Look
+# https://superuser.com/questions/93383/open-file-with-quick-look-from-command-shell#answer-93395
+alias ql="qlmanage -p 2>/dev/null"
 
 # Add Paulina's voice to Mac OS X
 #  - Navigate to: System Preferences > Dictation & Speech > Text to Speech
