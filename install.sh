@@ -27,6 +27,7 @@ brew install jq
 brew install fzf
 brew install neovim
 brew install tmux
+brew install gh
 
 # brew install fortune
 # brew install cowsay
@@ -46,7 +47,7 @@ brew install sqlite
 # brew install mysql@8.0
 # brew install postgresql@16
 
-brew install yabai
+brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
 # yabi --start-service
 # skhd --start-service
@@ -68,25 +69,25 @@ brew install font-hack
 
 brew install --cask 1password
 brew install --cask alfred
-brew install --cask brave-browser
+# brew install --cask brave-browser
+brew install --cask karabiner-elements
+brew install --cask kitty
+# brew install --cask moom
 brew install --cask coderunner
 brew install --cask github
 brew install --cask insomnia
 brew install --cask json-viewer
-brew install --cask karabiner-elements
-brew install --cask kitty
-# brew install --cask moom
 brew install --cask qlmarkdown
 brew install --cask slack
 brew install --cask spotify
 brew install --cask tableplus
-brew install --cask transmission
+brew install --cask transmit
 brew install --cask vitamin-r
 brew install --cask vlc
 brew install --cask zoom
+brew install --cask discord
 
 # brew install --cask daisydisk
-# brew install --cask discord
 # brew install --cask dropbox
 # brew install --cask droplr
 # brew install --cask figma
@@ -97,7 +98,7 @@ brew install --cask zoom
 # brew install --cask mysqlworkbench
 # brew install --cask nordvpn
 # brew install --cask phpstorm
-# brew install --cask transmit
+# brew install --cask transmission
 # brew install --cask visual-studio-code
 
 # Install software from the Mac App Store
@@ -114,7 +115,6 @@ brew cleanup
 # Install global composer packages
 composer global require laravel/installer
 composer global require laravel/valet
-composer global require psy/psysh
 composer global require friendsofphp/php-cs-fixer
 composer global require squizlabs/php_codesniffer
 
