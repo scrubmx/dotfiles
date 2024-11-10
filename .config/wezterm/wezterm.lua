@@ -59,13 +59,16 @@ config.background = {
   },
 }
 
--- config.leader = { key = 'CMD' }
+-- https://wezfurlong.org/wezterm/config/keys.html
+-- https://wezfurlong.org/wezterm/config/lua/keyassignment/SendKey.html
 config.keys = {
-  { mods = 'CMD', key = '1', action = act.SendString(',1') },      -- Cmd+1 -> <Leader>1
+  { mods = 'CMD', key = '1', action = act.SendString(',1') }, -- Cmd+1 -> <Leader>1
   { mods = 'CMD', key = 'p', action = act.SendString('\x1b,ff') }, -- Cmd+p -> Esc <Leader>ff
   { mods = 'CMD', key = 'r', action = act.SendString('\x1b,fi') }, -- Cmd+r -> Esc <Leader>fi
   { mods = 'CMD', key = 'g', action = act.SendString('\x1b,fg') }, -- Cmd+g -> Esc <Leader>fg
   { mods = 'CMD', key = 'b', action = act.SendString('\x1b,fb') }, -- Cmd+b -> Esc <Leader>fb
+  { mods = 'OPT', key = 'LeftArrow', action = act.SendKey({ mods = 'ALT', key = 'b' }) }, -- Option+Left -> Alt+b (backward-word)
+  { mods = 'OPT', key = 'RightArrow', action = act.SendKey({ mods = 'ALT', key = 'f' }) }, -- Option+Right -> Alt+f (forward-word)
 }
 
 -- config.enable_kitty_keyboard = true
