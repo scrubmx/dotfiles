@@ -31,10 +31,18 @@ vim.opt.splitright = true
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
 vim.opt.sidescroll = 10
+vim.opt.mousescroll = 'ver:3,hor:0'
 
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- Configuration for nvim-ufo
+vim.opt.foldcolumn = '1' -- '0' is not bad
+vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+
+-- vim.opt.foldmethod = 'expr'
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 -- vim.opt.foldlevel = 10
+
 vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.foldcolumn = '0' -- Using ufo provider this prevents showing weird characters on the left
 vim.opt.foldlevel = 99   -- Using ufo provider needs a large value, feel free to decrease the value
@@ -52,13 +60,24 @@ vim.opt.listchars = { trail = '·', tab = '➞ ', extends = '◣', precedes = '�
 
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
-vim.opt.signcolumn = 'yes'
-vim.opt.lazyredraw = true
+vim.opt.signcolumn = 'yes' -- 'auto:4'
+-- vim.opt.lazyredraw = true -- This doesn't work with noice plugin
 vim.opt.timeout = true
 vim.opt.timeoutlen = 300
 
 -- vim.opt.spelllang = { 'en_us', 'es' }
 -- vim.opt.spell = true
+
+-- filetypes
+vim.filetype.add({
+  pattern = {
+    ['.*%.blade%.php'] = 'blade',
+  },
+})
+
+
+-- To use fzf in Neovim, add the following line to your init.lua
+vim.opt.rtp:append('/usr/local/opt/fzf')
 
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
@@ -70,5 +89,3 @@ vim.loader.enable()
 require('config.lazy')
 require('config.autocmds')
 require('config.keymaps')
-
-vim.opt.rtp:append('/usr/local/opt/fzf')
