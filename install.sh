@@ -4,9 +4,6 @@
 # https://ohmyz.sh/#install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Get our custom zsh-theme
-wget -O ~/.oh-my-zsh/themes/custom.zsh-theme https://raw.githubusercontent.com/scrubmx/dotfiles/master/.oh-my-zsh/themes/custom.zsh-theme
-
 # Install Homebrew
 # https://brew.sh/#install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -15,6 +12,7 @@ brew analytics off
 
 brew update
 
+brew install wezterm
 brew install wget
 brew install bat
 brew install lsd
@@ -35,11 +33,11 @@ brew install gh
 # brew install spotify-tui
 # brew install terminal-notifier
 
-# brew install elixir
+brew install elixir
 brew install node
-brew install php@8.3
-brew install composer
-brew install psysh
+# brew install php@8.3
+# brew install composer
+# brew install psysh
 brew install nginx
 
 brew install sqlite
@@ -53,15 +51,12 @@ brew install koekeishiya/formulae/skhd
 # skhd --start-service
 
 # Install fonts
-# https://www.nerdfonts.com/font-downloads
-brew tap homebrew/cask-fonts
-
 # https://github.com/githubnext/monaspace
-brew install font-monaspace
+brew install --cask font-monaspace
 # https://github.com/tonsky/FiraCode
-brew install font-fira-code
+# brew install font-fira-code
 # https://github.com/source-foundry/Hack
-brew install font-hack
+# brew install font-hack
 
 # Install applications
 # brew tap homebrew/cask
@@ -69,9 +64,9 @@ brew install font-hack
 
 brew install --cask 1password
 brew install --cask alfred
-# brew install --cask brave-browser
+brew install --cask brave-browser
 brew install --cask karabiner-elements
-brew install --cask kitty
+# brew install --cask kitty
 # brew install --cask moom
 brew install --cask coderunner
 brew install --cask github
@@ -90,7 +85,7 @@ brew install --cask discord
 # brew install --cask daisydisk
 # brew install --cask dropbox
 # brew install --cask droplr
-# brew install --cask figma
+brew install --cask figma
 # brew install --cask google-chrome
 # brew install --cask httpie
 # brew install --cask iterm2
@@ -106,17 +101,42 @@ brew install mas
 
 # mas install 937984704 # Amphetamine
 # mas install 904280696 # Things
-mas install 1091189122 # Bear
+# mas install 1091189122 # Bear
 # mas install 605732865 # RSS Bot
 
 # Remove stale lock files and outdated downloads
 brew cleanup
 
+# ---------------------------------------------------------------
+# Configurations
+# ---------------------------------------------------------------
+
+# Bat
+# https://github.com/catppuccin/bat
+mkdir -p "$(bat --config-dir)/themes"
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+bat cache --build
+wget -O "$(bat --config-dir)" https://raw.githubusercontent.com/scrubmx/dotfiles/refs/heads/master/.config/bat/config
+
+# Zsh
+# Get our custom zsh-theme
+mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes
+wget -O ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/custom.zsh-theme https://raw.githubusercontent.com/scrubmx/dotfiles/master/.oh-my-zsh/custom/themes/custom.zsh-theme
+
+# Install custom plugins
+mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# WezTerm
+mkdir -p ~/.config/wezterm
+wget -O ~/.config/wezterm/wezterm.lua https://raw.githubusercontent.com/scrubmx/dotfiles/refs/heads/master/.config/wezterm/wezterm.lua
+
 # Install global composer packages
-composer global require laravel/installer
-composer global require laravel/valet
-composer global require friendsofphp/php-cs-fixer
-composer global require squizlabs/php_codesniffer
+# composer global require laravel/installer
+# composer global require laravel/valet
+# composer global require friendsofphp/php-cs-fixer
+# composer global require squizlabs/php_codesniffer
 
 # https://hexdocs.pm/phoenix/installation.html
 # Install hex package manager and Phoenix app generator
@@ -124,13 +144,12 @@ mix local.hex
 mix archive.install hex phx_new
 
 # Install vim plugin manager https://linuxhint.com/vim-vundle-tutorial
-# Have to still run :PluginInstall
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 
 # Create custom directories
 mkdir ~/Code
 mkdir ~/Sites
 
 # Create desktop shortcuts
-ln -s ~/ ~/Desktop/Home
-ln -s ~/Code ~/Desktop/Code
+# ln -s ~/ ~/Desktop/Home
+# ln -s ~/Code ~/Desktop/Code
