@@ -32,6 +32,7 @@ brew install gh
 # brew install lolcat
 # brew install spotify-tui
 # brew install terminal-notifier
+brew install microsoft-teams
 
 brew install elixir
 brew install node
@@ -49,6 +50,9 @@ brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
 # yabi --start-service
 # skhd --start-service
+
+brew tap FelixKratz/formulae
+brew install borders
 
 # Install fonts
 # https://github.com/githubnext/monaspace
@@ -132,6 +136,17 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 mkdir -p ~/.config/wezterm
 wget -O ~/.config/wezterm/wezterm.lua https://raw.githubusercontent.com/scrubmx/dotfiles/refs/heads/master/.config/wezterm/wezterm.lua
 
+# Window Managment
+mkdir -p ~/.config/{borders,skhd,yabai}
+
+wget -O ~/.config/skhd/skhdrc https://raw.githubusercontent.com/scrubmx/dotfiles/refs/heads/master/.config/skhd/skhdrc
+wget -O ~/.config/yabai/yabairc https://raw.githubusercontent.com/scrubmx/dotfiles/refs/heads/master/.config/yabai/yabairc
+wget -O ~/.config/borders/bordersrc https://raw.githubusercontent.com/scrubmx/dotfiles/refs/heads/master/.config/borders/bordersrc
+
+mkdir -p ~/.config/eza/themes
+wget -O ~/.config/eza/themes/catppuccin.yml https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/catppuccin.yml
+ln -s ~/.config/eza/themes/catppuccin.yml ~/.config/eza/theme.yml
+
 # Install global composer packages
 # composer global require laravel/installer
 # composer global require laravel/valet
@@ -153,3 +168,10 @@ mkdir ~/Sites
 # Create desktop shortcuts
 # ln -s ~/ ~/Desktop/Home
 # ln -s ~/Code ~/Desktop/Code
+
+
+# yabi --start-service
+# skhd --start-service
+brew services start borders
+brew services start postgresql@16
+
