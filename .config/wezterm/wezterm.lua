@@ -7,7 +7,8 @@ local act = wezterm.action
 
 config.color_scheme = 'One Dark (Gogh)'
 
-config.max_fps = 165
+-- 60, 100, 165
+config.max_fps = 100
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
@@ -51,22 +52,23 @@ config.background = {
     source = { Color = '#111315' }, -- '#111315'
     height = '100%',
     width = '100%',
-    opacity = 0.85,
+    opacity = 0.80,
     hsb = {
       saturation = 0.2,
-      brightness = 0.4,
+      brightness = 0.2,
     },
   },
 }
 
 -- https://wezfurlong.org/wezterm/config/keys.html
--- https://wezfurlong.org/wezterm/config/lua/keyassignment/SendKey.html
 config.keys = {
   { mods = 'CMD', key = '1', action = act.SendString(',1') }, -- Cmd+1 -> <Leader>1
   { mods = 'CMD', key = 'p', action = act.SendString('\x1b,ff') }, -- Cmd+p -> Esc <Leader>ff
   { mods = 'CMD', key = 'r', action = act.SendString('\x1b,fi') }, -- Cmd+r -> Esc <Leader>fi
   { mods = 'CMD', key = 'g', action = act.SendString('\x1b,fg') }, -- Cmd+g -> Esc <Leader>fg
   { mods = 'CMD', key = 'b', action = act.SendString('\x1b,fb') }, -- Cmd+b -> Esc <Leader>fb
+  -- { mods = 'OPT', key = 'LeftArrow', action = act.SendString('\x1bb') }, -- Option+Left -> Alt+b (backward-word)
+  -- { mods = 'OPT', key = 'RightArrow', action = act.SendString('\x1bf') }, -- Option+Right -> Alt+f (forward-word)
   { mods = 'OPT', key = 'LeftArrow', action = act.SendKey({ mods = 'ALT', key = 'b' }) }, -- Option+Left -> Alt+b (backward-word)
   { mods = 'OPT', key = 'RightArrow', action = act.SendKey({ mods = 'ALT', key = 'f' }) }, -- Option+Right -> Alt+f (forward-word)
 }
