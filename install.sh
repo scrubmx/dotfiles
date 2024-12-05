@@ -78,6 +78,7 @@ brew install --cask coderunner
 brew install --cask github
 brew install --cask insomnia
 brew install --cask json-viewer
+brew install --cask livebook
 brew install --cask qlmarkdown
 brew install --cask slack
 brew install --cask spotify
