@@ -16,7 +16,7 @@ brew install wezterm
 brew install wget
 brew install bat
 # brew install lsd
-brew install exa
+brew install eza
 brew install grep
 brew install ripgrep
 brew install hyperfine
@@ -28,6 +28,8 @@ brew install neovim
 brew install tmux
 brew install gh
 brew install tree-sitter
+brew install luarocks
+brew install zoxide
 
 # brew install fortune
 # brew install cowsay
