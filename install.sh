@@ -12,28 +12,30 @@ brew analytics off
 
 brew update
 
-brew install wezterm
-brew install wget
 brew install bat
+brew install diff-so-fancy
+brew install fastfetch
+brew install fzf
+brew install gh
+brew install grep
+brew install hyperfine
+brew install jq
 # brew install lsd
 brew install eza
-brew install grep
 brew install ripgrep
-brew install hyperfine
-brew install diff-so-fancy
-brew install tty-clock
-brew install jq
-brew install fzf
-brew install neovim
 brew install tmux
-brew install gh
 brew install tree-sitter
-brew install luarocks
+brew install wezterm
+brew install wget
 brew install zoxide
+brew install neovim
+brew install luarocks
 
-# brew install fortune
-# brew install cowsay
-# brew install lolcat
+brew install fortune
+brew install cowsay
+brew install lolcat
+brew install cmatrix
+brew install tty-clock
 # brew install spotify-tui
 # brew install terminal-notifier
 brew install microsoft-teams
@@ -48,7 +50,7 @@ brew install nginx
 brew install sqlite
 # brew install mariadb
 # brew install mysql@8.0
-# brew install postgresql@16
+brew install postgresql@16
 
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
@@ -57,6 +59,7 @@ brew install koekeishiya/formulae/skhd
 
 brew tap FelixKratz/formulae
 brew install borders
+# brew services start borders
 
 # Install fonts
 # https://github.com/githubnext/monaspace
