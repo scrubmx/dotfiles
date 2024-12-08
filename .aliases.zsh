@@ -12,14 +12,22 @@ alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 
 # List files in pretty format and colors
-# https://github.com/lsd-rs/lsd
-alias ls='lsd -lh'
-alias la='lsd -lhA'
-alias ll='lsd -lhA'
+# https://github.com/eza-community/eza
+if command -v eza &>/dev/null; then
+  alias ls='eza'
+  alias ll='eza -gl --color --icons --links --sort=type --show-symlinks'
+  alias la='eza -agls --color --icons --links --sort=type --show-symlinks --all'
+  alias tree='eza --color --icons --links --sort=type --show-symlinks --all --tree'
+else
+  # https://github.com/lsd-rs/lsd
+  # alias ls='lsd -lh'
+  # alias la='lsd -lhA'
+  # alias ll='lsd -lhA'
 
-# alias ls='ls -FGH'
-# alias la='ls -AG'
-# alias ll='ls -AlGh'
+  alias ls='ls -FGH'
+  alias la='ls -AG'
+  alias ll='ls -AlGh'
+fi
 
 # Human readable disk-free output
 alias free='df -h'
@@ -40,7 +48,7 @@ alias vim='nvim'
 alias history="fc -ln 0 | fzf --prompt 'search> ' --color header:bold --header 'Press ⏎ to copy into clipboard' | tr -d '\n' | pbcopy"
 
 # https://www.cyberciti.biz/howto/neofetch-awesome-system-info-bash-script-for-linux-unix-macos
-alias about="neofetch --config none --bold off --colors 6 6 8 8 8 7 --ascii $HOME/.config/neofetch/ascii-apple-custom.txt --ascii_colors 6 2 3 1 5 4"
+# alias about="neofetch --config none --bold off --colors 6 6 8 8 8 7 --ascii $HOME/.config/neofetch/ascii-apple-custom.txt --ascii_colors 6 2 3 1 5 4"
 
 # Toggle wrap settings
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
@@ -61,7 +69,11 @@ alias reload="source ~/.zshrc"
 
 # Clear terminal and reset the scrollback
 # https://til.hashrocket.com/posts/g1ola6c5ku-how-to-clear-a-mac-terminal-and-its-scroll-back
-# alias clear!="clear && printf '\e[3J'"
+alias clear!="clear && printf '\e[3J'"
+
+# Kitty terminal configuration:
+# https://sw.kovidgoyal.net/kitty/conf/#shortcut-kitty.Reset-the-terminal
+# alias clear!='clear && printf "\e[H\e[3J"'
 
 # https://github.com/busyloop/lolcat
 # A journey of a thousand miles must begin with a single step.
@@ -81,6 +93,17 @@ alias lolcow="fortune | cowsay | lolcat"
 # alias weather="curl 'wttr.in/Mexico_City?1'"
 alias weather="curl 'wttr.in/Mexico_City?0'"
 
+# Display matrix like text animation
+# https://github.com/abishekvashok/cmatrix
+#
+# Install with hamebrew:
+#   https://formulae.brew.sh/formula/cmatrix
+#
+# Wiki Colors:
+#   https://github.com/abishekvashok/cmatrix/wiki/Colors
+# alias matrix="cmatrix -b -C blue -s"
+alias matrix="cmatrix -b -s"
+
 # Display a clock in the terminal
 #
 # Install:
@@ -94,12 +117,12 @@ alias clock="tty-clock -c -d 60 -n -C 6 -D"
 alias clockdate="tty-clock -c -d 60 -n -C 6"
 
 # Create new aliases
-alias newalias="nvim ~/.aliases.zsh"
-alias newfunction="nvim ~/.functions.zsh"
-alias zshconf="nvim ~/.zshrc"
-alias gitconf="nvim ~/.gitconfig"
-alias sshconf="nvim ~/.ssh/config"
-alias vimconf="nvim ~/.config/nvim/init.lua"
+alias newalias="cd ~/.oh-my-zsh/custom && nvim aliases.zsh"
+alias newfunction="cd ~/.oh-my-zsh/custom && nvim functions.zsh"
+alias gitconf="cd && nvim ~/.gitconfig"
+alias zshconf="cd && nvim ~/.zshrc"
+alias sshconf="cd ~/.ssh && nvim config"
+alias tmuxconf="cd ~/.config/tmux && nvim tmux.conf"
 alias vimconf="cd ~/.config/nvim && nvim init.lua"
 alias yabaiconf="cd ~/.config/yabai && nvim yabairc"
 
@@ -107,13 +130,9 @@ alias yabaiconf="cd ~/.config/yabai && nvim yabairc"
 alias path='echo $PATH | tr -s ":" "\n" | sort'
 
 # Open Applications
-alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias brave="open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser"
-alias emacs='open -a /Applications/Emacs.app/Contents/MacOS/Emacs'
 alias gist="open https://gist.github.com/scrubmx"
-alias pulls="open https://github.com/kickfurther/kickfurther/pulls"
 alias cloud="open ~/Library/Mobile\ Documents/com~apple~CloudDocs"
-# alias emacs='$(/Applications/Emacs.app/Contents/MacOS/Emacs -nw)'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
