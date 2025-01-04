@@ -102,6 +102,7 @@ brew install --cask tableplus
 brew install --cask transmit
 brew install --cask vitamin-r
 brew install --cask vlc
+brew install --cask zed
 brew install --cask zoom
 
 # brew install --cask daisydisk
