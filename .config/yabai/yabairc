@@ -43,6 +43,14 @@ yabai -m config left_padding                 20
 yabai -m config right_padding                20
 yabai -m config window_gap                   20
 
+# Configuration for space 5 (macbook screen)
+# yabai -m config --space 5 top_padding        10
+# yabai -m config --space 5 bottom_padding     10
+# yabai -m config --space 5 left_padding       10
+# yabai -m config --space 5 right_padding      10
+# yabai -m config --space 5 window_gap         1
+# yabai -m config --space 5 split_ratio        0.50
+
 
 # ---------------------------------------------------------------------
 # Window rules
@@ -53,30 +61,55 @@ yabai -m config window_gap                   20
 # Brave browser picture-in-picture:
 #   - https://github.com/koekeishiya/yabai/issues/165#issuecomment-515875695
 
-yabai -m rule --add app="^1Password$" layer=above manage=off
+# https://github.com/koekeishiya/yabai/issues/2172
+# https://github.com/koekeishiya/yabai/issues/2128
+# https://github.com/koekeishiya/yabai/issues/2062
+#
+# Query open windows:
+# - yabai -m query --windows
+# - yabai -m query --windows | rg "app"
+# - yabai -m query --windows | rg "title"
+
+# yabai -m rule --add app="^Brave Browser$" title="^Picture in Picture$" layer=above manage=off
+# yabai -m rule --add app="^Loading Microsoft Teams$" layer=above manage=off
+# yabai -m rule --add app="^Microsoft Teams(.+)?$" manage=off
+# yabai -m rule --add app="^Microsoft Teams(.+)?$" title="^(.+) \| Microsoft Teams$" layer=above manage=off
+
+yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
-yabai -m rule --add app="^Alfred Preferences$" layer=above manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
-yabai -m rule --add app="^Brave Browser$" title="^Picture in Picture$" layer=above manage=off
+yabai -m rule --add app="^beam.smp$" manage=off
+yabai -m rule --add app="^Brave Browser$" title="^Picture in Picture$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Finder$" title="^Copy$" layer=above manage=off
+yabai -m rule --add app="^Clock$" manage=off
+yabai -m rule --add app="^CodeRunner$" manage=off
+# yabai -m rule --add app="^Finder$" title="^Copy$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Font Book$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Logi Options$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
-# yabai -m rule --add app="^Loading Microsoft Teams$" layer=above manage=off
+# yabai -m rule --add app="^Loading Microsoft Teams$" manage=off
 # yabai -m rule --add app="^Microsoft Teams(.+)?$" manage=off
-yabai -m rule --add app="^Microsoft Teams(.+)?$" title="^(.+) \| Microsoft Teams$" layer=above manage=off
-yabai -m rule --add app="^Moom$" layer=above manage=off
-yabai -m rule --add app="^OpenVPNConnect$" layer=above manage=off
+yabai -m rule --add app="^Microsoft Teams(.+)?$" title="^(.+) \| Microsoft Teams$" manage=off
+yabai -m rule --add app="^Moom$" manage=off
+yabai -m rule --add app="^OpenVPNConnect$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
-yabai -m rule --add app="^PhpStorm$" title="^Settings$" layer=above manage=off
-yabai -m rule --add app="^Preview$" layer=above manage=off
-# yabai -m rule --add app="^PhpStorm$" subrole="^AXDialog$" layer=above manage=off
-yabai -m rule --add app="^Raycast$" layer=above manage=off
-yabai -m rule --add app="^Stickies$" layer=above manage=off
-yabai -m rule --add app="^System Information$" layer=above manage=off
-yabai -m rule --add app="^System Settings$" layer=above manage=off
-yabai -m rule --add app="^TablePlus$" title="^Connection\.\.\.$" layer=above manage=off
-yabai -m rule --add app="^Vitamin-R 4$" layer=above manage=off
-yabai -m rule --add app="^WhatsApp$" layer=above manage=off
+yabai -m rule --add app="^PhpStorm$" title="^Settings$" manage=off
+yabai -m rule --add app="^PhpStorm$" title="^Create Database Migration$" manage=off
+yabai -m rule --add app="^PhpStorm$" title="^Create Livewire Component$" manage=off
+yabai -m rule --add app="^PhpStorm$" title="^Create Unit Test$" manage=off
+yabai -m rule --add app="^PhpStorm$" title="^Create Feature Test$" manage=off
+yabai -m rule --add app="^PhpStorm$" title="^New Eloquent Model$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+# yabai -m rule --add app="^PhpStorm$" subrole="^AXDialog$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Stickies$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^TablePlus$" title="^Connection\.\.\.$" manage=off
+yabai -m rule --add app="^Vitamin-R 4$" manage=off
+# yabai -m rule --add app="^WhatsApp$" manage=off
