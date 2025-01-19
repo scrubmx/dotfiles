@@ -13,10 +13,6 @@ function testfont() {
     echo -e "normal\n\e[1mbold\e[0m\n\e[3mitalic\e[0m\n\e[4munderline\e[0m\n\e[9mstrikethrough\e[0m"
 }
 
-function battail() {
-    tail "$@" | bat --paging=never -l log
-}
-
 # Print the first 16 numbers from the Fibonacci sequence
 function fibonacci() {
     echo "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, ..."
@@ -47,6 +43,28 @@ function composer_local() {
     fi
 }
 
+function dismiss_notifications() {
+  osascript -e '
+  tell application "System Events"
+    tell process "NotificationCenter"
+      if not (window "Notification Center" exists) then return
+
+      set alertGroups to groups of first UI element of first scroll area of first group of window "Notification Center"
+
+      repeat with aGroup in alertGroups
+        try
+          perform (first action of aGroup whose name contains "Close" or name contains "Clear")
+        on error errMsg
+          log errMsg
+        end try
+      end repeat
+
+      -- Show no message on success
+      return ""
+    end tell
+  end tell'
+}
+
 # Disable line wrapping for output in the Terminal
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
 function _nowrap() {
@@ -56,12 +74,6 @@ function _nowrap() {
 # Disable line wrapping for output in the Terminal
 function _wrap() {
     tput smam;
-}
-
-# https://github.com/arnaud-lb/vim-php-namespace
-function maketags() {
-    ctags -R --PHP-kinds=cfi --regex-php="/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i" --exclude=.git --exclude=node_modules --exclude=vendor --exclude=storage --exclude=bootstrap --exclude=public
-    ctags -R --PHP-kinds=cfi --regex-php="/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i" --exclude=vendor/_laravel_idea --exclude=vendor/psy --exclude=vendor/vlucas --exclude=vendor/brianium -f tags.vendors vendor > /dev/null 2>&1
 }
 
 # Generate a random password with a default lenght of 32 characters
@@ -80,31 +92,6 @@ function showps() {
     ps -A | grep -v 'grep' | grep -i "$@"
 }
 
-# Set a timer for the given number of minutes
-# "&" will send the process to the background
-function timer() {
-    _backround_timer $(( $1 * 60 )) &
-}
-
-# Set a timer for the given number of seconds
-function _backround_timer() {
-    for i in {1..$1}
-    do
-        sleep 1
-    done
-
-    # afplay /System/Library/Sounds/Glass.aiff
-    # afplay /System/Library/Sounds/Morse.aiff
-    afplay /System/Library/Sounds/Purr.aiff
-    osascript -e 'display notification "Get up, stretch, walk make some tea..." with title "The timer is up"'
-}
-
-# Shorthand for `tree` with hidden files and ignoring common vendors
-# The output gets piped into less
-function tre() {
-    tree -aC -I '.git|vendor|node_modules|bower_components' --dirsfirst "$@" | less -FRX;
-}
-
 # Get colors on manual pages
 function man() {
     env \
@@ -119,79 +106,26 @@ function man() {
 }
 
 # Extract archives based on the extension
-function extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2) tar xvjf $1   ;;
-            *.tar.gz)  tar xvzf $1   ;;
-            *.bz2)     bunzip2 $1    ;;
-            *.rar)     unrar x $1    ;;
-            *.gz)      gunzip $1     ;;
-            *.tar)     tar xvf $1    ;;
-            *.tbz2)    tar xvjf $1   ;;
-            *.tgz)     tar xvzf $1   ;;
-            *.zip)     unzip $1      ;;
-            *.Z)       uncompress $1 ;;
-            *.7z)      7z x $1       ;;
-            *)         echo "don't know how to extract '$1'..." ;;
-        esac
-    else
-       echo "'$1' is not a valid file!"
-    fi
-}
-
-# Open the current git repository in the browser
-function github() {
-    if [ ! -d .git ]; then
-        echo "ERROR: This isn't a git directory" && exit 1;
-    fi
-
-    local option="${1:-NA}"
-    local remote=$(git config --get remote.origin.url)
-    local github_url github_path help_text
-
-    read -r -d '' help_text<<EOF
-github opens the current git repository in the browser.
-
-Usage:
-  github [options]
-
-Options:
-  -b, --branch        open repository on the current branch
-  -c, --commit        open repository current commit
-  -d, --diff          open a diff with two commits or refs [default: "develop", "main"]
-  -h, --help          show help text for this command
-  -p, --pulls         open the pull requests page
-  -r, --pull-request  open a pull request for the current branch [default: "develop"]
-  -s, --settings      open settings page for the project
-  -w, --wiki          open wiki page for the project
-EOF
-
-    if [[ $remote != *github* ]]; then
-        echo "ERROR: Remote origin is invalid" && exit 1;
-    fi
-
-    github_url="${remote%.git}" # remove ".git" suffix
-
-    # Convert "git@github.com:" to https://github.com
-    if [[ $github_url =~ git@github.com:* ]]; then
-        github_url="https://github.com/${github_url#*:}"
-    fi
-
-    case "$option" in
-        '-b' | '--branch' ) github_path="/tree/$(git rev-parse --abbrev-ref HEAD)" ;;
-        '-c' | '--commit' ) github_path="/tree/$(git rev-parse HEAD)" ;;
-        '-d' | '--diff' ) github_path="/compare/${2:-develop}...${3:-main}" ;;
-        '-h' | '--help' ) echo $help_text && return ;;
-        '-p' | '--pulls' ) github_path="/pulls" ;;
-        '-r' | '--pull-request' ) github_path="/compare/${2:-develop}...$(git rev-parse --abbrev-ref HEAD)" ;;
-        '-s' | '--settings' ) github_path="/settings" ;;
-        '-w' | '--wiki' ) github_path="/wiki" ;;
-        '-h' | '--help' | 'NA' | * ) github_path="" ;;
-    esac
-
-    open "$github_url$github_path"
-}
+# function extract () {
+#     if [ -f $1 ] ; then
+#         case $1 in
+#             *.tar.bz2) tar xvjf $1   ;;
+#             *.tar.gz)  tar xvzf $1   ;;
+#             *.bz2)     bunzip2 $1    ;;
+#             *.rar)     unrar x $1    ;;
+#             *.gz)      gunzip $1     ;;
+#             *.tar)     tar xvf $1    ;;
+#             *.tbz2)    tar xvjf $1   ;;
+#             *.tgz)     tar xvzf $1   ;;
+#             *.zip)     unzip $1      ;;
+#             *.Z)       uncompress $1 ;;
+#             *.7z)      7z x $1       ;;
+#             *)         echo "don't know how to extract '$1'..." ;;
+#         esac
+#     else
+#        echo "'$1' is not a valid file!"
+#     fi
+# }
 
 # Bluetooth restart
 function btrestart() {
