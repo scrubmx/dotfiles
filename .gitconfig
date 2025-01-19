@@ -3,33 +3,44 @@
     email = scrub.mx@gmail.com
 [github]
     user = scrubmx
-[core]
-    # editor = code --wait
-    editor = nvim
-    excludesfile = ~/.gitignore_global
-    pager = /usr/local/bin/diff-so-fancy | less --chop-long-lines -M +Gg
 [init]
     defaultBranch = main
+[core]
+    editor = nvim
+    pager = diff-so-fancy | less --chop-long-lines -M +Gg
+    excludesfile = ~/.gitignore_global
+[commit]
+    template = ~/.gitcommit_template
+[interactive]
+    diffFilter = diff-so-fancy --patch
+[push]
+    default = current
+#[diff]
+#    tool = kaleidoscope
+#[difftool]
+#    prompt = false
+#[difftool "kaleidoscope"]
+#    cmd = /Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff --wait "$LOCAL" "$REMOTE"
+[rebase]
+	updateRefs = true
 [log]
     date = relative
     decorate = short
     abbrevCommit = true
-[commit]
-    template = ~/.gitmessage
 [alias]
     br = branch
-    co = checkout
     cm = commit -v
+    co = checkout
     dt = difftool
     st = status
-    d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!package-lock.json' ':!yarn.lock' ':!npm-shrinkwrap.json' ':!composer.lock*'
-    lol = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
+    d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!package-lock.json' ':!yarn.lock' ':!npm-shrinkwrap.json' ':!composer.lock*' ':!mix.lock*'
     append = commit --amend --no-edit
     branches = branch --sort=-committerdate -vv
     changed = whatchanged -p --name-only --since='7 days ago' --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
     conflicts = diff --diff-filter=U
     hash = rev-parse --short --verify HEAD
     last = diff --cached HEAD^
+    lol = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
     remotes = remote -v
     stashes = stash list --pretty=format:'%C(yellow)%gd %C(green)%ar%C(reset) %gs'
     unstage = reset HEAD --
@@ -48,6 +59,7 @@
             git sync-branches | while IFS=: read local remote; do echo \"Merging $local with $remote\"; git checkout \"$local\" ; git merge --ff-only \"$remote\"; echo '\n'; done; \
             git checkout $current; \
         }; f(); unset f"
+# https://github.com/so-fancy/diff-so-fancy#improved-colors-for-the-highlighted-bits
 [color]
     ui = true
     status = auto
@@ -70,16 +82,6 @@
     changed = yellow
     untracked = cyan
     branch = blue bold
-#[push]
-#    https://git-scm.com/docs/git-config#git-config-pushdefault
-#    default = upstream
-#    default = simple
-#[diff]
-#    tool = kaleidoscope
-#[difftool]
-#    prompt = false
-#[difftool "kaleidoscope"]
-#    cmd = /Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff --wait "$LOCAL" "$REMOTE"
 [filter "media"]
     required = true
     clean = git media clean %f
@@ -93,3 +95,9 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+[credential "https://github.com"]
+    helper =
+    helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+    helper =
+    helper = !/opt/homebrew/bin/gh auth git-credential
