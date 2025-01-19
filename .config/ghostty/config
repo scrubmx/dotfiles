@@ -1,0 +1,57 @@
+# Ghostty Terminal Emulator Configuration
+# https://ghostty.org/docs/config
+title = " "
+minimum-contrast = 1.1
+window-decoration = true
+window-colorspace = display-p3
+# macos-option-as-alt = true
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = transparent
+link-url = true
+
+# https://ghostty.org/docs/config/reference#theme
+# To see a list of available themes, run `ghostty +list-themes`
+theme = catppuccin-mocha
+background = 11111b
+background-opacity = 0.85
+background-blur-radius = 20
+
+# https://monaspace.githubnext.com
+# To see a list of available fonts, run `ghostty +list-fonts`
+font-family = "Monaspace Neon"
+font-size = 15
+font-thicken = false
+
+# https://monaspace.githubnext.com/#code-ligatures
+font-feature = calt
+font-feature = ss01
+font-feature = ss02
+font-feature = ss03
+font-feature = ss04
+font-feature = ss05
+font-feature = ss06
+font-feature = ss07
+font-feature = ss09
+font-feature = cv30
+font-feature = cv60
+
+adjust-cell-height = 2
+adjust-font-baseline = -1
+
+# Custom Keybindings
+# https://ghostty.org/docs/config/keybind
+
+# Cmd+1 -> Esc <Leader>1
+keybind = cmd+one=text:\x1b,1
+
+# Cmd+p -> Esc <Leader>ff
+keybind = cmd+p=text:\x1b,ff
+
+# Cmd+r -> Esc <Leader>fi
+keybind = cmd+r=text:\x1b,fi
+
+# Cmd+g -> Esc <Leader>fg
+keybind = cmd+g=text:\x1b,fg
+
+# Cmd+b -> Esc <Leader>fb
+keybind = cmd+b=text:\x1b,fb
