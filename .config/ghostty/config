@@ -39,7 +39,7 @@ adjust-cell-height = 2
 adjust-font-baseline = -1
 
 # https://ghostty.org/docs/config/reference#cursor-color
-cursor-color = 7f849c
+cursor-color = bac2de
 cursor-style = block
 cursor-text = 020204
 mouse-hide-while-typing = true
