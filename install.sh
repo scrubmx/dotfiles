@@ -48,8 +48,9 @@ brew install node
 brew install nginx
 brew install elixir
 # brew install php
-# brew install composer
 # brew install psysh
+# brew install composer
+# brew install swift
 
 # Databases -----------------------------------------------------
 
@@ -79,6 +80,8 @@ brew install --cask font-monaspace
 brew install --cask font-fira-code
 # https://github.com/source-foundry/Hack
 brew install --cask font-hack
+# https://github.com/JetBrains/JetBrainsMono
+brew install --cask font-jetbrains-mono
 
 # Install applications ------------------------------------------
 
