@@ -1,11 +1,22 @@
 # Configuration
 # - https://github.com/koekeishiya/skhd#configuration
 #
-# A sample config is available at:
+# A sample configuration file can be found at:
 # - https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
 #
 # A list of all built-in modifier and literal keywords can be found at:
 # https://github.com/koekeishiya/skhd/issues/1
+
+
+# General Configuration
+# - https://github.com/koekeishiya/yabai/wiki/Configuration
+
+# close notifications
+shift + alt - d : dismiss_notifications
+
+
+# Yabai Configuration
+# - https://github.com/koekeishiya/yabai/wiki/Configuration
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -24,10 +35,13 @@ shift + alt - 1 : yabai -m window --space 1
 shift + alt - 2 : yabai -m window --space 2
 shift + alt - 3 : yabai -m window --space 3
 shift + alt - 4 : yabai -m window --space 4
+shift + alt - 5 : yabai -m window --space 5
+shift + alt - 6 : yabai -m window --space 6
+shift + alt - 7 : yabai -m window --space 7
 
-# send window to monitor and follow focus (previous not working)
-shift + alt - n : yabai -m window --display next
-# shift + alt - p : yabai -m window --display previous
+# send window to next/previous monitor - uses jq for parsing json (brew install jq)
+shift + alt - n : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display next && yabai -m window --focus $WIN_ID
+shift + alt - p : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display prev && yabai -m window --focus $WIN_ID
 
 # move window
 shift + alt + ctrl - h : yabai -m window --warp west
@@ -45,7 +59,7 @@ shift + alt - 0 : yabai -m space --balance
 # toggle window split type
 alt - e : yabai -m window --toggle split
 
-# toggle window fullscreen
+# toggle window full screen
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle sticky, float and resize to picture-in-picture size (not working)
@@ -58,15 +72,19 @@ alt - p : yabai -m window --toggle sticky;\
 # toggle sticky (not working)
 # alt - s : yabai -m window --toggle sticky
 
-# float / unfloat window and center on screen
+# float / un-float window and center on screen
 alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+          yabai -m window --grid 5:4:1:1:2:2
 
 # fast focus desktop (not working)
 alt - tab : yabai -m space --focus recent
+
+alt - r : skhd --restart-service;\
+          yabai --restart-service
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 # shift + alt - n : yabai -m space --create && \
 #                   index="$(yabai -m query --spaces --display | jq 'map(select(.\"native-fullscreen\" == 0))[-1].index')" && \
 #                   yabai -m window --space "${index}" && \
 #                   yabai -m space --focus "${index}"
+
