@@ -1,3 +1,10 @@
+# Oh My Zsh Themes:
+#   https://github.com/ohmyzsh/ohmyzsh/wiki/themes
+#   https://github.com/ohmyzsh/ohmyzsh/tree/master/themes
+#
+# Theme Variables:
+#   https://github.com/ohmyzsh/ohmyzsh/wiki/Design#themes
+
 ZSH_THEME_GIT_PROMPT_DIRTY="$fg[red]"
 ZSH_THEME_GIT_PROMPT_CLEAN="$fg[green]"
 # 256 Color Support
@@ -20,8 +27,8 @@ local function _git_info() {
 
 # Display node version & npm info
 local function _node_info() {
-  if [ -f next.config.js ] || [ -f babel.config.js ]; then
-    echo " $FG[239]via $fg[green]󰎙 $(node --version)$reset_color"
+  if [ -f next.config.js ] || [ -f vite.config.ts ]; then
+    echo " $FG[239]via $fg[yellow]󰎙 $(node --version)$reset_color"
   fi
 }
 
@@ -55,6 +62,8 @@ local function _xdebug_info() {
 
     if [ ! -z "$xdebug_mode" ]; then
       echo " $FG[239]xdebug $fg[green] $xdebug_mode$reset_color"
+    else
+      echo " $FG[239]xdebug $fg[white] off$reset_color"
     fi
   fi
 }
@@ -63,7 +72,9 @@ local function _xdebug_info() {
 function precmd() {
   echo -e
   # print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~ $(_git_info)$(_elixir_info)$(_php_info)$(_python_info)$(_ruby_info)$(_node_info) "
-  print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~$(_git_info)$(_php_info)$(_elixir_info)$(_node_info)$(_ruby_info)"
+  # print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~$(_git_info)$(_elixir_info)$(_php_info) "
+  # print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~$(_git_info)$(_node_info)$(_php_info)$(_elixir_info)$(_ruby_info)"
+  print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~$(_git_info)$(_node_info)$(_php_info)$(_elixir_info)$(_ruby_info)"
 }
 
 PROMPT="$FG[250]⟩ %{$reset_color%}"
@@ -76,6 +87,9 @@ PROMPT="$FG[250]⟩ %{$reset_color%}"
 #   Chevron right
 # ⟩  Chevron right light
 # ❭  Chevron right small
+# 〇 Ideographic number zero
 # 〉 Right-pointing angle bracket
 # ⟩  Mathematical right angle bracket
 # →  Arrow pointing right
+#   Git branch 1
+# שׂ  Git branch 2
