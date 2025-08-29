@@ -88,6 +88,7 @@ brew install --cask font-jetbrains-mono
 brew install --cask 1password
 brew install --cask alfred
 brew install --cask brave-browser
+brew install --cask cursor
 brew install --cask karabiner-elements
 # brew install --cask kitty
 # brew install --cask moom
