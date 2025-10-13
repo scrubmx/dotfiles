@@ -1,5 +1,8 @@
 # Ghostty Terminal Emulator Configuration
 # https://ghostty.org/docs/config
+#
+# Reloading the Configuration:
+# ctrl+shift+, (Linux) or cmd+shift+, (macOS)
 title = " "
 minimum-contrast = 1.1
 window-decoration = true
@@ -11,14 +14,18 @@ link-url = true
 
 # https://ghostty.org/docs/config/reference#theme
 # To see a list of available themes, run `ghostty +list-themes`
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 background = 11111b
-background-opacity = 0.85
-background-blur-radius = 20
+background-opacity = 0.90
+background-blur-radius = 40
+alpha-blending = native
 
 # https://monaspace.githubnext.com
 # To see a list of available fonts, run `ghostty +list-fonts`
+# font-family = "JetBrains Mono"
+# font-family = "Fira Code Retina"
 font-family = "Monaspace Neon"
+# font-family = "Monaspace Neon Var"
 font-size = 15
 font-thicken = false
 
@@ -35,8 +42,11 @@ font-feature = ss09
 font-feature = cv30
 font-feature = cv60
 
-adjust-cell-height = 2
+adjust-cell-height = 4
+adjust-cell-width = 0
 adjust-font-baseline = -1
+adjust-underline-position = 1
+grapheme-width-method = unicode
 
 # https://ghostty.org/docs/config/reference#cursor-color
 cursor-color = bac2de
@@ -46,12 +56,13 @@ mouse-hide-while-typing = true
 
 # Custom Keybindings
 # https://ghostty.org/docs/config/keybind
+# To see a list of available keybinds, run `ghostty +list-keybinds`
 
 # Cmd+1 -> Esc <Leader>1
-keybind = cmd+one=text:\x1b,1
+keybind = cmd+digit_1=text:\x1b,1
 
 # Cmd+p -> Esc <Leader>ff
-keybind = cmd+p=text:\x1b,ff
+keybind = cmd+p=esc:,ff
 
 # Cmd+r -> Esc <Leader>fi
 keybind = cmd+r=text:\x1b,fi
