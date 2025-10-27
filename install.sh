@@ -19,9 +19,10 @@ brew update
 
 brew install bat
 brew install cmatrix
-brew install cowsay
+brew install cowsay 
 brew install diff-so-fancy
 brew install docker
+brew install dotenv-linter
 brew install eza
 brew install fastfetch
 brew install fortune
