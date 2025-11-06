@@ -1,0 +1,162 @@
+# git log --pretty=format
+#  %h -- abbreviated commit hash
+#  %an -- author name
+#  %ar -- author date, relative
+#  %D -- ref names, like the --decorate option of git-log
+#  %n -- newline
+#  %s -- commit message
+#  %d -- date, relative
+[user]
+  name = Jorge González
+  email = scrub.mx@gmail.com
+[github]
+  user = scrubmx
+[init]
+  defaultBranch = main
+[core]
+  editor = nvim
+  excludesfile = ~/.config/git/ignore
+  pager = diff-so-fancy | less --chop-long-lines -M +Gg
+[diff]
+  context = 4
+  interHunkContext = 10
+  renames = copies
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+[commit]
+  template = ~/.config/git/template
+[interactive]
+  diffFilter = diff-so-fancy --patch
+[push]
+  default = current
+  autoSetupRemote = true
+  followTags = true
+[pull]
+  default = current
+#  rebase = true
+[diff]
+  tool = kaleidoscope
+#[difftool "kaleidoscope"]
+#  cmd = /Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff --wait "$LOCAL" "$REMOTE"
+[difftool "kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+[difftool]
+  prompt = false
+  trustExitCode = true
+[merge]
+  tool = kaleidoscope
+  prompt = false
+[mergetool "kaleidoscope"]
+  cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+  trustExitCode = true
+[tag]
+  sort = -taggerdate
+[rebase]
+  autoStash = true
+  updateRefs = true
+  missingCommitsCheck = warn
+[log]
+  date = relative
+  decorate = short
+  abbrevCommit = true
+  graphColors = blue,yellow,cyan,magenta,green,red
+[alias]
+  br = branch
+  cm = commit -v
+  co = checkout
+  dt = difftool
+  st = status
+  d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!*package-lock.json' ':!yarn.lock' ':!npm-shrinkwrap.json' ':!composer.lock*' ':!mix.lock*'
+  append = commit --amend --no-edit
+  branches = branch --sort=-committerdate -vv
+  changed = whatchanged -p --name-only --since='7 days ago' --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
+  conflicts = diff --diff-filter=U
+  hash = rev-parse --short --verify HEAD
+  last = diff --cached HEAD^
+  lol = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
+  l = log --all --graph --author-date-order --pretty=format:'%C(blue)%h %C(white) %an %C(dim white) %ar %C(auto)%D%n%s%n%C(reset)'
+  remotes = remote -v
+  stashes = stash list --pretty=format:'%C(yellow)%gd %C(green)%ar%C(reset) %gs'
+  unstage = reset HEAD --
+  wip = commit --no-verify --no-gpg-sign -m WIP
+  ours = ! git checkout --ours $@ && git add $@
+  theirs = ! git checkout --theirs $@ && git add $@
+  cleanup = ! git fetch --prune && git --no-pager branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+  list = ! git config -l | grep "alias" | cut -c 7-
+  search = ! git log -i --perl-regexp --all --color --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)' --grep="\"$@\"" -- .
+  sync-branches = ! git for-each-ref --format '%(refname:short):%(upstream:short)' 'refs/heads' | egrep -v ':$'
+  sync-ready = ! git --no-pager diff-index --stat --name-status --color --exit-code HEAD -- || (echo "Your working directory is dirty." && exit 1)
+  sync = "!f() { \
+    git sync-ready || { echo 'Please commit your changes or stash them before you sync branches.'; echo 'Aborting'; exit 1; }; \
+    current=$(git rev-parse --abbrev-ref HEAD); \
+    git fetch --all; \
+    git sync-branches | while IFS=: read local remote; do echo \"Merging $local with $remote\"; git checkout \"$local\" ; git merge --ff-only \"$remote\"; echo '\n'; done; \
+    git checkout $current; \
+  }; f(); unset f"
+# https://github.com/so-fancy/diff-so-fancy#improved-colors-for-the-highlighted-bits
+[diff-so-fancy]
+  markEmptyLines = true
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  sh = auto
+  showbranch = auto
+  status = auto
+  ui = true
+# [color "decorate"]
+#   HEAD = red
+#   branch = blue
+#   tag = yellow
+#   remoteBranch = magenta
+# [color "branch"]
+#   current = magenta
+#   local = default
+#   remote = yellow
+#   upstream = green
+#   plain = blue
+[color "sh"]
+  branch = yellow reverse
+  dirty = red
+  workdir = blue bold
+[color "diff"]
+  meta = black bold
+  frag = magenta
+  context = white
+  whitespace = black reverse
+  old = red
+[color "status"]
+  added = green
+  branch = blue bold
+  changed = yellow
+  deleted = red
+  untracked = cyan
+[color "blame"]
+  highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
+[filter "media"]
+  clean = git media clean %f
+  required = true
+  smudge = git media smudge %f
+[filter "hawser"]
+  clean = git hawser clean %f
+  required = true
+  smudge = git hawser smudge %f
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+  required = true
+  smudge = git-lfs smudge -- %f
+[credential "https://github.com"]
+  helper = 
+  helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper = 
+  helper = !/opt/homebrew/bin/gh auth git-credential
+[url "git@github.com:VectorCB/"]
+  insteadOf = "vector:"
+[url "git@github.com:scrubmx/"]
+  insteadOf = "scrubmx:"
+[url "git@github.com:"]
+  insteadOf = "github:"
