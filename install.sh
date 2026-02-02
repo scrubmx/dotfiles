@@ -19,7 +19,7 @@ brew update
 
 brew install bat
 brew install cmatrix
-brew install cowsay 
+brew install cowsay
 brew install diff-so-fancy
 brew install docker
 brew install dotenv-linter
@@ -64,9 +64,11 @@ brew install elixir
 
 # AI Agents -----------------------------------------------------
 
-brew install codex
 brew install gemini-cli
+brew install --cask codex
+brew install --cask copilot-cli
 brew install --cask cursor
+brew install --cask cursor-cli
 
 # Databases -----------------------------------------------------
 
