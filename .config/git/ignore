@@ -10,6 +10,8 @@
 .Trashes
 .env.dusk
 .env.staging
+.env.testing
+.nestjs_repl_history
 .null-ls*
 .php_cs.cache
 .phpstorm.meta.php
@@ -44,6 +46,8 @@ upstream-sync.sh
 tags
 tags.*
 
+AGENTS.md
 TODO.md
 REVIEW.md
+DISCOVERY.md
 specs/
