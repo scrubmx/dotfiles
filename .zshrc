@@ -71,7 +71,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(extract zoxide zsh-autosuggestions zsh-syntax-highlighting)
 
 # Insecure completion-dependent directories detected on macOS Catalina
 # https://github.com/ohmyzsh/ohmyzsh/issues/8205#issuecomment-620353297
@@ -83,55 +83,67 @@ source "$ZSH/oh-my-zsh.sh"
 # User Configuration
 # ------------------------------------------------------------
 
-# MySQL
-export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
+# Oh My Zsh  Wiki:
+# - https://github.com/ohmyzsh/ohmyzsh/wiki
+# - https://github.com/ohmyzsh/ohmyzsh/wiki/Customization
+# - https://github.com/ohmyzsh/ohmyzsh/wiki/Design#variables-omz-provides-or-modifies
+#
+# TODO: Checkout https://github.com/codingjerk/dotfiles/tree/main/config
 
-# Composer
-export PATH="$PATH:./vendor/bin:$HOME/.composer/vendor/bin"
+# setopt CORRECT
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_NO_STORE
 
 # Escape the ^ character for commands like `git reset HEAD^`.
 setopt NO_NOMATCH
 
+# MySQL
+# export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
+
+# PostgreSQL
+# export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# Composer
+# export PATH="$PATH:./vendor/bin:$HOME/.composer/vendor/bin"
+
+export TERM="xterm-256color"
 export COMPOSER_MEMORY_LIMIT=-1
 export ERL_AFLAGS="-kernel shell_history enabled"
+export EZA_CONFIG_DIR="$HOME/.config/eza"
 export HOMEBREW_GITHUB_API_TOKEN="SomeRandomString"
 export PYTHONSTARTUP="$HOME/.pythonrc"
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
-# Defined in ~/.config/bat/config
-# export BAT_THEME="base16"
+export ZSHZ_TILDE=1
 
 # You may need to manually set your language environment
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR="vim"
-else
-  export EDITOR="nvim"
-fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-for file in ~/.{aliases,functions}.zsh; do
-    [ -r "$file" ] && source "$file"
-done
-unset file
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+fi
 
-# Tracks your most used directories, based on 'frecency'
-# source https://github.com/rupa/z
-[ -s ~/Applications/Rupa/z.sh ] && source ~/Applications/Rupa/z.sh
+# Set up fzf shell integration, add this to your shell configuration file.
+source <(fzf --zsh)
 
-# This line allows you to run rvm use to switch Ruby versions
-# [ -s ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
+# Enable Mise version manager.
+# eval "$(~/.local/bin/mise activate)"
