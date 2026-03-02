@@ -1,4 +1,4 @@
-.DS_Store
+# docker-compose.override.yml
 .DS_Store*
 .Trashes
 .cursor/
@@ -22,7 +22,7 @@
 .vscode
 _ide_helper.php
 _ide_helper_models.php
-docker-compose.override.yml
+# docker-compose.override.yml
 mysql-schema.dump
 ngrok.sh
 phpcs.xml
@@ -48,6 +48,7 @@ tags.*
 upstream-sync.sh
 
 AGENTS.md
-TODO.md
-REVIEW.md
 DISCOVERY.md
+PLUGINS.md
+REVIEW.md
+TODO.md
