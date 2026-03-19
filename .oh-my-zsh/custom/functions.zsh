@@ -65,6 +65,38 @@ function dismiss_notifications() {
   end tell'
 }
 
+# Print recommended git commit prefixes
+# https://gitmoji.dev
+# https://www.conventionalcommits.org
+function git_prefixes() {
+  local -a prefixes=(
+    "feat|✨ Features"
+    "fix|🐛 Bug Fixes"
+    "chore|🧹 Chores"
+    "refactor|♻️ Refactors"
+    "test|✅ Tests"
+    "style|🎨 Styles"
+    "wip|🚧 Work in Progress"
+    "docs|📝 Documentation"
+  )
+
+  local entry type section
+
+  printf '\nRecommended git commit prefixes:\n\n'
+  for entry in "${prefixes[@]}"; do
+    type="${entry%%|*}"
+    section="${entry#*|}"
+    printf '  %-10s %s\n' "${type}:" "${section}"
+  done
+
+  printf '\nHidden / less commonly surfaced:\n\n'
+  printf '  %-10s %s\n' "ci:" "👷 CI/CD related"
+  printf '  %-10s %s\n' "perf:" "⚡️ Performance improvements"
+  printf '  %-10s %s\n' "build:" "📦 Build and release related"
+  printf '  %-10s %s\n' "revert:" "⏪ Revert a previous commit"
+  printf '\n'
+}
+
 # Disable line wrapping for output in the Terminal
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
 function _nowrap() {
