@@ -87,12 +87,14 @@ brew install fortune
 brew install fzf
 brew install gh
 brew install grep
+brew install httpie
 brew install hyperfine
 brew install jq
 brew install lolcat
 brew install lua
 brew install luajit
 brew install luarocks
+brew install luv
 # brew install lsd
 # brew install microsoft-teams
 brew install neovim
@@ -179,6 +181,7 @@ brew install --cask 1password
 brew install --cask alfred
 brew install --cask brave-browser
 brew install --cask coderunner
+brew install --cask deskpad
 brew install --cask discord
 brew install --cask docker-desktop
 brew install --cask figma
