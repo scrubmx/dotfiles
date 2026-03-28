@@ -72,7 +72,6 @@ local function _xdebug_info() {
 function precmd() {
   echo -e
   # print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~ $(_git_info)$(_elixir_info)$(_php_info)$(_python_info)$(_ruby_info)$(_node_info) "
-  # print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~$(_git_info)$(_elixir_info)$(_php_info) "
   # print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~$(_git_info)$(_node_info)$(_php_info)$(_elixir_info)$(_ruby_info)"
   print -rP "$fg[cyan]%n $FG[239]on $fg[cyan]macbook $FG[239]at $fg[yellow]%~$(_git_info)$(_node_info)$(_php_info)$(_elixir_info)$(_ruby_info)"
 }
@@ -83,13 +82,10 @@ PROMPT="$FG[250]⟩ %{$reset_color%}"
 # RPROMPT="%{$FG[239]%}%D{%a %d %b %R}%{$reset_color%}"
 
 # Useful characters & emojis
-# 👉 🐥 👍 🤙 🚀
+# 👉 🤙 👨🏻‍💻
 #   Chevron right
 # ⟩  Chevron right light
-# ❭  Chevron right small
-# 〇 Ideographic number zero
 # 〉 Right-pointing angle bracket
-# ⟩  Mathematical right angle bracket
+# 〇 Ideographic number zero
 # →  Arrow pointing right
 #   Git branch 1
-# שׂ  Git branch 2
