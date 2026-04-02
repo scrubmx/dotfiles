@@ -9,8 +9,20 @@
 # Configure scripting addition:
 # - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
+# ---------------------------------------------------------------------
+# These require System Integrity Protection (SIP) to be disabled
+# ---------------------------------------------------------------------
+
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+# sudo yabai --load-sa
+
+# yabai -m config window_opacity               off
+# yabai -m config window_opacity_duration      0.00
+# yabai -m config active_window_opacity        1.00
+# yabai -m config normal_window_opacity        0.90
+# yabai -m config window_topmost               off
+# yabai -m config window_shadow                off
+# yabai -m config window_shadow                float
 
 
 # ---------------------------------------------------------------------
@@ -21,12 +33,6 @@ yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off
 yabai -m config window_origin_display        default
 yabai -m config window_placement             second_child
-yabai -m config window_topmost               off
-yabai -m config window_shadow                off
-yabai -m config window_opacity               off
-yabai -m config window_opacity_duration      0.00
-yabai -m config active_window_opacity        1.00
-yabai -m config normal_window_opacity        0.90
 yabai -m config insert_feedback_color        0xff8ebd6b
 yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
@@ -80,17 +86,15 @@ yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
-yabai -m rule --add app="^beam.smp$" manage=off
+yabai -m rule --add app="^beam\.smp$" manage=off
 yabai -m rule --add app="^Brave Browser$" title="^Picture in Picture$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Clock$" manage=off
 yabai -m rule --add app="^CodeRunner$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
 # yabai -m rule --add app="^Finder$" title="^Copy$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Font Book$" manage=off
 yabai -m rule --add app="^Herd$" manage=off
-yabai -m rule --add app="^Insomnia$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 # yabai -m rule --add app="^Kaleidoscope$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
@@ -117,8 +121,39 @@ yabai -m rule --add app="^Slack$" title="^Huddle:(.+)$" manage=off
 yabai -m rule --add app="^Stickies$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^TablePlus$" manage=off
 yabai -m rule --add app="^TablePlus$" title="^Connection\.\.\.$" manage=off
 yabai -m rule --add app="^Transmit$" manage=off
 yabai -m rule --add app="^Vitamin-R 4$" manage=off
 # yabai -m rule --add app="^WhatsApp$" manage=off
+
+# yabai -m signal --add event=window_created app="^Brave Browser$" action='yabai -m window $YABAI_WINDOW_ID --warp first'
+yabai -m signal --add event=window_created app="^Brave Browser$" action='
+  if [ "$(yabai -m query --windows --window "$YABAI_WINDOW_ID" | jq -r ".\"is-floating\"")" = "false" ]; then
+    yabai -m window "$YABAI_WINDOW_ID" --warp first
+  fi
+'
+
+# yabai -m signal --add event=window_created app="^Ghostty$" action='yabai -m window $YABAI_WINDOW_ID --warp last'
+yabai -m signal --add event=window_created app="^Ghostty$" action='
+  if [ "$(yabai -m query --windows --window "$YABAI_WINDOW_ID" | jq -r ".\"is-floating\"")" = "false" ]; then
+    yabai -m window "$YABAI_WINDOW_ID" --warp last
+  fi
+'
+
+
+# ---------------------------------------------------------------------
+# Window grid rules
+# ---------------------------------------------------------------------
+
+# Open app in grid, floating, centered, at 40% width and 75% height
+# Grid format: <rows>:<cols>:<start-x>:<start-y>:<width>:<height>
+# Center formula:
+#   start-x = (100 - width) / 2
+#   start-y = (100 - height) / 2
+
+yabai -m rule --add app="^Finder$" manage=off grid=100:100:38:20:25:45
+yabai -m rule --add app="^Insomnia$" manage=off grid=100:100:30:10:40:75
+yabai -m rule --add app="^TablePlus$" manage=off grid=100:100:30:10:40:75
+
+# Handle already-open windows after restarting the service
+yabai -m rule --apply
