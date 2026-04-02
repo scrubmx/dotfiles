@@ -2,12 +2,20 @@
 
 # https://github.com/FelixKratz/JankyBorders/wiki/Man-Page#options
 
+# Border color options:
+#
+# active_color=0xff89b4fa    # Fully solid
+# inactive_color=0x00414550
+# inactive_color=0x55727272  # Very subtle, dark-mode friendly
+# inactive_color=0x667a7a7a  # Balanced
+# inactive_color=0x77858585  # Slightly more visible
+
 options=(
     style=round
     width=6.0
     hidpi=on
     active_color=0xc089b4fa
-    inactive_color=0x00414550
+    inactive_color=0x77808080
 )
 
 borders "${options[@]}"
