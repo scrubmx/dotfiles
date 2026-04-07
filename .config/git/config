@@ -68,7 +68,7 @@
   co = checkout
   dt = difftool
   st = status
-  d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!*package-lock.json' ':!yarn.lock' ':!npm-shrinkwrap.json' ':!composer.lock*' ':!mix.lock*'
+  d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!*package-lock.json' ':!yarn.lock' ':!pnpm-lock.yaml' ':!npm-shrinkwrap.json' ':!composer.lock*' ':!mix.lock*'
   append = commit --amend --no-edit
   branches = branch --sort=-committerdate -vv
   changed = whatchanged -p --name-only --since='7 days ago' --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
