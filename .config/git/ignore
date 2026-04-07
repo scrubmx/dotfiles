@@ -34,12 +34,13 @@ specs/
 
 rumor-[0-9]*-[0-9a-f]*.json
 
+# *.sql # Commented out as Prisma generates `.sql` files
 *.class
 *.log
-*.sql
 *.sqlite
 *.swo
 *.swp
+*.tsbuildinfo
 
 Icon
 Thumbs.db
@@ -52,3 +53,6 @@ DISCOVERY.md
 PLUGINS.md
 REVIEW.md
 TODO.md
+
+# KingTide
+.nvmrc
