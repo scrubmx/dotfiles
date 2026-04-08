@@ -17,7 +17,7 @@ if command -v eza &>/dev/null; then
   alias ls='eza'
   alias ll='eza -gl --color --icons --links --sort=type --show-symlinks'
   alias la='eza -agls --color --icons --links --sort=type --show-symlinks --all'
-  alias tree='eza --color --icons --links --sort=type --show-symlinks --all --tree --ignore-glob "node_modules|dist|cache"'
+  alias tree='eza --color --icons --links --sort=type --show-symlinks --all --tree --ignore-glob "node_modules|vendor|dist|build|cache"'
 else 
   # https://github.com/lsd-rs/lsd
   # alias ls='lsd -lh'
