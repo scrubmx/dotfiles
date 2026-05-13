@@ -7,6 +7,22 @@
 # Any references to tickets, articles, etc?
 
 
+# AI assistance disclosure:
+# Assisted-by: AGENT_NAME:MODEL_VERSION [SPECIALIZED_ANALYSIS_TOOLS]
+#
+# Examples:
+# Assisted-by: ChatGPT:gpt-5.5-effort-high tsc eslint jest
+# Assisted-by: Claude-Code:claude-opus-4-7-effort-xhigh
+# Assisted-by: Claude:claude-opus-4-7
+# Assisted-by: Codex:gpt-5.5-effort-high
+# Assisted-by: Cursor:gpt-5.5-effort-high
+#
+# Validation:
+# Tested-with: tsc eslint jest npm-audit
+#
+# Human certification:
+# Signed-off-by: Jorge González <scrub.mx@gmail.com>
+#
 # Attribute to more than one author or on behalf of an organization:
 # Co-authored-by: John Doe <john@example.com>
 # Co-authored-by: Jane Doe <jane@example.com>
