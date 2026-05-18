@@ -25,5 +25,7 @@
 #
 # Attribute to more than one author or on behalf of an organization:
 # Co-authored-by: John Doe <john@example.com>
-# Co-authored-by: Jane Doe <jane@example.com>
+# Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+# Co-Authored-By: Cursor Agent <cursoragent@cursor.com>
+# Co-authored-by: Codex <noreply@openai.com>
 # On-behalf-of: @example <info@example.com>
