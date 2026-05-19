@@ -104,6 +104,7 @@ brew install ripgrep
 # brew install terminal-notifier
 brew install tmux
 brew install tree-sitter
+brew install tree-sitter-cli
 brew install tty-clock
 brew install uv
 brew install wget
