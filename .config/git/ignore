@@ -1,28 +1,32 @@
-# docker-compose.override.yml
-.DS_Store*
-.Trashes
+.agents/
+.claude/
 .cursor/
-.env.dusk
-.env.staging
-.env.testing
 .fleet/
 .idea/
 .kiro/
+.phpintel/
+.pnpm-store/
+.specify/
+.vagrant/
+.vscode/
+.worktrees/
+docs/superpowers/
+specs/
+.DS_Store*
+.Trashes
+.env.dusk
+.env.staging
+.env.testing
 .nestjs_repl_history
 .null-ls*
 .php_cs.cache
-.phpintel/
 .phpstorm.meta.php
 .phpunit.result.cache
 .ruby-gemset
 .ruby-version
-.specify/
-.vagrant/
 .versions.conf
-.vscode
 _ide_helper.php
 _ide_helper_models.php
-# docker-compose.override.yml
 mysql-schema.dump
 ngrok.sh
 phpcs.xml
@@ -30,7 +34,6 @@ phpunit.dusk.xml
 ray.php
 routes.txt
 session.vim
-specs/
 
 rumor-[0-9]*-[0-9a-f]*.json
 
@@ -49,10 +52,8 @@ tags.*
 upstream-sync.sh
 
 AGENTS.md
+CLAUDE.md
 DISCOVERY.md
 PLUGINS.md
 REVIEW.md
 TODO.md
-
-# KingTide
-.nvmrc
