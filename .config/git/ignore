@@ -34,6 +34,7 @@ phpunit.dusk.xml
 ray.php
 routes.txt
 session.vim
+skills-lock.json
 
 rumor-[0-9]*-[0-9a-f]*.json
 
