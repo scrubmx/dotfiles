@@ -99,6 +99,7 @@ brew install luv
 # brew install microsoft-teams
 brew install neovim
 brew install nginx
+brew install rtk
 brew install ripgrep
 # brew install spotify-tui
 # brew install terminal-notifier
