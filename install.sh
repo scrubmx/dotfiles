@@ -145,6 +145,8 @@ brew install --cask codex-app || true
 brew install --cask copilot-cli  || true
 brew install --cask cursor || true
 brew install --cask cursor-cli || true
+brew install --cask claude || true
+brew install --cask claude-code || true
 
 # Databases -----------------------------------------------------
 
