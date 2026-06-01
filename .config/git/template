@@ -16,6 +16,7 @@
 # Assisted-by: Claude:claude-opus-4-7
 # Assisted-by: Codex:gpt-5.5-effort-high
 # Assisted-by: Cursor:gpt-5.5-effort-high
+# Assisted-by: Cursor:codex-5.3-effort-xhigh
 #
 # Validation:
 # Tested-with: tsc eslint jest npm-audit
@@ -28,4 +29,5 @@
 # Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
 # Co-Authored-By: Cursor Agent <cursoragent@cursor.com>
 # Co-authored-by: Codex <noreply@openai.com>
+#
 # On-behalf-of: @example <info@example.com>
