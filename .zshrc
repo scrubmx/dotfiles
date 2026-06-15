@@ -114,6 +114,7 @@ export COMPOSER_MEMORY_LIMIT=-1
 export ERL_AFLAGS="-kernel shell_history enabled"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 export HOMEBREW_GITHUB_API_TOKEN="SomeRandomString"
+export HOMEBREW_REQUIRE_TAP_TRUST=1
 export PYTHONSTARTUP="$HOME/.pythonrc"
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
