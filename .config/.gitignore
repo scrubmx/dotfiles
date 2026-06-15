@@ -1,0 +1,17 @@
+cagent/.cagent_first_run
+configstore/
+context7/credentials.json
+github-copilot/apps.json
+github-copilot/auth.db
+github-copilot/auth.db-*
+github-copilot/versions.json
+karabiner/automatic_backups
+simple-update-notifier/nodemon.json
+stripe/config.toml
+tmux/plugins/*
+tmux/resurrect/*.txt
+tmux/resurrect/last
+tmux/resurrect/pane_contents.tar.gz
+zed/conversations/*
+zed/prompts/*
+zed/settings_backup.json
