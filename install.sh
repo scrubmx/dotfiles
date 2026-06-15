@@ -157,16 +157,11 @@ brew install sqlite
 
 # Yabai, Skhd, and Borders --------------------------------------
 
-brew tap koekeishiya/formulae
-brew install koekeishiya/formulae/yabai
-brew install koekeishiya/formulae/skhd
-
-brew tap FelixKratz/formulae
-brew install borders
+brew install asmvik/formulae/yabai
+brew install asmvik/formulae/skhd
+brew install felixkratz/formulae/borders
 
 # Install fonts -------------------------------------------------
-
-brew tap homebrew/cask-fonts
 
 # https://github.com/githubnext/monaspace
 brew install --cask font-monaspace
