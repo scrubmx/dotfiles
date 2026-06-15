@@ -43,11 +43,11 @@ yabai -m config mouse_drop_action            swap
 
 # Set padding, window gap, and layout [bsp|float|stack]
 yabai -m config layout                       bsp
-yabai -m config top_padding                  20
-yabai -m config bottom_padding               20
-yabai -m config left_padding                 20
-yabai -m config right_padding                20
-yabai -m config window_gap                   20
+yabai -m config top_padding                  15
+yabai -m config bottom_padding               15
+yabai -m config left_padding                 15
+yabai -m config right_padding                15
+yabai -m config window_gap                   15
 
 # Configuration for space 5 (macbook screen)
 # yabai -m config --space 5 top_padding        10
