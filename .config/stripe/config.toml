@@ -1,0 +1,10 @@
+color = ''
+project-name = 'default'
+
+[default]
+account_id = 'acct_stripeAccountId'
+device_name = 'Jorges-MacBook-Pro.local'
+display_name = 'Project Name'
+test_mode_api_key = 'sk_test_apiKeyString'
+test_mode_key_expires_at = '2026-01-25'
+test_mode_pub_key = 'pk_test_pubKeyString'
