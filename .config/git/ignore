@@ -13,6 +13,7 @@
 .vscode/
 .worktrees/
 docs/superpowers/
+graphify-out/
 specs/
 .DS_Store*
 .Trashes
