@@ -147,6 +147,8 @@ brew install --cask cursor || true
 brew install --cask cursor-cli || true
 brew install --cask claude || true
 brew install --cask claude-code || true
+brew install --cask opencode || true
+brew install --cask opencode-desktop || true
 
 # Databases -----------------------------------------------------
 
