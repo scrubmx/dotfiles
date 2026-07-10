@@ -88,6 +88,7 @@ brew install fzf
 brew install gh
 brew install grep
 brew install httpie
+brew install hunk
 brew install hyperfine
 brew install jq
 brew install lolcat
