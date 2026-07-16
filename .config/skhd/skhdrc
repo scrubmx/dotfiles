@@ -11,26 +11,26 @@
 # General Configuration
 # - https://github.com/koekeishiya/yabai/wiki/Configuration
 
-# close notifications
+# Close notifications
 shift + alt - d : dismiss_notifications
 
 
 # Yabai Configuration
 # - https://github.com/koekeishiya/yabai/wiki/Configuration
 
-# focus window
+# Focus window
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
-# swap window
+# Swap window
 shift + alt - h : yabai -m window --swap west
 shift + alt - j : yabai -m window --swap south
 shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
 
-# move window to desktop
+# Move window to desktop
 shift + alt - 1 : yabai -m window --space 1
 shift + alt - 2 : yabai -m window --space 2
 shift + alt - 3 : yabai -m window --space 3
@@ -39,50 +39,53 @@ shift + alt - 5 : yabai -m window --space 5
 shift + alt - 6 : yabai -m window --space 6
 shift + alt - 7 : yabai -m window --space 7
 
-# send window to next/previous monitor - uses jq for parsing json (brew install jq)
+# Send window to next/previous monitor - uses jq for parsing json (brew install jq)
 shift + alt - n : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display next && yabai -m window --focus $WIN_ID
 shift + alt - p : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display prev && yabai -m window --focus $WIN_ID
 
-# move window
+# Move window
 shift + alt + ctrl - h : yabai -m window --warp west
 shift + alt + ctrl - j : yabai -m window --warp south
 shift + alt + ctrl - k : yabai -m window --warp north
 shift + alt + ctrl - l : yabai -m window --warp east
 
-# flip layout along the x and y axis
+# Flip layout along the x and y axis
 shift + alt - x : yabai -m space --mirror x-axis
 shift + alt - y : yabai -m space --mirror y-axis
 
-# equalize size of windows
+# Equalize size of windows
 shift + alt - 0 : yabai -m space --balance
 
-# toggle window split type
+# Change the ratio of a window to 70 - 30
+shift + alt - 9 : yabai -m window --ratio abs:0.3000
+
+# Toggle window split type
 alt - e : yabai -m window --toggle split
 
-# toggle window full screen
+# Toggle window full screen
 alt - f : yabai -m window --toggle zoom-fullscreen
 
-# toggle sticky, float and resize to picture-in-picture size (not working)
+# Toggle sticky, float and resize to picture-in-picture size (not working)
 alt - p : yabai -m window --toggle sticky;\
           yabai -m window --grid 5:5:4:0:1:1
 
-# rotate tree (I never use this)
+# Rotate tree (I never use this)
 # alt - r : yabai -m space --rotate 90
 
-# toggle sticky (not working)
+# Toggle sticky (not working)
 # alt - s : yabai -m window --toggle sticky
 
-# float / un-float window and center on screen
+# Float / un-float window and center on screen
 alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 5:4:1:1:2:2
 
-# fast focus desktop (not working)
+# Fast focus desktop (not working)
 alt - tab : yabai -m space --focus recent
 
 alt - r : skhd --restart-service;\
           yabai --restart-service
 
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+# Create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 # shift + alt - n : yabai -m space --create && \
 #                   index="$(yabai -m query --spaces --display | jq 'map(select(.\"native-fullscreen\" == 0))[-1].index')" && \
 #                   yabai -m window --space "${index}" && \
