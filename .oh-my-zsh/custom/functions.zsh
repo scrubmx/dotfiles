@@ -70,14 +70,14 @@ function dismiss_notifications() {
 # https://www.conventionalcommits.org
 function git_prefixes() {
   local -a prefixes=(
-    "feat|✨ Features"
+    "feat|✨ New Features"
     "fix|🐛 Bug Fixes"
-    "chore|🧹 Chores"
+    "chore|🧹 Routine Tasks"
     "refactor|♻️ Refactors"
     "test|✅ Tests"
-    "style|🎨 Styles"
+    "style|🎨 Styles and Formatting"
     "wip|🚧 Work in Progress"
-    "docs|📝 Documentation"
+    "docs|📝 Documentation and Comments"
   )
 
   local entry type section
@@ -93,7 +93,7 @@ function git_prefixes() {
   printf '  %-10s %s\n' "ci:" "👷 CI/CD related"
   printf '  %-10s %s\n' "perf:" "⚡️ Performance improvements"
   printf '  %-10s %s\n' "build:" "📦 Build and release related"
-  printf '  %-10s %s\n' "revert:" "⏪ Revert a previous commit"
+  printf '  %-10s %s\n' "revert:" "⬅️ Revert a previous commit"
   printf '\n'
 }
 
