@@ -11,12 +11,18 @@
   email = scrub.mx@gmail.com
 [github]
   user = scrubmx
+[include]
+  path = ~/.config/delta/catppuccin.gitconfig
+[delta]
+  navigate = true
+  features = catppuccin-mocha line-numbers
+  syntax-theme = Catppuccin Mocha
 [init]
   defaultBranch = main
 [core]
   editor = nvim
+  pager = delta
   excludesfile = ~/.config/git/ignore
-  pager = diff-so-fancy | less --chop-long-lines -M +Gg
 [diff]
   context = 4
   interHunkContext = 10
@@ -28,7 +34,7 @@
 [commit]
   template = ~/.config/git/template
 [interactive]
-  diffFilter = diff-so-fancy --patch
+  diffFilter = delta --color-only
 [push]
   default = current
   autoSetupRemote = true
@@ -36,8 +42,8 @@
 [pull]
   default = current
 #  rebase = true
-[diff]
-  tool = kaleidoscope
+#[diff]
+#  tool = kaleidoscope
 #[difftool "kaleidoscope"]
 #  cmd = /Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff --wait "$LOCAL" "$REMOTE"
 [difftool "kaleidoscope"]
@@ -48,6 +54,7 @@
 [merge]
   tool = kaleidoscope
   prompt = false
+  conflictStyle = zdiff3
 [mergetool "kaleidoscope"]
   cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
   trustExitCode = true
@@ -68,14 +75,14 @@
   co = checkout
   dt = difftool
   st = status
-  d = diff HEAD -- . ':!public/css/*' ':!public/js/*' ':!public/fonts/*' ':!public/mix-manifest.json' ':!*package-lock.json' ':!yarn.lock' ':!pnpm-lock.yaml' ':!npm-shrinkwrap.json' ':!composer.lock*' ':!mix.lock*'
+  d = "!f() { if git diff --cached --quiet; then git diff -- . :!public/css/* :!public/js/* :!public/fonts/* :!public/mix-manifest.json :!*package-lock.json :!yarn.lock :!pnpm-lock.yaml :!npm-shrinkwrap.json :!composer.lock* :!mix.lock*; else git diff --cached -- . :!public/css/* :!public/js/* :!public/fonts/* :!public/mix-manifest.json :!*package-lock.json :!yarn.lock :!pnpm-lock.yaml :!npm-shrinkwrap.json :!composer.lock* :!mix.lock*; fi; }; f"
   append = commit --amend --no-edit
   branches = branch --sort=-committerdate -vv
   changed = whatchanged -p --name-only --since='7 days ago' --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
   conflicts = diff --diff-filter=U
   hash = rev-parse --short --verify HEAD
   last = diff --cached HEAD^
-  lol = log --graph --author-date-order --pretty=format:'%C(blue)%h%C(auto)%d %C(green)(%cr) %C(dim white)by %C(reset)%C(cyan)%an %C(white)%s %C(reset)'
+  lol = "log --graph --author-date-order --pretty=format:\"%C(#b4befe)%h%C(auto)%d %C(#a6e3a1)(%cr) %C(#6c7086)by %C(#74c7ec)%an %C(#cdd6f4)%s%C(reset)\""
   l = log --all --graph --author-date-order --pretty=format:'%C(blue)%h %C(white) %an %C(dim white) %ar %C(auto)%D%n%s%n%C(reset)'
   remotes = remote -v
   stashes = stash list --pretty=format:'%C(yellow)%gd %C(green)%ar%C(reset) %gs'
@@ -95,6 +102,22 @@
     git sync-branches | while IFS=: read local remote; do echo \"Merging $local with $remote\"; git checkout \"$local\" ; git merge --ff-only \"$remote\"; echo '\n'; done; \
     git checkout $current; \
   }; f(); unset f"
+  du = "!f() { \
+    tmp=$(mktemp \"${TMPDIR:-/tmp}/git-du.XXXXXX\") || exit 1; \
+    cleanup() { \
+      test -f \"$tmp\" || return; \
+      test -s \"$tmp\" && xargs -0 git reset -q -- < \"$tmp\"; \
+      rm -f \"$tmp\"; \
+    }; \
+    trap cleanup EXIT HUP INT TERM; \
+    git ls-files --others --exclude-standard -z -- . > \"$tmp\" || exit 1; \
+    test -s \"$tmp\" && xargs -0 git add -N -- < \"$tmp\"; \
+    git d; \
+    rc=$?; \
+    cleanup; \
+    trap - EXIT HUP INT TERM; \
+    exit $rc; \
+  }; f"
 # https://github.com/so-fancy/diff-so-fancy#improved-colors-for-the-highlighted-bits
 [diff-so-fancy]
   markEmptyLines = true
