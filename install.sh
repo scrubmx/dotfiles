@@ -86,6 +86,7 @@ brew install fastfetch
 brew install fortune
 brew install fzf
 brew install gh
+brew install git-delta
 brew install grep
 brew install httpie
 brew install hunk
