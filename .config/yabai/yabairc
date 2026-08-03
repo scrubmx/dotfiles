@@ -92,7 +92,6 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Clock$" manage=off
 yabai -m rule --add app="^CodeRunner$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
-# yabai -m rule --add app="^Finder$" title="^Copy$" manage=off
 yabai -m rule --add app="^Font Book$" manage=off
 yabai -m rule --add app="^Herd$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
