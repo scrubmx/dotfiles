@@ -140,15 +140,27 @@ brew install node
 
 # AI Coding Agents ----------------------------------------------
 
-brew install gemini-cli
+# HuggingFace CLI
+brew install hf
+
+# LLM inference in C/C++
+brew install llama.cpp
+
+# CLI & App to download and run LLMs
 brew install ollama
+brew install --cask ollama-app || true
+
+brew install --cask antigravity || true
+brew install --cask antigravity-cli || true
+brew install --cask claude || true
+brew install --cask claude-code || true
 brew install --cask codex || true
 brew install --cask codex-app || true
 brew install --cask copilot-cli  || true
 brew install --cask cursor || true
 brew install --cask cursor-cli || true
-brew install --cask claude || true
-brew install --cask claude-code || true
+brew install --cask github-copilot-app || true
+brew install --cask copilot-cli || true
 brew install --cask opencode || true
 brew install --cask opencode-desktop || true
 
