@@ -150,6 +150,9 @@ brew install llama.cpp
 brew install ollama
 brew install --cask ollama-app || true
 
+brew install opencode
+brew install --cask opencode-desktop || true
+
 brew install --cask antigravity || true
 brew install --cask antigravity-cli || true
 brew install --cask claude || true
@@ -161,8 +164,6 @@ brew install --cask cursor || true
 brew install --cask cursor-cli || true
 brew install --cask github-copilot-app || true
 brew install --cask copilot-cli || true
-brew install --cask opencode || true
-brew install --cask opencode-desktop || true
 
 # Databases -----------------------------------------------------
 
