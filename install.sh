@@ -89,7 +89,7 @@ brew install gh
 brew install git-delta
 brew install grep
 brew install httpie
-brew install hunk
+# brew install hunk
 brew install hyperfine
 brew install jq
 brew install lolcat
