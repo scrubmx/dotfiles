@@ -89,7 +89,7 @@ brew install gh
 brew install git-delta
 brew install grep
 brew install httpie
-# brew install hunk
+brew install hunk
 brew install hyperfine
 brew install jq
 brew install lolcat
@@ -97,14 +97,11 @@ brew install lua
 brew install luajit
 brew install luarocks
 brew install luv
-# brew install lsd
-# brew install microsoft-teams
+
 brew install neovim
 brew install nginx
 brew install rtk
 brew install ripgrep
-# brew install spotify-tui
-# brew install terminal-notifier
 brew install tmux
 brew install tree-sitter
 brew install tree-sitter-cli
@@ -112,6 +109,10 @@ brew install tty-clock
 brew install uv
 brew install wget
 brew install zoxide
+
+# brew install lsd
+# brew install spotify-tui
+# brew install terminal-notifier
 
 # Languages & Package Managers ----------------------------------
 
@@ -122,9 +123,9 @@ brew install node
 # brew install yarn
 
 # Install PHP
-# brew install php
-# brew install psysh
-# brew install composer
+brew install php
+brew install psysh
+brew install composer
 
 # Install Elixir
 # brew install asdf
@@ -150,20 +151,30 @@ brew install llama.cpp
 brew install ollama
 brew install --cask ollama-app || true
 
+# Opencode's Harness
 brew install opencode
 brew install --cask opencode-desktop || true
 
+# Google's Antigravity Harness
 brew install --cask antigravity || true
 brew install --cask antigravity-cli || true
+
+# Anthropic's Claude Harness
 brew install --cask claude || true
 brew install --cask claude-code || true
+
+# OpenAI's Codex Harness
 brew install --cask codex || true
 brew install --cask codex-app || true
-brew install --cask copilot-cli  || true
+
+# Microsoft's GitHub Copilot Harness
+brew install --cask copilot-cli || true
+brew install --cask github-copilot-app || true
+
+# SpaceX's Cursor IDE
 brew install --cask cursor || true
 brew install --cask cursor-cli || true
-brew install --cask github-copilot-app || true
-brew install --cask copilot-cli || true
+
 
 # Databases -----------------------------------------------------
 
@@ -204,20 +215,18 @@ brew install --cask figma
 brew install --cask firefox
 brew install --cask ghostty
 brew install --cask github
+brew install --cask google-chrome
 brew install --cask insomnia
 brew install --cask json-viewer
 brew install --cask kaleidoscope
 brew install --cask karabiner-elements
-# brew install --cask kitty
-# brew install --cask kiro
 brew install --cask livebook
-brew install --cask microsoft-teams
-# brew install --cask moom
 brew install --cask ngrok
 brew install --cask qlmarkdown
 brew install --cask slack
 brew install --cask spotify
 brew install --cask tableplus
+brew install --cask transmission
 brew install --cask transmit
 brew install --cask vitamin-r
 brew install --cask vlc
@@ -229,15 +238,19 @@ brew install --cask zoom
 # brew install --cask daisydisk
 # brew install --cask dropbox
 # brew install --cask droplr
-# brew install --cask google-chrome
+# brew install --cask herd
 # brew install --cask httpie
 # brew install --cask iterm2
 # brew install --cask jumpshare
+# brew install --cask kiro
+# brew install --cask kitty
+# brew install --cask microsoft-teams
+# brew install --cask moom
 # brew install --cask mysqlworkbench
 # brew install --cask nordvpn
 # brew install --cask phpstorm
-# brew install --cask transmission
 # brew install --cask visual-studio-code
+
 
 # ---------------------------------------------------------------
 # Install Oh My Zsh
@@ -350,10 +363,12 @@ wget -O "$HOME/.config/borders/bordersrc" https://raw.githubusercontent.com/scru
 
 # PHP Setup  ----------------------------------------------------
 
-# composer global require laravel/installer
+composer global require laravel/installer
+# composer global require laravel/lsp
 # composer global require laravel/valet
 # composer global require friendsofphp/php-cs-fixer
 # composer global require squizlabs/php_codesniffer
+# composer global require barryvdh/laravel-ide-helper
 
 # Elixir Setup --------------------------------------------------
 # https://hexdocs.pm/phoenix/installation.html
