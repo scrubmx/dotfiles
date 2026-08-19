@@ -97,6 +97,79 @@ function git_prefixes() {
   printf '\n'
 }
 
+# A CLI text-to-speech tool using the Kokoro model
+# Supports various input formats including `.txt`, `.pdf`, and `.epub`
+#
+#   - https://github.com/nazdridoy/kokoro-tts
+#   - https://github.com/nazdridoy/kokoro-tts#installation
+#   - https://huggingface.co/hexgrad/Kokoro-82M
+#
+# Download Model Files:
+#   After installation, download the required model files:
+#   - mkdir -p "$HOME/.local/share/kokoro-tts"
+#   - wget -P "$HOME/.local/share/kokoro-tts" https://github.com/nazdridoy/kokoro-tts/releases/download/v1.0.0/kokoro-v1.0.onnx
+#   - wget -P "$HOME/.local/share/kokoro-tts" https://github.com/nazdridoy/kokoro-tts/releases/download/v1.0.0/voices-v1.0.bin
+#
+function ktts() {
+  local model="$HOME/.local/share/kokoro-tts/kokoro-v1.0.onnx"
+  local voices="$HOME/.local/share/kokoro-tts/voices-v1.0.bin"
+
+  # Show help if no arguments are provided
+  if (( $# == 0 )); then
+    cat <<'EOF'
+Usage:
+  ktts <input> [output] [options]
+
+Examples:
+  ktts input.txt output.mp3
+  echo "Hello, this is Kokoro." | ktts - hello.mp3
+EOF
+    return 0
+  fi
+
+  # Check that kokoro-tts is installed
+  if ! command -v kokoro-tts >/dev/null 2>&1; then
+    echo "Error: kokoro-tts is not installed or not in PATH." >&2
+    echo "Install it with:" >&2
+    echo "  uv tool install kokoro-tts" >&2
+    return 1
+  fi
+
+  # Check that the required model files exist
+  if [[ ! -f "$model" || ! -f "$voices" ]]; then
+    echo "Error: Required model files are missing:" >&2
+    echo >&2
+    echo "You can download the missing files using these commands:" >&2
+    echo "  mkdir -p \"$HOME/.local/share/kokoro-tts\"" >&2
+    echo >&2
+    echo "  wget -P \"$HOME/.local/share/kokoro-tts\" \\" >&2
+    echo "    https://github.com/nazdridoy/kokoro-tts/releases/download/v1.0.0/kokoro-v1.0.onnx" >&2
+    echo >&2
+    echo "  wget -P \"$HOME/.local/share/kokoro-tts\" \\" >&2
+    echo "    https://github.com/nazdridoy/kokoro-tts/releases/download/v1.0.0/voices-v1.0.bin" >&2
+    return 1
+  fi
+
+  # kokoro-tts requires the input to be its first positional argument.
+  local input="$1"
+  shift
+
+  # The second positional argument is optionally the output filename.
+  local output=""
+  if (( $# > 0 )) && [[ "$1" != -* ]]; then
+    output="$1"
+    shift
+  fi
+
+  # Defaults go after positional arguments but before user options,
+  # allowing user options such as --voice or --format to override them.
+  if [[ -n "$output" ]]; then
+    command kokoro-tts "$input" "$output" --voice af_sarah --format mp3 "$@" --model "$model" --voices "$voices"
+  else
+    command kokoro-tts "$input" --voice af_sarah --format mp3 "$@" --model "$model" --voices "$voices"
+  fi
+}
+
 # Disable line wrapping for output in the Terminal
 # https://apple.stackexchange.com/questions/90392/disable-line-wrapping-for-output-in-the-terminal#answer-210666
 function _nowrap() {
