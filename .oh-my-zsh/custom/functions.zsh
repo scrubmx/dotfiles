@@ -197,6 +197,119 @@ function showps() {
     ps -A | grep -v 'grep' | grep -i "$@"
 }
 
+# Start/stop the Fieldfare application (requires TurboFieldfare build)
+function fieldfare() {
+  local fieldfare_dir="${FIELDFARE_DIR:-$HOME/Downloads/turbo-fieldfare}"
+  local executable="$fieldfare_dir/.build/release/TurboFieldfareMac"
+  local pid_file="${TMPDIR:-/tmp}/fieldfare.pid"
+  local option="${1:-help}"
+  local help_text
+
+  help_text=$(cat <<'EOF'
+fieldfare manages the turbo-fieldfare application.
+
+Usage:
+  fieldfare [command]
+
+Commands:
+  start          Start the turbo-fieldfare application.
+  stop           Stop the turbo-fieldfare application.
+  status         Dump the current status of the turbo-fieldfare application.
+  help | --help  Display the help text for available commands.
+
+Examples:
+  fieldfare start
+  fieldfare status
+  fieldfare stop
+EOF
+)
+
+  case "$option" in
+    start)
+      if [[ ! -d "$fieldfare_dir" ]]; then
+        print -u2 "fieldfare: directory does not exist: $fieldfare_dir"
+        return 1
+      fi
+
+      if [[ ! -x "$executable" ]]; then
+        print -u2 "fieldfare: build not found or not executable:"
+        print -u2 "  $executable"
+        print -u2 "Build TurboFieldfare first."
+        return 1
+      fi
+
+      if [[ -f "$pid_file" ]]; then
+        local pid
+        pid="$(<"$pid_file")"
+
+        if kill -0 "$pid" 2>/dev/null; then
+          print "fieldfare: already running (PID $pid)"
+          return 0
+        fi
+
+        rm -f "$pid_file"
+      fi
+
+      (
+        cd "$fieldfare_dir" || exit 1
+        "$executable"
+      ) &
+
+      local pid=$!
+      print "$pid" > "$pid_file"
+      print "fieldfare: started (PID $pid)"
+      ;;
+
+    stop)
+      if [[ ! -f "$pid_file" ]]; then
+        print "fieldfare: not running"
+        return 0
+      fi
+
+      local pid
+      pid="$(<"$pid_file")"
+
+      if kill -0 "$pid" 2>/dev/null; then
+        kill "$pid"
+        print "fieldfare: stopped (PID $pid)"
+      else
+        print "fieldfare: process $pid is no longer running"
+      fi
+
+      rm -f "$pid_file"
+      ;;
+
+    status)
+      if [[ -f "$pid_file" ]]; then
+        local pid
+        pid="$(<"$pid_file")"
+
+        if kill -0 "$pid" 2>/dev/null; then
+          print "fieldfare: running (PID $pid)"
+          return 0
+        fi
+
+        rm -f "$pid_file"
+      fi
+
+      print "fieldfare: not running"
+      return 1
+      ;;
+
+    help|--help)
+      # printf '%s\n' "$help_text"
+      print -u2 "$help_text"
+      return 1
+      ;;
+
+    *)
+      echo "fieldfare: unknown command: $option" 1>&2
+      print -u2 "Usage: fieldfare [start|stop|status|help]"
+      return 2
+      ;;
+  esac
+}
+
 # Get colors on manual pages
 function man() {
     env \
