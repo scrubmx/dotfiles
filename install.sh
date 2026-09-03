@@ -362,7 +362,6 @@ wget -O "$HOME/.config/borders/bordersrc" https://raw.githubusercontent.com/scru
 # brew services start borders || true
 
 # PHP Setup  ----------------------------------------------------
-
 composer global require laravel/installer
 # composer global require laravel/lsp
 # composer global require laravel/valet
@@ -370,13 +369,23 @@ composer global require laravel/installer
 # composer global require squizlabs/php_codesniffer
 # composer global require barryvdh/laravel-ide-helper
 
+
 # Elixir Setup --------------------------------------------------
 # https://hexdocs.pm/phoenix/installation.html
 
 # mix local.hex --force
 # mix archive.install hex phx_new --force
 
-# Custom directories --------------------------------------------
+
+# Rust Setup ----------------------------------------------------
+# https://rust-lang.org/tools/install
+
+# curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+# rustc --version
+# rustup update
+
+
+# Custom Directories --------------------------------------------
 
 mkdir -p "$HOME/Code" "$HOME/Sites"
 
