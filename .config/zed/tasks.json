@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Build (all)",
+    "command": "whiskers zed.tera"
+  },
+  {
+    "label": "Build (mauve only)",
+    "command": "whiskers zed.tera --overrides '{\"accent\": [\"mauve\"]}'"
+  },
+  {
+    "label": "Clean",
+    "command": "rm themes/*.json"
+  },
+  {
+    "label": "just build",
+    "command": "just build"
+  },
+  {
+    "label": "just all",
+    "command": "just all"
+  },
+  {
+    "label": "just clean",
+    "command": "just clean"
+  }
+]
