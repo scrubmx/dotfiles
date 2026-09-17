@@ -198,6 +198,11 @@ function showps() {
 }
 
 # Start/stop the Fieldfare application (requires TurboFieldfare build)
+function tff-app() {
+  /Applications/TurboFieldfare/.build/release/TurboFieldfareMac
+}
+
+# Start/stop the Fieldfare application (requires TurboFieldfare build)
 function fieldfare() {
   local fieldfare_dir="${FIELDFARE_DIR:-$HOME/Downloads/turbo-fieldfare}"
   local executable="$fieldfare_dir/.build/release/TurboFieldfareMac"
