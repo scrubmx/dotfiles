@@ -144,6 +144,10 @@ brew install composer
 # HuggingFace CLI
 brew install hf
 
+# Exo: Run AI models locally across multiple devices
+# https://exolabs.net
+brew install --cask exo
+
 # LLM inference in C/C++
 brew install llama.cpp
 
