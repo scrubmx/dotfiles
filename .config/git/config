@@ -75,7 +75,8 @@
   co = checkout
   dt = difftool
   st = status
-  d = "!f() { if git diff --cached --quiet; then git diff -- . :!public/css/* :!public/js/* :!public/fonts/* :!public/mix-manifest.json :!*package-lock.json :!yarn.lock :!pnpm-lock.yaml :!npm-shrinkwrap.json :!composer.lock* :!mix.lock*; else git diff --cached -- . :!public/css/* :!public/js/* :!public/fonts/* :!public/mix-manifest.json :!*package-lock.json :!yarn.lock :!pnpm-lock.yaml :!npm-shrinkwrap.json :!composer.lock* :!mix.lock*; fi; }; f"
+  # d = "!f() { if git diff --cached --quiet; then git diff -- . :!public/css/* :!public/js/* :!public/fonts/* :!public/mix-manifest.json :!*package-lock.json :!yarn.lock :!pnpm-lock.yaml :!npm-shrinkwrap.json :!composer.lock* :!mix.lock*; else git diff --cached -- . :!public/css/* :!public/js/* :!public/fonts/* :!public/mix-manifest.json :!*package-lock.json :!yarn.lock :!pnpm-lock.yaml :!npm-shrinkwrap.json :!composer.lock* :!mix.lock*; fi; }; f"
+  d = "!f() { if git diff --cached --quiet; then git diff HEAD -- . :!public/css/* :!public/js/* :!public/fonts/* :!public/mix-manifest.json :!*package-lock.json :!yarn.lock :!pnpm-lock.yaml :!npm-shrinkwrap.json :!composer.lock* :!mix.lock*; else git diff --cached -- . :!public/css/* :!public/js/* :!public/fonts/* :!public/mix-manifest.json :!*package-lock.json :!yarn.lock :!pnpm-lock.yaml :!npm-shrinkwrap.json :!composer.lock* :!mix.lock*; fi; }; f"
   append = commit --amend --no-edit
   branches = branch --sort=-committerdate -vv
   changed = whatchanged -p --name-only --since='7 days ago' --pretty=format:'%C(yellow)%h %C(green)%cr%C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)'
