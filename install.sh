@@ -83,6 +83,7 @@ brew install diff-so-fancy
 brew install dotenv-linter
 brew install eza
 brew install fastfetch
+brew install figlet
 brew install fortune
 brew install fzf
 brew install gh
